@@ -1,12 +1,14 @@
 class_name Screen
 extends Control
 
+
 signal start_transition
 signal screen_opened
 signal screen_change(new_screen_name: String)
 
 @export var music_id: int = -1
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func transition(new_screen_name: String) -> void:
 	if is_instance_valid(get_viewport().gui_get_focus_owner()): 

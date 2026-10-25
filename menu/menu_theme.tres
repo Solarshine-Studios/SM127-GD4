@@ -1,0 +1,208 @@
+[gd_resource type="Theme" format=3 uid="uid://ckact2emln8px"]
+
+[ext_resource type="FontFile" uid="uid://duqnbnl6b24n2" path="res://global/assets/fonts/delfino.ttf" id="1_v4imr"]
+
+[sub_resource type="Gradient" id="Gradient_v4imr"]
+offsets = PackedFloat32Array(0.335, 0.654)
+colors = PackedColorArray(0, 0.047058824, 0.31764707, 1, 0.043137256, 0.2901961, 0.42745098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xnxtf"]
+gradient = SubResource("Gradient_v4imr")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0c2dl"]
+texture = SubResource("GradientTexture2D_xnxtf")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(1, 0.27058825, 0.27058825, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0c2dl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exojj"]
+texture = SubResource("GradientTexture2D_xnxtf")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(0.54901963, 0.87058824, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4imr"]
+texture = SubResource("GradientTexture2D_xnxtf")
+texture_margin_left = 4.0
+texture_margin_top = 2.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gljxt"]
+texture = SubResource("GradientTexture2D_xnxtf")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(0.68235296, 0.68235296, 0.68235296, 1)
+
+[sub_resource type="Gradient" id="Gradient_gljxt"]
+offsets = PackedFloat32Array(0.335, 0.654)
+colors = PackedColorArray(0.38431373, 0.047058824, 0.23529412, 1, 0.69803923, 0.2, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0c2dl"]
+gradient = SubResource("Gradient_gljxt")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_db1fg"]
+texture = SubResource("GradientTexture2D_0c2dl")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(0.29411766, 0.27058825, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4imr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2kw3q"]
+texture = SubResource("GradientTexture2D_0c2dl")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(1, 0.7176471, 0.7176471, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dn7ay"]
+texture = SubResource("GradientTexture2D_0c2dl")
+texture_margin_left = 4.0
+texture_margin_top = 2.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4gjft"]
+texture = SubResource("GradientTexture2D_0c2dl")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(0.68235296, 0.68235296, 0.68235296, 1)
+
+[sub_resource type="Gradient" id="Gradient_0c2dl"]
+offsets = PackedFloat32Array(0.335, 0.654)
+colors = PackedColorArray(0.2901961, 0, 0.49019608, 1, 0.54509807, 0.2784314, 0.6, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_exojj"]
+gradient = SubResource("Gradient_0c2dl")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vwwu"]
+texture = SubResource("GradientTexture2D_exojj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(0.42745098, 0.87058824, 0.6627451, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t631e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fro6o"]
+texture = SubResource("GradientTexture2D_exojj")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(0.98039216, 0.84705883, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hfkm"]
+texture = SubResource("GradientTexture2D_exojj")
+texture_margin_left = 4.0
+texture_margin_top = 2.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kb1m6"]
+texture = SubResource("GradientTexture2D_exojj")
+texture_margin_left = 4.0
+texture_margin_top = 5.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(15, 0, 1, 32)
+modulate_color = Color(0.68235296, 0.68235296, 0.68235296, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teedc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0)
+border_blend = true
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="FontVariation" id="FontVariation_qv4bq"]
+base_font = ExtResource("1_v4imr")
+spacing_glyph = -1
+spacing_space = 2
+spacing_top = 1
+
+[resource]
+default_font = SubResource("FontVariation_qv4bq")
+default_font_size = 20
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_0c2dl")
+Button/styles/focus = SubResource("StyleBoxEmpty_0c2dl")
+Button/styles/hover = SubResource("StyleBoxTexture_exojj")
+Button/styles/normal = SubResource("StyleBoxTexture_v4imr")
+Button/styles/pressed = SubResource("StyleBoxTexture_gljxt")
+ButtonRed/base_type = &"Button"
+ButtonRed/styles/disabled = SubResource("StyleBoxTexture_db1fg")
+ButtonRed/styles/focus = SubResource("StyleBoxEmpty_v4imr")
+ButtonRed/styles/hover = SubResource("StyleBoxTexture_2kw3q")
+ButtonRed/styles/normal = SubResource("StyleBoxTexture_dn7ay")
+ButtonRed/styles/pressed = SubResource("StyleBoxTexture_4gjft")
+ButtonSpecial/base_type = &"Button"
+ButtonSpecial/styles/disabled = SubResource("StyleBoxTexture_7vwwu")
+ButtonSpecial/styles/focus = SubResource("StyleBoxEmpty_t631e")
+ButtonSpecial/styles/hover = SubResource("StyleBoxTexture_fro6o")
+ButtonSpecial/styles/normal = SubResource("StyleBoxTexture_3hfkm")
+ButtonSpecial/styles/pressed = SubResource("StyleBoxTexture_kb1m6")
+Panel/styles/panel = SubResource("StyleBoxFlat_teedc")

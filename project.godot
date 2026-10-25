@@ -10,8 +10,25 @@ config_version=5
 
 [application]
 
-config/name="SM127-GD4"
+config/name="Super Mario 127"
+config/version="0.10.1.0"
+run/main_scene="uid://cb777pa0i1pdh"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Super Mario 127"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/stretch_mode=4
+boot_splash/image="uid://dq5w0aomu52mg"
+config/icon="uid://dysfdr3lwasw2"
+config/windows_native_icon="res://global/assets/artwork/game/icon.ico"
+
+[audio]
+
+buses/default_bus_layout="uid://5ket70sud8kg"
+
+[autoload]
+
+TransitionManager="*uid://dgolkub8ev6ve"
+LastInputDevice="*uid://k6xtr1gfpq67"
 
 [debug]
 
@@ -54,25 +71,54 @@ gdscript/warnings/confusable_capture_reassignment=2
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=768
+window/size/viewport_height=432
+window/stretch/aspect="ignore"
+mouse_cursor/custom_image="uid://dbd0accjjk1pi"
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [file_customization]
 
 folder_colors={
 "res://editor/": "yellow",
 "res://generation/": "pink",
+"res://global/": "purple",
 "res://helpers/": "gray",
 "res://level/": "teal",
 "res://menu/": "blue"
 }
 
+[global_group]
+
+main_scene=""
+
+[gui]
+
+common/snap_controls_to_pixels=false
+
+[input]
+
+skip_count={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
+anti_aliasing/quality/msaa_2d=2
+
+[shader_globals]
+
+VIEWPORT_SIZE={
+"type": "vec2",
+"value": Vector2(768, 432)
+}
