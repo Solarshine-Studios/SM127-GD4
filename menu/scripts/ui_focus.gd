@@ -7,6 +7,12 @@ signal back_press
 @export var default_focus: Button
 
 
+func _ready() -> void:
+	if owner is Screen:
+		var screen: Screen = owner
+		screen.screen_opened.connect(focus_node)
+
+
 func _input(event: InputEvent) -> void:
 	if disabled: return
 	if not is_visible_in_tree(): return

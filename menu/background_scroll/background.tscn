@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cf6ojtnr8rqbm"]
+
+[ext_resource type="Script" uid="uid://dqew8cdre3fb7" path="res://menu/background_scroll/background.gd" id="1_htk03"]
+[ext_resource type="Shader" uid="uid://b0w6jm22tq6na" path="res://helpers/shaders/stripes.gdshader" id="2_5sxns"]
+[ext_resource type="Texture2D" uid="uid://dkypep4vcnj5u" path="res://menu/background_scroll/icons.png" id="2_j41au"]
+[ext_resource type="Shader" uid="uid://ggvlnqny6qac" path="res://helpers/shaders/icon_scroll.gdshader" id="3_pts1a"]
+[ext_resource type="Shader" uid="uid://1ll73euxmn85" path="res://helpers/shaders/static_overlay.gdshader" id="5_wywx3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_teedc"]
+shader = ExtResource("2_5sxns")
+shader_parameter/angle = 60.0
+shader_parameter/line_count = 400.0
+shader_parameter/speed = 3.0
+shader_parameter/blur = 0.0
+
+[sub_resource type="Gradient" id="Gradient_wywx3"]
+colors = PackedColorArray(0.11372549, 0.10980392, 0.43529412, 1, 0.11372549, 0.10980392, 0.43529412, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6t101"]
+gradient = SubResource("Gradient_wywx3")
+width = 1
+height = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5sxns"]
+shader = ExtResource("3_pts1a")
+shader_parameter/speed = 0.24
+shader_parameter/direction = -1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wywx3"]
+shader = ExtResource("5_wywx3")
+shader_parameter/u_amount = 1.75
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teedc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_duted"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_50abb"]
+offsets = PackedFloat32Array(0, 0.25, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wywx3"]
+gradient = SubResource("Gradient_50abb")
+fill_to = Vector2(0, 1)
+metadata/_snap_enabled = true
+
+[node name="Background" type="Control" unique_id=1233741731]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_htk03")
+overlay_tint = Color(0.05490196, 0.05882353, 0.12941177, 0.27058825)
+static_amount = 1.75
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1752871551]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10980392, 0.101960786, 0.41960785, 1)
+
+[node name="Stripes" type="TextureRect" parent="." unique_id=30508456]
+material = SubResource("ShaderMaterial_teedc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6t101")
+
+[node name="Scroll" type="TextureRect" parent="." unique_id=151398203]
+modulate = Color(0.13333334, 0.2627451, 0.5882353, 1)
+material = SubResource("ShaderMaterial_5sxns")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 6.45
+anchor_bottom = 6.45
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_j41au")
+stretch_mode = 1
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=604143588]
+modulate = Color(0.05490196, 0.05882353, 0.12941177, 0.27058825)
+material = SubResource("ShaderMaterial_wywx3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gradients" type="TabContainer" parent="." unique_id=654279610]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_teedc")
+current_tab = 0
+tabs_visible = false
+
+[node name="None" type="Control" parent="Gradients" unique_id=1812290736]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Options" type="TextureRect" parent="Gradients" unique_id=1721766186]
+visible = false
+modulate = Color(0.29000002, 0.8343335, 1, 0.1254902)
+material = SubResource("CanvasItemMaterial_duted")
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wywx3")
+metadata/_tab_index = 1

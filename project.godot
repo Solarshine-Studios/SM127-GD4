@@ -27,8 +27,9 @@ buses/default_bus_layout="uid://5ket70sud8kg"
 
 [autoload]
 
-TransitionManager="*uid://dgolkub8ev6ve"
+LocalSettings="*uid://60ynfi4qf6w3"
 LastInputDevice="*uid://k6xtr1gfpq67"
+TransitionManager="*uid://dgolkub8ev6ve"
 
 [debug]
 
@@ -103,6 +104,10 @@ skip_count={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://global/translations/translations.en.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.ne.translation")
 
 [physics]
 

@@ -5,6 +5,7 @@ extends Button
 @onready var hover_sound: AudioStreamPlayer = get_parent().get_node("%HoverSound")
 @onready var click_sound: AudioStreamPlayer = get_parent().get_node("%ClickSound")
 @onready var original_modulate: Color = modulate
+@onready var initial_focus_mode: Control.FocusMode = focus_mode
 
 @export var hover_override: String = ""
 @export var click_override: String = ""
@@ -15,11 +16,9 @@ extends Button
 ## this should REALLY be built-in...
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouse or event is InputEventMouseButton or event is InputEventMouseMotion:
-		if focus_mode != Control.FOCUS_NONE:
-			focus_mode = Control.FOCUS_NONE
+		focus_mode = Control.FOCUS_NONE
 	elif event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion:
-		if focus_mode != Control.FOCUS_ALL:
-			focus_mode = Control.FOCUS_ALL
+		focus_mode = initial_focus_mode
 
 
 func _ready() -> void:

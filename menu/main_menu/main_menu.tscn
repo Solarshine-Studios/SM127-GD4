@@ -1,32 +1,134 @@
 [gd_scene format=3 uid="uid://cc73f7h414kk8"]
 
 [ext_resource type="Script" uid="uid://b2dttbgtddlsu" path="res://menu/classes/screen.gd" id="1_q6idt"]
-[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_theme.tres" id="1_qs6vt"]
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_qs6vt"]
+[ext_resource type="Script" uid="uid://cuujn8g6p7uam" path="res://menu/main_menu/button_functions.gd" id="3_ih8bj"]
 [ext_resource type="Texture2D" uid="uid://b5ovpoadanl6e" path="res://global/assets/misc/box_shadow.png" id="3_qs6vt"]
 [ext_resource type="Script" uid="uid://dewwy8qkw24ok" path="res://menu/scripts/ui_focus.gd" id="3_rp3yq"]
 [ext_resource type="Texture2D" uid="uid://ckaipuy6k8uwc" path="res://global/assets/artwork/game/logo_shadowed.png" id="4_7r8i1"]
 [ext_resource type="Texture2D" uid="uid://br474x6tpowxg" path="res://global/assets/icons/quit.png" id="4_prid6"]
-[ext_resource type="AudioStream" uid="uid://cr3q0at06loc6" path="res://global/assets/sounds/hover.wav" id="4_qv4bq"]
-[ext_resource type="AudioStream" uid="uid://brv563uwys0fh" path="res://global/assets/sounds/click2.wav" id="5_2q75h"]
+[ext_resource type="AudioStream" uid="uid://cr3q0at06loc6" path="res://global/assets/sounds/ui/hover.wav" id="4_qv4bq"]
 [ext_resource type="Script" uid="uid://dt2glxojic4dl" path="res://menu/scripts/buttons/button_hover_horizontal.gd" id="5_c0jbr"]
 [ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="5_dn5jd"]
 [ext_resource type="Script" uid="uid://ct7ltutijiekh" path="res://menu/main_menu/logo_bob.gd" id="5_winya"]
 [ext_resource type="Script" uid="uid://yeh6ji1uuqae" path="res://menu/scripts/press_countdown.gd" id="6_fk4bx"]
+[ext_resource type="AudioStream" uid="uid://b38u47l2sx7t6" path="res://global/assets/sounds/ui/click.wav" id="6_ih8bj"]
 [ext_resource type="Texture2D" uid="uid://c4avjb0bbpjx4" path="res://global/assets/icons/settings.svg" id="7_fk4bx"]
 [ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="8_2q75h"]
 [ext_resource type="Texture2D" uid="uid://cfedukyqspwdd" path="res://global/assets/icons/LSS.svg" id="8_duu7v"]
 [ext_resource type="Texture2D" uid="uid://brfaco8lfrd5p" path="res://global/assets/icons/discord.svg" id="8_ub0vu"]
 [ext_resource type="Texture2D" uid="uid://cymbvlrssjyqo" path="res://global/assets/icons/author.png" id="9_t631e"]
+[ext_resource type="Texture2D" uid="uid://cfr87rdjy32di" path="res://global/assets/icons/shine.png" id="9_xajbr"]
+[ext_resource type="Texture2D" uid="uid://7r2idnyl24k5" path="res://global/assets/icons/Paint.svg" id="12_vuj35"]
 
-[sub_resource type="Gradient" id="Gradient_qs6vt"]
-offsets = PackedFloat32Array(0, 0.944, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.83137256, 1, 1, 1, 0)
+[sub_resource type="Animation" id="Animation_ih8bj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LogoAnchor/Logo:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Content/Versioning:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bars:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qs6vt"]
-gradient = SubResource("Gradient_qs6vt")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-metadata/_snap_enabled = true
+[sub_resource type="Animation" id="Animation_j2lry"]
+resource_name = "transition"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LogoAnchor/Logo:offset_transform_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, 360.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-240, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Content/Versioning:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(192, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bars:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xajbr"]
+_data = {
+&"RESET": SubResource("Animation_ih8bj"),
+&"transition": SubResource("Animation_j2lry")
+}
 
 [node name="MainMenu" type="Control" unique_id=1507611894]
 texture_filter = 2
@@ -39,10 +141,14 @@ grow_vertical = 2
 theme = ExtResource("1_qs6vt")
 script = ExtResource("1_q6idt")
 
+[node name="ButtonFunctions" type="Control" parent="." unique_id=1594361415]
+anchors_preset = 0
+script = ExtResource("3_ih8bj")
+
 [node name="Focus" type="Control" parent="." unique_id=1236307833 node_paths=PackedStringArray("default_focus")]
 anchors_preset = 0
 script = ExtResource("3_rp3yq")
-default_focus = NodePath("../MarginContainer/Buttons/VBoxContainer/DevLevels")
+default_focus = NodePath("../Content/Buttons/VBoxContainer/DevLevels")
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1902960258]
 unique_name_in_owner = true
@@ -52,7 +158,7 @@ bus = &"Sounds"
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=295115340]
 unique_name_in_owner = true
-stream = ExtResource("5_2q75h")
+stream = ExtResource("6_ih8bj")
 volume_db = -10.0
 bus = &"Sounds"
 
@@ -69,22 +175,21 @@ offset_transform_enabled = true
 offset_transform_rotation = 0.2617994
 mouse_filter = 2
 
-[node name="Top" type="TextureRect" parent="Bars" unique_id=1188081780]
+[node name="Top" type="Panel" parent="Bars" unique_id=292729776]
 custom_minimum_size = Vector2(0, 213)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_qs6vt")
-flip_v = true
+theme_type_variation = &"WhiteBarTop"
 
-[node name="Bottom" type="TextureRect" parent="Bars" unique_id=1375450674]
+[node name="Bottom" type="Panel" parent="Bars" unique_id=643276879]
 custom_minimum_size = Vector2(0, 213)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_qs6vt")
+theme_type_variation = &"WhiteBarBottom"
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=30976957]
+[node name="Content" type="MarginContainer" parent="." unique_id=30976957]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +199,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_bottom = 24
 
-[node name="Buttons" type="MarginContainer" parent="MarginContainer" unique_id=802048828]
+[node name="Buttons" type="MarginContainer" parent="Content" unique_id=802048828]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -105,21 +210,21 @@ mouse_filter = 2
 theme_override_constants/margin_left = -3
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Buttons" unique_id=1408791336]
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/Buttons" unique_id=1408791336]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 16
 
-[node name="DevLevels" type="Button" parent="MarginContainer/Buttons/VBoxContainer" unique_id=1011633527]
+[node name="DevLevels" type="Button" parent="Content/Buttons/VBoxContainer" unique_id=1011633527]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-24, 0)
 theme_type_variation = &"ButtonSpecial"
-text = "Developer Levels"
+text = "DEV_LVLS"
 alignment = 2
 script = ExtResource("5_c0jbr")
 
-[node name="Shadow" type="NinePatchRect" parent="MarginContainer/Buttons/VBoxContainer/DevLevels" unique_id=624256755]
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/DevLevels" unique_id=624256755]
 modulate = Color(1, 1, 1, 0.2509804)
 show_behind_parent = true
 layout_mode = 1
@@ -138,16 +243,28 @@ patch_margin_top = 11
 patch_margin_right = 11
 patch_margin_bottom = 11
 
-[node name="LSS" type="Button" parent="MarginContainer/Buttons/VBoxContainer" unique_id=1336136001]
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/DevLevels" unique_id=588262921]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 1.5
+offset_right = 136.0
+offset_bottom = 27.5
+texture = ExtResource("9_xajbr")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("5_dn5jd")
+offset = Vector2(-4, 0)
+
+[node name="LSS" type="Button" parent="Content/Buttons/VBoxContainer" unique_id=1336136001]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-24, 0)
-text = "Level Share Square"
+text = "LSS"
 alignment = 2
 script = ExtResource("5_c0jbr")
 
-[node name="Shadow" type="NinePatchRect" parent="MarginContainer/Buttons/VBoxContainer/LSS" unique_id=1367896465]
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/LSS" unique_id=1367896465]
 modulate = Color(1, 1, 1, 0.2509804)
 show_behind_parent = true
 layout_mode = 1
@@ -166,28 +283,28 @@ patch_margin_top = 11
 patch_margin_right = 11
 patch_margin_bottom = 11
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/Buttons/VBoxContainer/LSS" unique_id=1355840241 node_paths=PackedStringArray("countdown")]
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/LSS" unique_id=1355840241 node_paths=PackedStringArray("countdown")]
 layout_mode = 0
-offset_left = 30.0
+offset_left = 179.0
 offset_top = 1.5
-offset_right = 56.0
+offset_right = 205.0
 offset_bottom = 27.5
 texture = ExtResource("8_duu7v")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_dn5jd")
-countdown = NodePath("../../HBoxContainer/Exit/PressCountdown")
+countdown = NodePath("../../HBoxContainer/Quit/PressCountdown")
 offset = Vector2(-4, 0)
 
-[node name="CustomLevels" type="Button" parent="MarginContainer/Buttons/VBoxContainer" unique_id=2047736096]
+[node name="CustomLevels" type="Button" parent="Content/Buttons/VBoxContainer" unique_id=2047736096]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-24, 0)
-text = "Custom Levels"
+text = "CUSTOM_LVLS"
 alignment = 2
 script = ExtResource("5_c0jbr")
 
-[node name="Shadow" type="NinePatchRect" parent="MarginContainer/Buttons/VBoxContainer/CustomLevels" unique_id=307411366]
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/CustomLevels" unique_id=307411366]
 modulate = Color(1, 1, 1, 0.2509804)
 show_behind_parent = true
 layout_mode = 1
@@ -206,23 +323,36 @@ patch_margin_top = 11
 patch_margin_right = 11
 patch_margin_bottom = 11
 
-[node name="Padding" type="Control" parent="MarginContainer/Buttons/VBoxContainer" unique_id=547892017]
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/CustomLevels" unique_id=577913299]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 3.5
+offset_right = 97.0
+offset_bottom = 25.5
+texture = ExtResource("12_vuj35")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("5_dn5jd")
+offset = Vector2(-4, 0)
+
+[node name="Padding" type="Control" parent="Content/Buttons/VBoxContainer" unique_id=547892017]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Buttons/VBoxContainer" unique_id=1352581735]
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/Buttons/VBoxContainer" unique_id=1352581735]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 4
 
-[node name="Exit" type="Button" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer" unique_id=1411044024]
-custom_minimum_size = Vector2(87, 0)
+[node name="Quit" type="Button" parent="Content/Buttons/VBoxContainer/HBoxContainer" unique_id=1411044024]
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 theme_type_variation = &"ButtonRed"
-text = "Exit"
+text = "QUIT"
 alignment = 2
 script = ExtResource("8_2q75h")
 
-[node name="Shadow" type="NinePatchRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Exit" unique_id=1216083385]
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Quit" unique_id=1216083385]
 modulate = Color(1, 1, 1, 0.2509804)
 show_behind_parent = true
 layout_mode = 1
@@ -241,11 +371,11 @@ patch_margin_top = 11
 patch_margin_right = 11
 patch_margin_bottom = 11
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Exit" unique_id=1528360127 node_paths=PackedStringArray("countdown")]
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Quit" unique_id=1528360127 node_paths=PackedStringArray("countdown")]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 56.0
 offset_top = 4.5
-offset_right = 44.0
+offset_right = 76.0
 offset_bottom = 24.5
 texture = ExtResource("4_prid6")
 expand_mode = 1
@@ -254,17 +384,17 @@ script = ExtResource("5_dn5jd")
 countdown = NodePath("../PressCountdown")
 offset = Vector2(-2, 0)
 
-[node name="PressCountdown" type="Node" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Exit" unique_id=730727561]
+[node name="PressCountdown" type="Node" parent="Content/Buttons/VBoxContainer/HBoxContainer/Quit" unique_id=730727561]
 script = ExtResource("6_fk4bx")
 countdown_style = 2
 
-[node name="Options" type="Button" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer" unique_id=1066184518]
+[node name="Options" type="Button" parent="Content/Buttons/VBoxContainer/HBoxContainer" unique_id=1066184518]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 icon_alignment = 1
 script = ExtResource("8_2q75h")
 
-[node name="Shadow" type="NinePatchRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Options" unique_id=883569215]
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Options" unique_id=883569215]
 modulate = Color(1, 1, 1, 0.2509804)
 show_behind_parent = true
 layout_mode = 1
@@ -283,7 +413,7 @@ patch_margin_top = 11
 patch_margin_right = 11
 patch_margin_bottom = 11
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Options" unique_id=284821609]
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Options" unique_id=284821609]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 3.5
@@ -294,12 +424,12 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_dn5jd")
 
-[node name="Discord" type="Button" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer" unique_id=1454951061]
+[node name="Discord" type="Button" parent="Content/Buttons/VBoxContainer/HBoxContainer" unique_id=1454951061]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 script = ExtResource("8_2q75h")
 
-[node name="Shadow" type="NinePatchRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Discord" unique_id=440197108]
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Discord" unique_id=440197108]
 modulate = Color(1, 1, 1, 0.2509804)
 show_behind_parent = true
 layout_mode = 1
@@ -318,7 +448,7 @@ patch_margin_top = 11
 patch_margin_right = 11
 patch_margin_bottom = 11
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Discord" unique_id=1656144253]
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Discord" unique_id=1656144253]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 2.5
@@ -329,12 +459,12 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_dn5jd")
 
-[node name="Credits" type="Button" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer" unique_id=2035320706]
+[node name="Credits" type="Button" parent="Content/Buttons/VBoxContainer/HBoxContainer" unique_id=2035320706]
 custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 script = ExtResource("8_2q75h")
 
-[node name="Shadow" type="NinePatchRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Credits" unique_id=366393723]
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Credits" unique_id=366393723]
 modulate = Color(1, 1, 1, 0.2509804)
 show_behind_parent = true
 layout_mode = 1
@@ -353,25 +483,28 @@ patch_margin_top = 11
 patch_margin_right = 11
 patch_margin_bottom = 11
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/Buttons/VBoxContainer/HBoxContainer/Credits" unique_id=1499532859]
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Credits" unique_id=1499532859]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 1.5
+offset_top = 2.5
 offset_right = 29.0
-offset_bottom = 23.5
+offset_bottom = 24.5
 texture = ExtResource("9_t631e")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_dn5jd")
-offset = Vector2(0, -2)
+offset = Vector2(0, -1)
 
-[node name="Versioning" type="VBoxContainer" parent="MarginContainer" unique_id=1209727569]
+[node name="Versioning" type="VBoxContainer" parent="Content" unique_id=1209727569]
 layout_mode = 2
-offset_transform_rotation = -0.02617994
+size_flags_horizontal = 8
+size_flags_vertical = 8
+offset_transform_enabled = true
 mouse_filter = 2
+theme_override_constants/separation = 2
 alignment = 2
 
-[node name="Version" type="MarginContainer" parent="MarginContainer/Versioning" unique_id=1871065632]
+[node name="Version" type="MarginContainer" parent="Content/Versioning" unique_id=1871065632]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -383,21 +516,21 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = -8
 theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer/Versioning/Version" unique_id=302712135]
+[node name="Panel" type="Panel" parent="Content/Versioning/Version" unique_id=302712135]
 modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Versioning/Version" unique_id=535911571]
+[node name="MarginContainer" type="MarginContainer" parent="Content/Versioning/Version" unique_id=535911571]
 layout_mode = 2
 theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 20
 
-[node name="Label" type="Label" parent="MarginContainer/Versioning/Version/MarginContainer" unique_id=1847049150]
-custom_minimum_size = Vector2(96, 0)
+[node name="Label" type="Label" parent="Content/Versioning/Version/MarginContainer" unique_id=1847049150]
 layout_mode = 2
 text = "v0.10.1"
 
-[node name="UpdateAvailable" type="MarginContainer" parent="MarginContainer/Versioning" unique_id=1322504705]
+[node name="UpdateAvailable" type="MarginContainer" parent="Content/Versioning" unique_id=1322504705]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -409,19 +542,19 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = -8
 theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer/Versioning/UpdateAvailable" unique_id=75227582]
+[node name="Panel" type="Panel" parent="Content/Versioning/UpdateAvailable" unique_id=75227582]
 modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Versioning/UpdateAvailable" unique_id=810564350]
+[node name="MarginContainer" type="MarginContainer" parent="Content/Versioning/UpdateAvailable" unique_id=810564350]
 layout_mode = 2
 theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 20
 
-[node name="Label" type="Label" parent="MarginContainer/Versioning/UpdateAvailable/MarginContainer" unique_id=1919264980]
-custom_minimum_size = Vector2(188, 0)
+[node name="Label" type="Label" parent="Content/Versioning/UpdateAvailable/MarginContainer" unique_id=1919264980]
 layout_mode = 2
-text = "Update available!"
+text = "UPD_READY"
 
 [node name="LogoAnchor" type="MarginContainer" parent="." unique_id=2019933530]
 layout_mode = 1
@@ -447,3 +580,12 @@ power = 5.0
 speed = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=612941687]
+libraries/ = SubResource("AnimationLibrary_xajbr")
+
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/DevLevels" to="." method="transition" binds= ["LevelsList"]]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/LSS" to="." method="transition" binds= ["LevelPortal"]]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/CustomLevels" to="." method="transition" binds= ["LevelsList"]]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/HBoxContainer/Quit/PressCountdown" to="ButtonFunctions" method="exit_game"]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/HBoxContainer/Options" to="." method="transition" binds= ["Options"]]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/HBoxContainer/Discord" to="ButtonFunctions" method="open_discord"]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/HBoxContainer/Credits" to="." method="transition" binds= ["Credits"]]

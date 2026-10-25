@@ -23,12 +23,21 @@ func _ready() -> void:
 	if countdown and not Engine.is_editor_hint():
 		countdown.text_changed.connect(update_offset)
 	offset_changed.connect(update_offset)
-	update_offset()
+	update_offset.call_deferred()
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		update_offset.call_deferred()
 
 
 func update_offset() -> void:
+	var viewport: Viewport = get_viewport()
+	if not is_instance_valid(viewport):
+		return
+	
 	self_modulate = disabled_color if parent.disabled else Color.WHITE
-	var is_focused: bool = get_viewport().gui_get_focus_owner() == parent
+	var is_focused: bool = viewport.gui_get_focus_owner() == parent
 	
 	var style: String = "normal"
 	if parent.is_hovered() or is_focused:
@@ -54,7 +63,7 @@ func update_offset() -> void:
 	
 	var font: Font = parent.get_theme_font("font")
 	var font_size: int = parent.get_theme_font_size("font_size")
-	var text_width: float = font.get_string_size(parent.text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+	var text_width: float = font.get_string_size(tr(parent.text), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
 	
 	var available_width: float = parent.size.x - padding_left - padding_right
 	var text_left: float = padding_left

@@ -17,15 +17,15 @@ func _ready() -> void:
 		screen.connect("screen_change", screen_change)
 		screen.visible = (screen == current_screen)
 		if screen.visible:
-			# do open animation sped-up so its visible if the
-			# reset vars normally make it invisible
-			screen.animation_player.play("transition", -1, -INF, true)
+			# a change i made in GD4, RESET animation is now visible instead of
+			# hidden, so that editing menus is easier 
+			screen.animation_player.play("RESET")
 			screen.emit_signal("screen_opened")
 
 
 func screen_change(new_screen_name: String) -> void:
 	if is_instance_valid(current_screen):
-		current_screen.visible = false
+		current_screen.hide.call_deferred()
 	
 	var new_screen: Screen = get_node_or_null(new_screen_name) as Screen
 	if not is_instance_valid(new_screen): 
@@ -36,7 +36,9 @@ func screen_change(new_screen_name: String) -> void:
 	current_screen = new_screen
 	
 	new_screen.animation_player.play_backwards("transition")
-	new_screen.visible = true
+	# stops the screen from showing for a split second when transitioning
+	new_screen.animation_player.advance(0.001)
+	new_screen.show.call_deferred()
 	
 	## TODO: Uncomment once Music singleton is added
 	#if new_screen.music_id > -1:
