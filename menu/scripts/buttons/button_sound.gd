@@ -54,6 +54,7 @@ func on_focus_entered() -> void:
 	
 	if highlight_on_focus:
 		modulate = original_modulate * 1.4
+		modulate.a = original_modulate.a
 
 
 func on_focus_exited() -> void:
