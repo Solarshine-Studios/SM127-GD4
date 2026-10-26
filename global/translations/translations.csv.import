@@ -6,10 +6,10 @@ uid="uid://cwmnhdmbyfpvo"
 
 [deps]
 
-files=["res://global/translations/translations.en.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.nl.translation"]
+files=["res://global/translations/translations.en.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.nl.translation", "res://global/translations/translations.ar.translation"]
 
 source_file="res://global/translations/translations.csv"
-dest_files=["res://global/translations/translations.en.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.nl.translation"]
+dest_files=["res://global/translations/translations.en.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.nl.translation", "res://global/translations/translations.ar.translation"]
 
 [params]
 

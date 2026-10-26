@@ -22,27 +22,29 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=530522182]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1634919566]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-ratio = 1.7778
 
-[node name="GameContainer" type="SubViewportContainer" parent="AspectRatioContainer" unique_id=72145495]
+[node name="GameContainer" type="SubViewportContainer" parent="CenterContainer" unique_id=72145495]
+unique_name_in_owner = true
 texture_filter = 2
+custom_minimum_size = Vector2(2, 2)
 layout_mode = 2
 stretch = true
 
-[node name="GameViewport" type="SubViewport" parent="AspectRatioContainer/GameContainer" unique_id=2010178822]
+[node name="GameViewport" type="SubViewport" parent="CenterContainer/GameContainer" unique_id=2010178822]
 unique_name_in_owner = true
 handle_input_locally = false
 msaa_2d = 2
 canvas_item_default_texture_filter = 0
 gui_snap_controls_to_pixels = false
-size = Vector2i(768, 431)
+gui_embed_subwindows = true
+size = Vector2i(2, 2)
 size_2d_override = Vector2i(768, 432)
 size_2d_override_stretch = true
 render_target_update_mode = 4

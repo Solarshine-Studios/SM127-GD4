@@ -114,7 +114,9 @@ skip_count={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://global/translations/translations.en.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.ne.translation")
+rendering/root_node_layout_direction=1
+locale/translations=PackedStringArray("res://global/translations/translations.en.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.nl.translation", "res://global/translations/translations.ar.translation")
+locale/test="ar"
 
 [physics]
 

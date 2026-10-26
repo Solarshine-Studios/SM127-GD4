@@ -5,6 +5,7 @@ extends OptionBase
 @export var default_value: float = 0
 @export var min_val: float = 0
 @export var max_val: float = 100
+@onready var value_label: Label = %Value
 
 
 func slider_changed(new_val: float) -> void:
@@ -21,6 +22,7 @@ func _ready() -> void:
 
 func _update_value() -> void:
 	super()
+	value_label.text = str(value)
 	slider.set_value_no_signal(value)
 
 

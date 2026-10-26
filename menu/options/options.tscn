@@ -9,8 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://b38u47l2sx7t6" path="res://global/assets/sounds/ui/click.wav" id="5_fdtvw"]
 [ext_resource type="AudioStream" uid="uid://b41mcssg7gdkq" path="res://global/assets/sounds/ui/back.wav" id="7_gdns1"]
 [ext_resource type="Script" uid="uid://dt2glxojic4dl" path="res://menu/scripts/buttons/button_hover_horizontal.gd" id="7_i3paj"]
+[ext_resource type="AudioStream" uid="uid://baapmeixggcae" path="res://global/assets/sounds/ui/option_on.wav" id="8_4lb0y"]
 [ext_resource type="Texture2D" uid="uid://b5ovpoadanl6e" path="res://global/assets/misc/box_shadow.png" id="8_43j44"]
 [ext_resource type="Texture2D" uid="uid://0gf3ck63jis2" path="res://global/assets/icons/back.png" id="9_07bmx"]
+[ext_resource type="AudioStream" uid="uid://chad1vrdmx2kx" path="res://global/assets/sounds/ui/option_off.wav" id="9_uobkh"]
 [ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="10_h2314"]
 [ext_resource type="Texture2D" uid="uid://dbve6bg1dotti" path="res://global/assets/icons/edit.png" id="11_i3paj"]
 [ext_resource type="Texture2D" uid="uid://bc3j72xr32r2w" path="res://global/assets/icons/Controller.svg" id="12_43j44"]
@@ -20,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://cweavm2wrxn85" path="res://global/assets/icons/comments.png" id="18_ub8if"]
 [ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="19_icm6w"]
 [ext_resource type="PackedScene" uid="uid://7o3ntw2lnd56" path="res://menu/options/buttons/slider_option.tscn" id="19_v5wmh"]
+[ext_resource type="Script" uid="uid://bgw5p3sik0ewc" path="res://menu/options/subscreens.gd" id="19_w2jst"]
+[ext_resource type="Script" uid="uid://b67uoex8uxiks" path="res://menu/options/subscreen.gd" id="20_uacow"]
+[ext_resource type="PackedScene" uid="uid://ce771ljnl5m3m" path="res://menu/options/buttons/boolean_option.tscn" id="22_1e4vi"]
+[ext_resource type="PackedScene" uid="uid://7hpx7wc2jud5" path="res://menu/options/buttons/enum_option.tscn" id="25_uobkh"]
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
 length = 0.001
@@ -38,14 +44,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer/Subscreens:modulate")
+tracks/1/path = NodePath("HBoxContainer/Subscreens:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [1.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -79,14 +85,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer/Subscreens:modulate")
+tracks/1/path = NodePath("HBoxContainer/Subscreens:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [1.0, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -123,6 +129,7 @@ metadata/_custom_type_script = "uid://b2dttbgtddlsu"
 script = ExtResource("3_oc5hi")
 
 [node name="Focus" type="Control" parent="." unique_id=197962935 node_paths=PackedStringArray("default_focus")]
+unique_name_in_owner = true
 anchors_preset = 0
 script = ExtResource("3_kwmgx")
 default_focus = NodePath("../HBoxContainer/TabButtons/Panel/VBoxContainer/Back")
@@ -145,6 +152,18 @@ stream = ExtResource("7_gdns1")
 volume_db = -15.0
 bus = &"Sounds"
 
+[node name="OnSound" type="AudioStreamPlayer" parent="." unique_id=1965311135]
+unique_name_in_owner = true
+stream = ExtResource("8_4lb0y")
+volume_db = 1.0
+bus = &"Sounds"
+
+[node name="OffSound" type="AudioStreamPlayer" parent="." unique_id=26587583]
+unique_name_in_owner = true
+stream = ExtResource("9_uobkh")
+volume_db = 2.0
+bus = &"Sounds"
+
 [node name="Background" parent="." unique_id=1233741731 instance=ExtResource("3_duted")]
 layout_mode = 1
 gradient_style = 1
@@ -158,6 +177,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TabButtons" type="MarginContainer" parent="HBoxContainer" unique_id=1825771705]
+unique_name_in_owner = true
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_visual_only = false
@@ -179,6 +199,7 @@ theme_override_constants/separation = 16
 alignment = 1
 
 [node name="Back" type="Button" parent="HBoxContainer/TabButtons/Panel/VBoxContainer" unique_id=1776826730]
+unique_name_in_owner = true
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-24, 0)
@@ -459,83 +480,148 @@ offset = Vector2(-4, 0)
 [node name="Subscreens" type="MarginContainer" parent="HBoxContainer" unique_id=1459848273]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_behavior_recursive = 1
 mouse_filter = 2
+mouse_behavior_recursive = 1
+script = ExtResource("19_w2jst")
 
-[node name="General" type="CenterContainer" parent="HBoxContainer/Subscreens" unique_id=458286908]
+[node name="General" type="CenterContainer" parent="HBoxContainer/Subscreens" unique_id=458286908 node_paths=PackedStringArray("default_focus")]
 layout_mode = 2
 mouse_filter = 2
+script = ExtResource("20_uacow")
+default_focus = NodePath("VBoxContainer/Gameplay/Return")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Subscreens/General" unique_id=1932092256]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/HBoxContainer" unique_id=1854721685]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Return" type="Button" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer" unique_id=535580602]
-layout_mode = 2
-size_flags_vertical = 4
-theme_type_variation = &"SettingsButton"
-text = "   LVL_RETURN"
-alignment = 2
-script = ExtResource("19_icm6w")
-leading_spaces = 3
-
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer/Return" unique_id=1185266046]
-self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.5
-offset_right = 22.0
-offset_bottom = 22.5
-texture = ExtResource("11_i3paj")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("10_h2314")
-offset = Vector2(10, 0)
-
-[node name="HSeparator" type="VSeparator" parent="HBoxContainer/Subscreens/General/HBoxContainer" unique_id=1674886535]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/HBoxContainer" unique_id=847938719]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Audio" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2" unique_id=533381190]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/General" unique_id=803209365]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="MasterVolume" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2/Audio" unique_id=1507873393 instance=ExtResource("19_v5wmh")]
+[node name="Gameplay" type="GridContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=1876142953]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="Return" type="Button" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=535580602]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"SettingsButtonRed"
+text = "    LVL_RETURN"
+script = ExtResource("19_icm6w")
+click_override = "BackSound"
+leading_spaces = 4
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay/Return" unique_id=1185266046]
+self_modulate = Color(0.69411767, 0.2, 0.2, 1)
+layout_mode = 0
+offset_left = 9.0
+offset_right = 29.0
+offset_bottom = 20.0
+texture = ExtResource("9_07bmx")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_h2314")
+offset = Vector2(16, 0)
+
+[node name="RichPresence" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=1865081011 instance=ExtResource("22_1e4vi")]
+layout_mode = 2
+default_value = true
+setting_section = &"General"
+setting_key = &"rich_presence"
+option_name = &"CFG_RICH_PRESENCE"
+
+[node name="CameraShake" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=769976540 instance=ExtResource("22_1e4vi")]
+layout_mode = 2
+default_value = true
+setting_section = &"General"
+setting_key = &"camera_shake"
+option_name = &"CFG_CAM_SHAKE"
+
+[node name="ShowTimer" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=1585248964 instance=ExtResource("22_1e4vi")]
+layout_mode = 2
+setting_section = &"General"
+setting_key = &"show_timer"
+option_name = &"CFG_SHOW_TIMER"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=955121413]
+layout_mode = 2
+
+[node name="Display" type="GridContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=659442413]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="WindowMoce" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=151203047 instance=ExtResource("25_uobkh")]
+layout_mode = 2
+options = Array[String](["CFG_MODE_WINDOWED", "CFG_MODE_BORDERLESS", "CFG_MODE_FULL"])
+setting_section = &"General"
+setting_key = &"window_mode"
+option_name = &"CFG_WINDOW_MODE"
+
+[node name="ScaleMode" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=1765063384 instance=ExtResource("25_uobkh")]
+layout_mode = 2
+options = Array[String](["CFG_SCALE_FRAC", "CFG_SCALE_INT"])
+setting_section = &"General"
+setting_key = &"scale_mode"
+option_name = &"CFG_SCALE_MODE"
+
+[node name="VSync" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=1010345803 instance=ExtResource("22_1e4vi")]
+layout_mode = 2
+default_value = true
+setting_section = &"General"
+setting_key = &"v_sync"
+option_name = &"CFG_VSYNC"
+
+[node name="FPSCap" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=1340079371 instance=ExtResource("25_uobkh")]
+layout_mode = 2
+default_value = 4
+options = Array[String](["30", "40", "50", "60", "CFG_FPS_UNLIMITED"])
+setting_section = &"General"
+setting_key = &"fps_cap"
+option_name = &"CFG_FPS_CAP"
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=514819197]
+layout_mode = 2
+
+[node name="Audio" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=533381190]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterVolume" parent="HBoxContainer/Subscreens/General/VBoxContainer/Audio" unique_id=1507873393 instance=ExtResource("19_v5wmh")]
 layout_mode = 2
 default_value = 75.0
-setting_section = "Audio"
-setting_key = "master_volume"
-option_name = "CFG_MASTER_VOL"
+setting_section = &"Audio"
+setting_key = &"master_volume"
+option_name = &"CFG_MASTER_VOL"
 
-[node name="Music" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2/Audio" unique_id=355749341 instance=ExtResource("19_v5wmh")]
+[node name="Music" parent="HBoxContainer/Subscreens/General/VBoxContainer/Audio" unique_id=355749341 instance=ExtResource("19_v5wmh")]
 layout_mode = 2
 default_value = 100.0
-setting_section = "Audio"
-setting_key = "bgm_volume"
-option_name = "CFG_BGM_VOL"
+setting_section = &"Audio"
+setting_key = &"bgm_volume"
+option_name = &"CFG_BGM_VOL"
 
-[node name="SoundEffects" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2/Audio" unique_id=2143073510 instance=ExtResource("19_v5wmh")]
+[node name="SoundEffects" parent="HBoxContainer/Subscreens/General/VBoxContainer/Audio" unique_id=2143073510 instance=ExtResource("19_v5wmh")]
 layout_mode = 2
 default_value = 100.0
-setting_section = "Audio"
-setting_key = "sfx_volume"
-option_name = "CFG_SFX_VOL"
-
-[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2" unique_id=1887644370]
-layout_mode = 2
+setting_section = &"Audio"
+setting_key = &"sfx_volume"
+option_name = &"CFG_SFX_VOL"
 
 [node name="Controls" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=753360567]
+visible = false
 layout_mode = 2
 mouse_filter = 2
+script = ExtResource("20_uacow")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1012729690]
 libraries/ = SubResource("AnimationLibrary_gdns1")
 
-[connection signal="back_press" from="Focus" to="HBoxContainer/TabButtons/Panel/VBoxContainer/Back" method="emit_signal" binds= ["pressed"]]
+[connection signal="back_press" from="Focus" to="HBoxContainer/Subscreens" method="go_back"]
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Back" to="ExitController" method="exit"]
+[connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/General" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [0]]
+[connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Controls" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [1]]
+[connection signal="exit_screen" from="HBoxContainer/Subscreens" to="ExitController" method="exit"]
+[connection signal="pressed" from="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]

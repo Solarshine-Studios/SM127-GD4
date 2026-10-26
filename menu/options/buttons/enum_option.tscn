@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://7hpx7wc2jud5"]
+
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_j8otr"]
+[ext_resource type="Script" uid="uid://dttxviao3amp7" path="res://menu/options/buttons/enum_option.gd" id="2_oido0"]
+[ext_resource type="Script" uid="uid://cjfxj1w2pdsc" path="res://menu/scripts/sounds/option_button_sound.gd" id="3_c3avq"]
+
+[node name="EnumOption" type="VBoxContainer" unique_id=151203047]
+theme = ExtResource("1_j8otr")
+script = ExtResource("2_oido0")
+
+[node name="Name" type="Label" parent="." unique_id=1787077952]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CFG_PLACEHOLDER"
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=819635654]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+script = ExtResource("3_c3avq")
+
+[connection signal="item_selected" from="OptionButton" to="." method="item_selected"]

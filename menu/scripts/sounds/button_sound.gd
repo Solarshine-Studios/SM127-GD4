@@ -34,7 +34,10 @@ func _ready() -> void:
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
 	pressed.connect(on_pressed)
+	
+	handle_spaces()
 
+func handle_spaces() -> void:
 	if leading_spaces != 0:
 		auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		text = tr(text.strip_edges(true, false))

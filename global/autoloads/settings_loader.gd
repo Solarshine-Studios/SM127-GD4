@@ -6,7 +6,7 @@ const CATEGORIES: Array[String] = [
 	"Header"
 ]
 
-func _init() -> void:
+func _ready() -> void:
 	var config: ConfigFile = LocalSettings.config
 	
 	LocalSettings.setting_changed.connect(change_setting)
@@ -41,9 +41,36 @@ func change_setting(key: String, new_value: Variant) -> void:
 		"v_sync":
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if new_value else DisplayServer.VSYNC_DISABLED)
 		"fps_cap":
-			Engine.max_fps = 10 * (new_value + 3)
+			match new_value:
+				0:
+					Engine.max_fps = 30
+				1:
+					Engine.max_fps = 40
+				2:
+					Engine.max_fps = 50
+				3:
+					Engine.max_fps = 60
+				4:
+					Engine.max_fps = 0
+		
 		"rumble":
 			LastInputDevice.do_rumble = new_value
+		
+		"window_mode":
+			match new_value:
+				0:
+					get_window().mode = Window.MODE_WINDOWED
+					get_window().borderless = false
+				1:
+					get_window().mode = Window.MODE_WINDOWED
+					get_window().borderless = true
+				2:
+					get_window().mode = Window.MODE_FULLSCREEN
+					get_window().borderless = true
+		
+		"scale_mode":
+			var main_scene: MainScene = get_tree().get_first_node_in_group("main_scene")
+			main_scene.update_container_sizing(new_value)
 		
 		"master_volume":
 			var bus_index: int = AudioServer.get_bus_index("Master")

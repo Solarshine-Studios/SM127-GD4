@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ce771ljnl5m3m"]
+
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_n8fqg"]
+[ext_resource type="Script" uid="uid://cx6nyw7j01xqi" path="res://menu/options/buttons/boolean_option.gd" id="1_woa65"]
+[ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="2_5mf1j"]
+[ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="4_8qphy"]
+[ext_resource type="Texture2D" uid="uid://1484lhmfmjns" path="res://global/assets/icons/CheckUnchecked.svg" id="4_wwlda"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teedc"]
+
+[node name="BooleanOption" type="PanelContainer" unique_id=704202981]
+texture_filter = 2
+offset_right = 213.0
+offset_bottom = 25.0
+size_flags_vertical = 8
+theme = ExtResource("1_n8fqg")
+theme_type_variation = &"SettingsButton"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_teedc")
+script = ExtResource("1_woa65")
+setting_section = ""
+setting_key = ""
+
+[node name="Button" type="Button" parent="." unique_id=1663911359]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CFG_PLACEHOLDER"
+script = ExtResource("2_5mf1j")
+extend_amount = 2
+leading_spaces = 4
+
+[node name="Icon" type="TextureRect" parent="Button" unique_id=1394375150]
+unique_name_in_owner = true
+self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 5.0
+offset_right = 47.0
+offset_bottom = 20.0
+texture = ExtResource("4_wwlda")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_8qphy")
+offset = Vector2(16, 0)
+
+[connection signal="pressed" from="Button" to="." method="pressed"]

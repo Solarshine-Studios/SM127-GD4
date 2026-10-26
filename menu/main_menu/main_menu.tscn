@@ -517,7 +517,6 @@ theme_override_constants/margin_right = -8
 theme_override_constants/margin_bottom = 2
 
 [node name="Panel" type="Panel" parent="Content/Versioning/Version" unique_id=302712135]
-modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 mouse_filter = 2
 
@@ -528,6 +527,7 @@ theme_override_constants/margin_right = 20
 
 [node name="Label" type="Label" parent="Content/Versioning/Version/MarginContainer" unique_id=1847049150]
 layout_mode = 2
+theme_type_variation = &"LargeLabel"
 text = "v0.10.1"
 
 [node name="UpdateAvailable" type="MarginContainer" parent="Content/Versioning" unique_id=1322504705]
@@ -543,7 +543,6 @@ theme_override_constants/margin_right = -8
 theme_override_constants/margin_bottom = 2
 
 [node name="Panel" type="Panel" parent="Content/Versioning/UpdateAvailable" unique_id=75227582]
-modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 mouse_filter = 2
 
@@ -554,6 +553,7 @@ theme_override_constants/margin_right = 20
 
 [node name="Label" type="Label" parent="Content/Versioning/UpdateAvailable/MarginContainer" unique_id=1919264980]
 layout_mode = 2
+theme_type_variation = &"LargeLabel"
 text = "UPD_READY"
 
 [node name="LogoAnchor" type="MarginContainer" parent="." unique_id=2019933530]

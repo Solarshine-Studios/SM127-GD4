@@ -1,20 +1,16 @@
 @tool
 @abstract
-extends VBoxContainer
+extends Container
 class_name OptionBase
 
 
-@export var setting_section: String = ""
-@export var setting_key: String = ""
+@export var setting_section: StringName
+@export var setting_key: StringName
 
 var value: Variant = false
-@onready var name_label: Label = %Name
-@onready var value_label: Label = %Value
 
-@export var option_name: String = "CFG_PLACEHOLDER":
-	set(new_value):
-		option_name = new_value
-		(%Name as Label).text = tr(new_value)
+@export var option_name: StringName = "CFG_PLACEHOLDER":
+	set = set_option_name
 
 
 ## new functions
@@ -32,6 +28,11 @@ func change_setting(new_value: Variant) -> void:
 		LocalSettings.change_setting(setting_section, setting_key, new_value)
 
 
+func set_option_name(new_value: StringName) -> void:
+	option_name = new_value
+	(%Name as Label).text = tr(new_value)
+
+
 ## built in functions
 func _ready() -> void:
 	value = _get_default_value()
@@ -44,7 +45,7 @@ func _ready() -> void:
 
 ## override these
 func _update_value() -> void:
-	value_label.text = str(value)
+	pass
 
 
 func _get_default_value() -> Variant:
