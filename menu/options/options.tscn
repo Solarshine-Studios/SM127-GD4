@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://pxn6kqvk1ads" path="res://global/assets/icons/mario.png" id="13_h2314"]
 [ext_resource type="Texture2D" uid="uid://ca1vhmi6uyduv" path="res://global/assets/icons/palette.svg" id="14_fdtvw"]
 [ext_resource type="Texture2D" uid="uid://cweavm2wrxn85" path="res://global/assets/icons/comments.png" id="18_ub8if"]
+[ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="19_icm6w"]
 [ext_resource type="PackedScene" uid="uid://7o3ntw2lnd56" path="res://menu/options/buttons/slider_option.tscn" id="19_v5wmh"]
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
@@ -458,44 +459,80 @@ offset = Vector2(-4, 0)
 [node name="Subscreens" type="MarginContainer" parent="HBoxContainer" unique_id=1459848273]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="General" type="CenterContainer" parent="HBoxContainer/Subscreens" unique_id=458286908]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/General" unique_id=863802692]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Subscreens/General" unique_id=1932092256]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/HBoxContainer" unique_id=1854721685]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Return" type="Button" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer" unique_id=535580602]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"SettingsButton"
+text = "   LVL_RETURN"
+alignment = 2
+script = ExtResource("19_icm6w")
+leading_spaces = 3
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer/Return" unique_id=1185266046]
+self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.5
+offset_right = 22.0
+offset_bottom = 22.5
+texture = ExtResource("11_i3paj")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_h2314")
+offset = Vector2(10, 0)
+
+[node name="HSeparator" type="VSeparator" parent="HBoxContainer/Subscreens/General/HBoxContainer" unique_id=1674886535]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/HBoxContainer" unique_id=847938719]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Audio" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2" unique_id=533381190]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Audio" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=533381190]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="MasterVolume" parent="HBoxContainer/Subscreens/General/VBoxContainer/Audio" unique_id=1507873393 instance=ExtResource("19_v5wmh")]
+[node name="MasterVolume" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2/Audio" unique_id=1507873393 instance=ExtResource("19_v5wmh")]
 layout_mode = 2
 default_value = 75.0
 setting_section = "Audio"
 setting_key = "master_volume"
 option_name = "CFG_MASTER_VOL"
 
-[node name="Music" parent="HBoxContainer/Subscreens/General/VBoxContainer/Audio" unique_id=355749341 instance=ExtResource("19_v5wmh")]
+[node name="Music" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2/Audio" unique_id=355749341 instance=ExtResource("19_v5wmh")]
 layout_mode = 2
 default_value = 100.0
 setting_section = "Audio"
 setting_key = "bgm_volume"
 option_name = "CFG_BGM_VOL"
 
-[node name="SoundEffects" parent="HBoxContainer/Subscreens/General/VBoxContainer/Audio" unique_id=2143073510 instance=ExtResource("19_v5wmh")]
+[node name="SoundEffects" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2/Audio" unique_id=2143073510 instance=ExtResource("19_v5wmh")]
 layout_mode = 2
 default_value = 100.0
 setting_section = "Audio"
 setting_key = "sfx_volume"
 option_name = "CFG_SFX_VOL"
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=1203300614]
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/Subscreens/General/HBoxContainer/VBoxContainer2" unique_id=1887644370]
 layout_mode = 2
 
 [node name="Controls" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=753360567]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1012729690]
 libraries/ = SubResource("AnimationLibrary_gdns1")

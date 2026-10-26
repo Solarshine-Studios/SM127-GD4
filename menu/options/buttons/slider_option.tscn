@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://crubvcegpmuq1" path="res://menu/options/buttons/slider_option.gd" id="1_7h2i0"]
 [ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_dxc3b"]
+[ext_resource type="Script" uid="uid://dcilkfx7r4vym" path="res://menu/scripts/sounds/range_sound.gd" id="3_mh2rr"]
 
 [node name="SliderOption" type="VBoxContainer" unique_id=1507873393]
+texture_filter = 2
 theme = ExtResource("1_dxc3b")
 theme_override_constants/separation = 4
 script = ExtResource("1_7h2i0")
@@ -30,7 +32,10 @@ text = "0"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=95814384]
 layout_mode = 2
-theme_type_variation = &"OptionsPanel"
+theme_type_variation = &"SettingsPanel"
 
 [node name="HSlider" type="HSlider" parent="PanelContainer" unique_id=916665099]
 layout_mode = 2
+script = ExtResource("3_mh2rr")
+
+[connection signal="value_changed" from="PanelContainer/HSlider" to="." method="slider_changed"]

@@ -1,4 +1,4 @@
-class_name TileHeader
+class_name TileHelper
 extends Object
 
 

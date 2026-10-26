@@ -30,6 +30,7 @@ buses/default_bus_layout="uid://5ket70sud8kg"
 LocalSettings="*uid://60ynfi4qf6w3"
 LastInputDevice="*uid://k6xtr1gfpq67"
 TransitionManager="*uid://dgolkub8ev6ve"
+SettingsLoader="*uid://h1xy245axaj2"
 
 [debug]
 
@@ -74,9 +75,15 @@ gdscript/warnings/confusable_capture_reassignment=2
 
 window/size/viewport_width=768
 window/size/viewport_height=432
+window/size/window_width_override=1536
+window/size/window_height_override=864
 window/stretch/aspect="ignore"
 mouse_cursor/custom_image="uid://dbd0accjjk1pi"
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sync_spreadsheets/plugin.cfg")
 
 [file_customization]
 

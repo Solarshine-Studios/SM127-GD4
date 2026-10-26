@@ -10,6 +10,7 @@ signal offset_changed
 		offset = new_value
 		emit_signal("offset_changed")
 
+@onready var default_color: Color = self_modulate
 @onready var parent: Button = get_parent()
 
 
@@ -36,7 +37,7 @@ func update_offset() -> void:
 	if not is_instance_valid(viewport):
 		return
 	
-	self_modulate = disabled_color if parent.disabled else Color.WHITE
+	self_modulate = disabled_color if parent.disabled else default_color
 	var is_focused: bool = viewport.gui_get_focus_owner() == parent
 	
 	var style: String = "normal"
