@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	if leading_spaces != 0 or trailing_spaces != 0:
+	if should_handle_spaces():
 		auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	initial_text = text
 	
@@ -41,16 +41,24 @@ func _ready() -> void:
 	mouse_exited.connect(on_mouse_exited)
 	pressed.connect(on_pressed)
 	
-	handle_spaces()
-
-
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_TRANSLATION_CHANGED and initial_text != "":
+	if should_handle_spaces():
 		handle_spaces()
 
 
-func handle_spaces() -> void:
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and should_handle_spaces() and initial_text != "":
+		handle_spaces()
+
+
+func should_handle_spaces() -> bool:
+	return leading_spaces > 0 or trailing_spaces > 0
+
+
+func handle_spaces(override_text: String = "") -> void:
 	var working_text: String = tr(initial_text.strip_edges())
+	if not override_text.is_empty():
+		working_text = override_text
+	
 	var right_to_left: bool = LanguageHelper.is_first_char_rtl(working_text)
 	
 	if leading_spaces != 0:

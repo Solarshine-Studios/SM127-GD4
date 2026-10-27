@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://ce771ljnl5m3m" path="res://menu/options/buttons/boolean_option.tscn" id="22_1e4vi"]
 [ext_resource type="PackedScene" uid="uid://7hpx7wc2jud5" path="res://menu/options/buttons/enum_option.tscn" id="25_uobkh"]
 [ext_resource type="Script" uid="uid://blnp4oh717hc2" path="res://menu/options/language/languages.gd" id="27_dk8cj"]
+[ext_resource type="Texture2D" uid="uid://dft7t2m7uj6f1" path="res://global/assets/icons/delete.svg" id="28_moey5"]
+[ext_resource type="Script" uid="uid://rexdqo850f7v" path="res://menu/options/storage/mod_manager.gd" id="28_oto5u"]
+[ext_resource type="Script" uid="uid://yeh6ji1uuqae" path="res://menu/scripts/press_countdown.gd" id="29_oto5u"]
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
 length = 0.001
@@ -634,6 +637,7 @@ layout_mode = 2
 script = ExtResource("20_uacow")
 
 [node name="Language" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=1746578122 node_paths=PackedStringArray("default_focus")]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 256
 theme_override_constants/margin_top = -5
@@ -647,6 +651,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 offset_transform_enabled = true
 offset_transform_rotation = -0.034906585
+offset_transform_visual_only = false
 theme_type_variation = &"BlackBarLeft"
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer" unique_id=256025899]
@@ -710,10 +715,164 @@ layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("27_dk8cj")
 
-[node name="Storage" type="Control" parent="HBoxContainer/Subscreens" unique_id=1783706636]
-visible = false
+[node name="Storage" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=1022350147 node_paths=PackedStringArray("default_focus")]
 layout_mode = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -8
+theme_override_constants/margin_bottom = -5
 script = ExtResource("20_uacow")
+default_focus = NodePath("PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return")
+
+[node name="ModManager" type="Node" parent="HBoxContainer/Subscreens/Storage" unique_id=1118125110]
+script = ExtResource("28_oto5u")
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Subscreens/Storage" unique_id=909413855]
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_rotation = -0.034906585
+offset_transform_visual_only = false
+theme_type_variation = &"BlackBarLeft"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer" unique_id=1098652685]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer" unique_id=204529489]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer" unique_id=1283003989]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Return" type="Button" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1338833887]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(24, 0)
+theme_type_variation = &"ButtonRed"
+text = "     LVL_RETURN"
+alignment = 0
+script = ExtResource("7_i3paj")
+direction = -1
+click_override = "BackSound"
+leading_spaces = 5
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" unique_id=1948407226]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.5
+offset_right = 28.0
+offset_bottom = 24.5
+texture = ExtResource("9_07bmx")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_h2314")
+offset = Vector2(24, 0)
+
+[node name="Padding" type="Control" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1620003628]
+layout_mode = 2
+
+[node name="DataFolder" type="Button" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=437962570]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(24, 0)
+text = "     DATA_OPEN_FOLDER"
+alignment = 0
+script = ExtResource("7_i3paj")
+direction = -1
+click_override = "BackSound"
+leading_spaces = 5
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/DataFolder" unique_id=417463161]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.5
+offset_right = 28.0
+offset_bottom = 24.5
+texture = ExtResource("13_fl4cp")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_h2314")
+offset = Vector2(24, 0)
+
+[node name="CleanOldData" type="Button" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=774421973]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(24, 0)
+theme_type_variation = &"ButtonRed"
+disabled = true
+text = "     DATA_CLEAN_OLD"
+alignment = 0
+script = ExtResource("7_i3paj")
+direction = -1
+click_override = "BackSound"
+leading_spaces = 5
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/CleanOldData" unique_id=429158316 node_paths=PackedStringArray("countdown")]
+self_modulate = Color(1, 1, 1, 0.4)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.5
+offset_right = 28.0
+offset_bottom = 26.5
+texture = ExtResource("28_moey5")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_h2314")
+countdown = NodePath("../PressCountdown")
+offset = Vector2(24, 0)
+
+[node name="PressCountdown" type="Node" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/CleanOldData" unique_id=1440055555]
+script = ExtResource("29_oto5u")
+
+[node name="ModsContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=507432702]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Padding" type="Control" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ModsContainer" unique_id=2125454528]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ModsContainer" unique_id=1876348511]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ModsContainer/MarginContainer" unique_id=41542356]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ModsContainer" unique_id=637202109]
+layout_mode = 2
+theme_type_variation = &"LargeLabel"
+text = "DATA_SELECT_MOD"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ModsContainer" unique_id=1455920959]
+layout_mode = 2
+
+[node name="NoMods" type="Button" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/ModsContainer/VBoxContainer" unique_id=99472189]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(24, 0)
+theme_type_variation = &"ButtonSpecial"
+text = "DATA_MOD_NONE"
+alignment = 0
+script = ExtResource("7_i3paj")
+direction = -1
+click_override = "BackSound"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1012729690]
 libraries/ = SubResource("AnimationLibrary_gdns1")
@@ -723,6 +882,9 @@ libraries/ = SubResource("AnimationLibrary_gdns1")
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/General" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [0]]
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Controls" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [1]]
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Language" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [4]]
+[connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Storage" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [5]]
 [connection signal="exit_screen" from="HBoxContainer/Subscreens" to="ExitController" method="exit"]
 [connection signal="pressed" from="HBoxContainer/Subscreens/General/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
 [connection signal="pressed" from="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
+[connection signal="pressed" from="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
+[connection signal="pressed" from="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/DataFolder" to="HBoxContainer/Subscreens/Storage/ModManager" method="open_appdata"]

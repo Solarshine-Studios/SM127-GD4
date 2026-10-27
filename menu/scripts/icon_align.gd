@@ -40,16 +40,16 @@ func update_offset() -> void:
 	
 	var style: String = "normal"
 	self_modulate = parent.get_theme_color(&"icon_normal_color")
-	if parent.is_hovered() or is_focused:
+	if parent.disabled:
+		style = "disabled"
+		self_modulate = parent.get_theme_color(&"icon_disabled_color")
+	elif parent.is_hovered() or is_focused:
 		if parent.button_pressed:
 			style = "pressed"
 			self_modulate = parent.get_theme_color(&"icon_pressed_color")
 		elif not is_focused:
 			style = "hover"
 			self_modulate = parent.get_theme_color(&"icon_hover_color")
-	elif parent.disabled:
-		style = "disabled"
-		self_modulate = parent.get_theme_color(&"icon_disabled_color")
 	
 	var stylebox: StyleBox = parent.get_theme_stylebox(style)
 	var padding_left: float = maxf(0.0, stylebox.get_content_margin(SIDE_LEFT) if stylebox else 0.0)

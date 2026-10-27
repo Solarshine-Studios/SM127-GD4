@@ -48,13 +48,20 @@ func update_text(number: float) -> void:
 	var last_text: String = button.text
 	
 	var count_text: String = "[" + str(ceili(number)) + "]"
+	var reg_text: String = button.initial_text
+	if button.should_handle_spaces():
+		reg_text = tr(reg_text.strip_edges())
+	
 	match countdown_style:
 		TextStyle.left:
-			button.text = count_text + " " + button.initial_text
+			button.text = count_text + " " + reg_text
 		TextStyle.right:
-			button.text = button.initial_text + " " + count_text
+			button.text = reg_text + " " + count_text
 		TextStyle.replace:
 			button.text = count_text
+	
+	if button.should_handle_spaces():
+		button.handle_spaces(button.text)
 	
 	if button.text != last_text:
 		text_changed.emit()
@@ -70,5 +77,11 @@ func button_down() -> void:
 func button_up() -> void:
 	count = -1.0
 	
-	button.text = button.initial_text
+	var reg_text: String = button.initial_text
+	if button.should_handle_spaces():
+		reg_text = tr(reg_text.strip_edges())
+	button.text = reg_text
+	if button.should_handle_spaces():
+		button.handle_spaces()
+	
 	text_changed.emit()

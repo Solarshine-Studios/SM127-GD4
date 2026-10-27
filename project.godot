@@ -31,6 +31,7 @@ LocalSettings="*uid://60ynfi4qf6w3"
 LastInputDevice="*uid://k6xtr1gfpq67"
 TransitionManager="*uid://dgolkub8ev6ve"
 SettingsLoader="*uid://h1xy245axaj2"
+ModLoader="*uid://bd4tsa0ari678"
 
 [debug]
 
