@@ -9,8 +9,7 @@ enum TextStyle {left, right, replace}
 const COUNTDOWN: AudioStream = preload("uid://dq058palx2mwr")
 const COUNTDOWN_END: AudioStream = preload("uid://c6txqpvcekkwe")
 
-@onready var button: Button = get_parent()
-@onready var initial_text: String = tr(button.text)
+@onready var button: ButtonSound = get_parent()
 var audio_player: AudioStreamPlayer
 
 @export var countdown_style: TextStyle = TextStyle.left
@@ -51,9 +50,9 @@ func update_text(number: float) -> void:
 	var count_text: String = "[" + str(ceili(number)) + "]"
 	match countdown_style:
 		TextStyle.left:
-			button.text = count_text + " " + initial_text
+			button.text = count_text + " " + button.initial_text
 		TextStyle.right:
-			button.text = initial_text + " " + count_text
+			button.text = button.initial_text + " " + count_text
 		TextStyle.replace:
 			button.text = count_text
 	
@@ -71,5 +70,5 @@ func button_down() -> void:
 func button_up() -> void:
 	count = -1.0
 	
-	button.text = initial_text
+	button.text = button.initial_text
 	text_changed.emit()

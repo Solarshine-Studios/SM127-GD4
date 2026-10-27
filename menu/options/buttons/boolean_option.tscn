@@ -17,8 +17,6 @@ theme = ExtResource("1_n8fqg")
 theme_type_variation = &"SettingsButton"
 theme_override_styles/panel = SubResource("StyleBoxEmpty_teedc")
 script = ExtResource("1_woa65")
-setting_section = ""
-setting_key = ""
 
 [node name="Button" type="Button" parent="." unique_id=1663911359]
 unique_name_in_owner = true

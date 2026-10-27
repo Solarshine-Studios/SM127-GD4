@@ -2,9 +2,9 @@ class_name OptionButtonSound
 extends OptionButton
 
 
-@onready var hover_sound: AudioStreamPlayer = owner.get_node("%HoverSound")
-@onready var click_sound: AudioStreamPlayer = owner.get_node("%ClickSound")
-@onready var select_sound: AudioStreamPlayer = owner.get_node("%OnSound")
+@onready var hover_sound: AudioStreamPlayer = get_parent().owner.get_node("%HoverSound")
+@onready var click_sound: AudioStreamPlayer = get_parent().owner.get_node("%ClickSound")
+@onready var select_sound: AudioStreamPlayer = get_parent().owner.get_node("%OnSound")
 @onready var original_modulate: Color = modulate
 @onready var initial_focus_mode: Control.FocusMode = focus_mode
 
@@ -14,6 +14,8 @@ extends OptionButton
 @export var highlight_on_focus: bool = true
 @export var leading_spaces: int = 0
 @export var trailing_spaces: int = 0
+
+var initial_text: String
 
 
 ## this should REALLY be built-in...
@@ -25,6 +27,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	initial_text = text
+	
 	get_popup().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	
 	if hover_override != "":
@@ -43,18 +47,33 @@ func _ready() -> void:
 	
 	handle_spaces()
 
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and initial_text != "":
+		handle_spaces()
+
+
 func handle_spaces() -> void:
+	var working_text: String = tr(initial_text.strip_edges())
+	var right_to_left: bool = LanguageHelper.is_first_char_rtl(working_text)
+	
 	if leading_spaces != 0:
-		auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		text = tr(text.strip_edges(true, false))
+		text = working_text
 		for i in range(leading_spaces):
-			text = " " + text
+			if right_to_left:
+				text += " "
+			else:
+				text = " " + text
+		working_text = text
 
 	if trailing_spaces != 0:
-		auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		text = tr(text.strip_edges(false, true))
+		text = working_text
 		for i in range(trailing_spaces):
-			text += " "
+			if right_to_left:
+				text = " " + text
+			else:
+				text += " "
+		working_text = text
 
 
 func on_mouse_entered() -> void:

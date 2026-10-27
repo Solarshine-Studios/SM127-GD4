@@ -8,9 +8,22 @@
 [ext_resource type="Texture2D" uid="uid://dlkjuunc2plt2" path="res://global/assets/icons/CircleSelected.svg" id="5_houot"]
 [ext_resource type="Texture2D" uid="uid://d0maeihm5dogm" path="res://global/assets/icons/CircleUnselected.svg" id="6_4v75m"]
 
+[sub_resource type="Gradient" id="Gradient_houot"]
+offsets = PackedFloat32Array(0, 0.078, 0.38, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0.8862745, 0, 0, 0, 0.5647059)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4v75m"]
+gradient = SubResource("Gradient_houot")
+width = 64
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jffts"]
+texture = SubResource("GradientTexture1D_4v75m")
+
 [sub_resource type="Gradient" id="Gradient_7q0bv"]
 offsets = PackedFloat32Array(0, 0.62, 0.922, 1)
 colors = PackedColorArray(0, 0, 0, 0.5647059, 0, 0, 0, 0.8862745, 0, 0, 0, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_e11wa"]
 gradient = SubResource("Gradient_7q0bv")
@@ -457,8 +470,10 @@ spacing_top = 1
 [resource]
 default_font = SubResource("FontVariation_qv4bq")
 default_font_size = 16
-BlackBar/base_type = &"PanelContainer"
-BlackBar/styles/panel = SubResource("StyleBoxTexture_8uv2w")
+BlackBarLeft/base_type = &"PanelContainer"
+BlackBarLeft/styles/panel = SubResource("StyleBoxTexture_jffts")
+BlackBarRight/base_type = &"PanelContainer"
+BlackBarRight/styles/panel = SubResource("StyleBoxTexture_8uv2w")
 BlueLabel/base_type = &"Label"
 BlueLabel/colors/font_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
 BoxContainer/constants/separation = 4

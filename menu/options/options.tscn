@@ -22,10 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://cweavm2wrxn85" path="res://global/assets/icons/comments.png" id="18_ub8if"]
 [ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="19_icm6w"]
 [ext_resource type="PackedScene" uid="uid://7o3ntw2lnd56" path="res://menu/options/buttons/slider_option.tscn" id="19_v5wmh"]
-[ext_resource type="Script" uid="uid://bgw5p3sik0ewc" path="res://menu/options/subscreens.gd" id="19_w2jst"]
+[ext_resource type="Script" uid="uid://bgw5p3sik0ewc" path="res://menu/options/subscreen_manager.gd" id="19_w2jst"]
 [ext_resource type="Script" uid="uid://b67uoex8uxiks" path="res://menu/options/subscreen.gd" id="20_uacow"]
 [ext_resource type="PackedScene" uid="uid://ce771ljnl5m3m" path="res://menu/options/buttons/boolean_option.tscn" id="22_1e4vi"]
 [ext_resource type="PackedScene" uid="uid://7hpx7wc2jud5" path="res://menu/options/buttons/enum_option.tscn" id="25_uobkh"]
+[ext_resource type="Script" uid="uid://blnp4oh717hc2" path="res://menu/options/language/languages.gd" id="27_dk8cj"]
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
 length = 0.001
@@ -182,8 +183,8 @@ layout_mode = 2
 offset_transform_enabled = true
 offset_transform_visual_only = false
 theme_override_constants/margin_left = -8
-theme_override_constants/margin_top = -4
-theme_override_constants/margin_bottom = -4
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_bottom = -5
 
 [node name="Panel" type="PanelContainer" parent="HBoxContainer/TabButtons" unique_id=775849246]
 custom_minimum_size = Vector2(224, 0)
@@ -191,7 +192,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 offset_transform_enabled = true
 offset_transform_rotation = 0.034906585
-theme_type_variation = &"BlackBar"
+theme_type_variation = &"BlackBarRight"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TabButtons/Panel" unique_id=1840166135]
 layout_mode = 2
@@ -489,21 +490,15 @@ script = ExtResource("19_w2jst")
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("20_uacow")
-default_focus = NodePath("VBoxContainer/Gameplay/Return")
+default_focus = NodePath("VBoxContainer/Return")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/General" unique_id=803209365]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Gameplay" type="GridContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=1876142953]
+[node name="Return" type="Button" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=535580602]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/h_separation = 16
-theme_override_constants/v_separation = 16
-columns = 2
-
-[node name="Return" type="Button" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=535580602]
-layout_mode = 2
 size_flags_vertical = 4
 theme_type_variation = &"SettingsButtonRed"
 text = "    LVL_RETURN"
@@ -511,11 +506,11 @@ script = ExtResource("19_icm6w")
 click_override = "BackSound"
 leading_spaces = 4
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay/Return" unique_id=1185266046]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/General/VBoxContainer/Return" unique_id=1185266046]
 self_modulate = Color(0.69411767, 0.2, 0.2, 1)
 layout_mode = 0
-offset_left = 9.0
-offset_right = 29.0
+offset_left = 2.0
+offset_right = 22.0
 offset_bottom = 20.0
 texture = ExtResource("9_07bmx")
 expand_mode = 1
@@ -523,64 +518,76 @@ stretch_mode = 5
 script = ExtResource("10_h2314")
 offset = Vector2(16, 0)
 
-[node name="RichPresence" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=1865081011 instance=ExtResource("22_1e4vi")]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=955121413]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=586283946]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Misc" type="HBoxContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer" unique_id=1669573134]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="RichPresence" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer/Misc" unique_id=1865081011 instance=ExtResource("22_1e4vi")]
 layout_mode = 2
 default_value = true
 setting_section = &"General"
 setting_key = &"rich_presence"
 option_name = &"CFG_RICH_PRESENCE"
 
-[node name="CameraShake" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=769976540 instance=ExtResource("22_1e4vi")]
+[node name="CameraShake" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer/Misc" unique_id=769976540 instance=ExtResource("22_1e4vi")]
 layout_mode = 2
 default_value = true
 setting_section = &"General"
 setting_key = &"camera_shake"
 option_name = &"CFG_CAM_SHAKE"
 
-[node name="ShowTimer" parent="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay" unique_id=1585248964 instance=ExtResource("22_1e4vi")]
+[node name="ShowTimer" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer/Misc" unique_id=1585248964 instance=ExtResource("22_1e4vi")]
 layout_mode = 2
 setting_section = &"General"
 setting_key = &"show_timer"
 option_name = &"CFG_SHOW_TIMER"
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=955121413]
+[node name="Display" type="HBoxContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer" unique_id=1020902848]
 layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
 
-[node name="Display" type="GridContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=659442413]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/h_separation = 16
-theme_override_constants/v_separation = 8
-columns = 2
-
-[node name="WindowMoce" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=151203047 instance=ExtResource("25_uobkh")]
+[node name="WindowMoce" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer/Display" unique_id=151203047 instance=ExtResource("25_uobkh")]
 layout_mode = 2
 options = Array[String](["CFG_MODE_WINDOWED", "CFG_MODE_BORDERLESS", "CFG_MODE_FULL"])
 setting_section = &"General"
 setting_key = &"window_mode"
 option_name = &"CFG_WINDOW_MODE"
 
-[node name="ScaleMode" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=1765063384 instance=ExtResource("25_uobkh")]
+[node name="ScaleMode" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer/Display" unique_id=1765063384 instance=ExtResource("25_uobkh")]
 layout_mode = 2
 options = Array[String](["CFG_SCALE_FRAC", "CFG_SCALE_INT"])
 setting_section = &"General"
 setting_key = &"scale_mode"
 option_name = &"CFG_SCALE_MODE"
 
-[node name="VSync" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=1010345803 instance=ExtResource("22_1e4vi")]
+[node name="FPS" type="HBoxContainer" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer" unique_id=1828106462]
 layout_mode = 2
-default_value = true
-setting_section = &"General"
-setting_key = &"v_sync"
-option_name = &"CFG_VSYNC"
+theme_override_constants/separation = 12
+alignment = 1
 
-[node name="FPSCap" parent="HBoxContainer/Subscreens/General/VBoxContainer/Display" unique_id=1340079371 instance=ExtResource("25_uobkh")]
+[node name="FPSCap" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer/FPS" unique_id=1340079371 instance=ExtResource("25_uobkh")]
 layout_mode = 2
 default_value = 4
 options = Array[String](["30", "40", "50", "60", "CFG_FPS_UNLIMITED"])
 setting_section = &"General"
 setting_key = &"fps_cap"
 option_name = &"CFG_FPS_CAP"
+
+[node name="VSync" parent="HBoxContainer/Subscreens/General/VBoxContainer/VBoxContainer/FPS" unique_id=1010345803 instance=ExtResource("22_1e4vi")]
+layout_mode = 2
+default_value = true
+setting_section = &"General"
+setting_key = &"v_sync"
+option_name = &"CFG_VSYNC"
 
 [node name="HSeparator2" type="HSeparator" parent="HBoxContainer/Subscreens/General/VBoxContainer" unique_id=514819197]
 layout_mode = 2
@@ -616,6 +623,98 @@ layout_mode = 2
 mouse_filter = 2
 script = ExtResource("20_uacow")
 
+[node name="Character" type="Control" parent="HBoxContainer/Subscreens" unique_id=1072957576]
+visible = false
+layout_mode = 2
+script = ExtResource("20_uacow")
+
+[node name="Themes" type="Control" parent="HBoxContainer/Subscreens" unique_id=1941193047]
+visible = false
+layout_mode = 2
+script = ExtResource("20_uacow")
+
+[node name="Language" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=1746578122 node_paths=PackedStringArray("default_focus")]
+layout_mode = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -8
+theme_override_constants/margin_bottom = -5
+script = ExtResource("20_uacow")
+default_focus = NodePath("PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return")
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Subscreens/Language" unique_id=810694202]
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_rotation = -0.034906585
+theme_type_variation = &"BlackBarLeft"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer" unique_id=256025899]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer" unique_id=1105965353]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer" unique_id=1219035527]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=564419161]
+layout_mode = 2
+theme_override_constants/margin_right = 16
+
+[node name="Label" type="Label" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer" unique_id=2067924057]
+layout_mode = 2
+text = "LANG_DISCLAIMER"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Return" type="Button" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1056830359]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(24, 0)
+theme_type_variation = &"ButtonRed"
+text = "     LVL_RETURN"
+alignment = 0
+script = ExtResource("7_i3paj")
+direction = -1
+click_override = "BackSound"
+leading_spaces = 5
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" unique_id=888384452]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.5
+offset_right = 28.0
+offset_bottom = 24.5
+texture = ExtResource("9_07bmx")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_h2314")
+offset = Vector2(24, 0)
+
+[node name="Padding" type="Control" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1953078228]
+layout_mode = 2
+
+[node name="Languages" type="VBoxContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=642506968]
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("27_dk8cj")
+
+[node name="Storage" type="Control" parent="HBoxContainer/Subscreens" unique_id=1783706636]
+visible = false
+layout_mode = 2
+script = ExtResource("20_uacow")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1012729690]
 libraries/ = SubResource("AnimationLibrary_gdns1")
 
@@ -623,5 +722,7 @@ libraries/ = SubResource("AnimationLibrary_gdns1")
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Back" to="ExitController" method="exit"]
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/General" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [0]]
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Controls" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [1]]
+[connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Language" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [4]]
 [connection signal="exit_screen" from="HBoxContainer/Subscreens" to="ExitController" method="exit"]
-[connection signal="pressed" from="HBoxContainer/Subscreens/General/VBoxContainer/Gameplay/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
+[connection signal="pressed" from="HBoxContainer/Subscreens/General/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
+[connection signal="pressed" from="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]

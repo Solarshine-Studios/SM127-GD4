@@ -21,6 +21,7 @@ func set_option_name(new_value: StringName) -> void:
 	option_name = new_value
 	var _button: ButtonSound = %Button
 	_button.text = tr(new_value)
+	_button.initial_text = new_value
 	_button.handle_spaces()
 
 

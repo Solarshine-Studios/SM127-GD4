@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b5muj50ghdr1m"]
+
+[ext_resource type="Script" uid="uid://dt2glxojic4dl" path="res://menu/scripts/buttons/button_hover_horizontal.gd" id="1_ss4u5"]
+[ext_resource type="Texture2D" uid="uid://c332ddmrfy82c" path="res://global/assets/icons/locales/gb.svg" id="2_xhlku"]
+[ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="3_rxpxt"]
+
+[node name="Language" type="Button" unique_id=1763309841]
+auto_translate_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(24, 0)
+theme_type_variation = &"ButtonSpecial"
+text = "     English"
+alignment = 0
+script = ExtResource("1_ss4u5")
+direction = -1
+click_override = "OnSound"
+leading_spaces = 5
+
+[node name="Flag" type="TextureRect" parent="." unique_id=225413232]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.5
+offset_right = 28.0
+offset_bottom = 23.5
+texture = ExtResource("2_xhlku")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_rxpxt")
+offset = Vector2(24, 0)
