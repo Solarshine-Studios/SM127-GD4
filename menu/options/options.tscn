@@ -27,9 +27,23 @@
 [ext_resource type="PackedScene" uid="uid://ce771ljnl5m3m" path="res://menu/options/buttons/boolean_option.tscn" id="22_1e4vi"]
 [ext_resource type="PackedScene" uid="uid://7hpx7wc2jud5" path="res://menu/options/buttons/enum_option.tscn" id="25_uobkh"]
 [ext_resource type="Script" uid="uid://blnp4oh717hc2" path="res://menu/options/language/languages.gd" id="27_dk8cj"]
+[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://helpers/shaders/rotate_bricks.gdshader" id="27_dliw2"]
+[ext_resource type="Script" uid="uid://b3pqu2blyd3hx" path="res://menu/options/controls/remapper.gd" id="27_fstpk"]
+[ext_resource type="Script" uid="uid://elhofgri7hr" path="res://menu/options/controls/input_switcher.gd" id="27_ishlg"]
+[ext_resource type="Script" uid="uid://v0bc3qgofkb5" path="res://helpers/shaders/rotate_bricks.gd" id="28_h1gew"]
 [ext_resource type="Texture2D" uid="uid://dft7t2m7uj6f1" path="res://global/assets/icons/delete.svg" id="28_moey5"]
 [ext_resource type="Script" uid="uid://rexdqo850f7v" path="res://menu/options/storage/mod_manager.gd" id="28_oto5u"]
+[ext_resource type="PackedScene" uid="uid://cjft2h4dacikg" path="res://menu/options/controls/keybind.tscn" id="29_h1gew"]
 [ext_resource type="Script" uid="uid://yeh6ji1uuqae" path="res://menu/scripts/press_countdown.gd" id="29_oto5u"]
+[ext_resource type="Script" uid="uid://dbgurunwuajfb" path="res://menu/options/controls/preset_loader.gd" id="30_40nbm"]
+[ext_resource type="Script" uid="uid://wd1sqfk2d1qs" path="res://menu/scripts/smooth_scroll.gd" id="30_agyhm"]
+[ext_resource type="Script" uid="uid://bq7i0e3ur0out" path="res://menu/options/controls/preset_holder.gd" id="32_agyhm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fstpk"]
+shader = ExtResource("27_dliw2")
+shader_parameter/rotation_angle = 15.0
+shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
 length = 0.001
@@ -490,6 +504,7 @@ mouse_behavior_recursive = 1
 script = ExtResource("19_w2jst")
 
 [node name="General" type="CenterContainer" parent="HBoxContainer/Subscreens" unique_id=458286908 node_paths=PackedStringArray("default_focus")]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("20_uacow")
@@ -506,6 +521,7 @@ size_flags_vertical = 4
 theme_type_variation = &"SettingsButtonRed"
 text = "    LVL_RETURN"
 script = ExtResource("19_icm6w")
+extend_amount = 2
 click_override = "BackSound"
 leading_spaces = 4
 
@@ -620,11 +636,297 @@ setting_section = &"Audio"
 setting_key = &"sfx_volume"
 option_name = &"CFG_SFX_VOL"
 
-[node name="Controls" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=753360567]
-visible = false
+[node name="Controls" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=753360567 node_paths=PackedStringArray("default_focus")]
+custom_maximum_size = Vector2(552, -1)
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 32
 script = ExtResource("20_uacow")
+default_focus = NodePath("VBoxContainer/InputType/Return")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Controls" unique_id=1679411516]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="InputType" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer" unique_id=2002750172]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("27_ishlg")
+
+[node name="Return" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType" unique_id=887716887]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"SettingsButtonRed"
+text = "    LVL_RETURN"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "BackSound"
+leading_spaces = 4
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType/Return" unique_id=686140754]
+self_modulate = Color(0.69411767, 0.2, 0.2, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_right = 22.0
+offset_bottom = 20.0
+texture = ExtResource("9_07bmx")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_h2314")
+offset = Vector2(16, 0)
+
+[node name="Keyboard" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType" unique_id=979255316]
+layout_mode = 2
+theme_type_variation = &"SettingsButtonSelected"
+text = "CTRL_INPUT_KBM"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+
+[node name="Controller" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType" unique_id=1801107088]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_INPUT_CONTROLLER"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+
+[node name="Touch" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType" unique_id=1793276844]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_INPUT_TOUCH"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer" unique_id=931847766]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/VBoxContainer" unique_id=1476927245]
+layout_mode = 2
+text = "CTRL_INPUT_TYPE"
+horizontal_alignment = 1
+
+[node name="Padding" type="Control" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/VBoxContainer" unique_id=1947395096]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/VBoxContainer" unique_id=910957974]
+layout_mode = 2
+text = "CTRL_PRESET"
+horizontal_alignment = 1
+
+[node name="Remapper" type="TabContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer" unique_id=1458810369 node_paths=PackedStringArray("categories", "current_category")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+tab_0/title = "CTRL_CATEGORY_GAMEPLAY"
+script = ExtResource("27_fstpk")
+categories = [NodePath("Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds")]
+current_category = NodePath("Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds")
+
+[node name="Gameplay" type="PanelContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=1704769154]
+self_modulate = Color(1, 1, 1, 0.5019608)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fstpk")
+layout_mode = 2
+theme_type_variation = &"PanelPattern1"
+script = ExtResource("28_h1gew")
+metadata/_tab_index = 0
+metadata/_tab_name = "CTRL_CATEGORY_GAMEPLAY"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay" unique_id=2127360452]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+script = ExtResource("30_agyhm")
+custom_follow_focus = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer" unique_id=523801046]
+custom_maximum_size = Vector2(496, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer" unique_id=473376995]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Preset" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" unique_id=529274814]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("30_40nbm")
+category_init = &"Controls (Gameplay)"
+default_preset_path = "res://menu/options/controls/presets/default.cfg"
+default_controller_path = "res://menu/options/controls/presets/controller/default.cfg"
+
+[node name="Keyboard" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=1319122737]
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/default.cfg", "res://menu/options/controls/presets/mario63.cfg", "res://menu/options/controls/presets/wasd.cfg", "res://menu/options/controls/presets/kbmouse.cfg"])
+
+[node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Keyboard" unique_id=586246731]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_DEFAULT"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="Mario63" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Keyboard" unique_id=123249940]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_SM63"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="WASD" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Keyboard" unique_id=546391792]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_WASD"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="KBM" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Keyboard" unique_id=926594648]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_KBM"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="Controller" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=2069292695]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/controller/none.cfg", "res://menu/options/controls/presets/controller/default.cfg", "res://menu/options/controls/presets/controller/snes.cfg"])
+is_controller = true
+
+[node name="None" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=369366467]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "DATA_MOD_NONE"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=1759907936]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_DEFAULT"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="SNES" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=986871533]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_SNES"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2039477791]
+layout_mode = 2
+
+[node name="Binds" type="GridContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1605037028]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="MoveLeft" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1903731585 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_MOVE_LEFT"
+input_group = &"Controls (Gameplay)"
+input_key = &"left"
+
+[node name="MoveRight" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=632223933 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_MOVE_RIGHT"
+input_group = &"Controls (Gameplay)"
+input_key = &"right"
+
+[node name="MoveUp" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1060564784 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_MOVE_UP"
+input_group = &"Controls (Gameplay)"
+input_key = &"up"
+
+[node name="MoveDown" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=2100288921 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_MOVE_DOWN"
+input_group = &"Controls (Gameplay)"
+input_key = &"down"
+
+[node name="Jump" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1204218939 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_JUMP"
+input_group = &"Controls (Gameplay)"
+input_key = &"jump"
+
+[node name="Dive" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1685932247 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_DIVE"
+input_group = &"Controls (Gameplay)"
+input_key = &"dive"
+
+[node name="Spin" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1366433840 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_SPIN"
+input_group = &"Controls (Gameplay)"
+input_key = &"spin"
+
+[node name="Crouch" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=820303527 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_CROUCH"
+input_group = &"Controls (Gameplay)"
+input_key = &"crouch"
+
+[node name="GroundPound" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=278727511 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_GP"
+input_group = &"Controls (Gameplay)"
+input_key = &"gp"
+
+[node name="GPCancel" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1057387726 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_GP_CANCEL"
+input_group = &"Controls (Gameplay)"
+input_key = &"gpcancel"
+
+[node name="UseFludd" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=762489103 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_USE_FLUDD"
+input_group = &"Controls (Gameplay)"
+input_key = &"fludd"
+
+[node name="SwapNozzles" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=35026019 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_SWAP_NOZZLES"
+input_group = &"Controls (Gameplay)"
+input_key = &"nozzles"
+
+[node name="Interact" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1063537100 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_INTERACT"
+input_group = &"Controls (Gameplay)"
+input_key = &"interact"
 
 [node name="Character" type="Control" parent="HBoxContainer/Subscreens" unique_id=1072957576]
 visible = false
@@ -716,6 +1018,7 @@ theme_override_constants/separation = 8
 script = ExtResource("27_dk8cj")
 
 [node name="Storage" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=1022350147 node_paths=PackedStringArray("default_focus")]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 256
 theme_override_constants/margin_top = -5
@@ -790,7 +1093,6 @@ text = "     DATA_OPEN_FOLDER"
 alignment = 0
 script = ExtResource("7_i3paj")
 direction = -1
-click_override = "BackSound"
 leading_spaces = 5
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/DataFolder" unique_id=417463161]
@@ -817,7 +1119,6 @@ text = "     DATA_CLEAN_OLD"
 alignment = 0
 script = ExtResource("7_i3paj")
 direction = -1
-click_override = "BackSound"
 leading_spaces = 5
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/CleanOldData" unique_id=429158316 node_paths=PackedStringArray("countdown")]
@@ -885,6 +1186,7 @@ libraries/ = SubResource("AnimationLibrary_gdns1")
 [connection signal="pressed" from="HBoxContainer/TabButtons/Panel/VBoxContainer/Storage" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [5]]
 [connection signal="exit_screen" from="HBoxContainer/Subscreens" to="ExitController" method="exit"]
 [connection signal="pressed" from="HBoxContainer/Subscreens/General/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
+[connection signal="pressed" from="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
 [connection signal="pressed" from="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
 [connection signal="pressed" from="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
 [connection signal="pressed" from="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/DataFolder" to="HBoxContainer/Subscreens/Storage/ModManager" method="open_appdata"]

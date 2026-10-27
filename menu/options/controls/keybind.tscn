@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cjft2h4dacikg"]
+
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_7twx3"]
+[ext_resource type="Script" uid="uid://b0ktl8dsb8kn8" path="res://menu/options/controls/keybind.gd" id="2_fgv5s"]
+[ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="3_guh65"]
+[ext_resource type="Texture2D" uid="uid://b6bknw48bydot" path="res://global/assets/icons/reset_save.png" id="3_lsqhg"]
+[ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="4_guh65"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_teedc"]
+
+[node name="Keybind" type="VBoxContainer" unique_id=1903731585]
+size_flags_horizontal = 3
+theme = ExtResource("1_7twx3")
+theme_override_constants/separation = 4
+script = ExtResource("2_fgv5s")
+
+[node name="Description" type="HBoxContainer" parent="." unique_id=701656286]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Action" type="Label" parent="Description" unique_id=323519864]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CTRL_PLACEHOLDER"
+horizontal_alignment = 1
+
+[node name="Sprite" type="Control" parent="Description" unique_id=2057775367]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="Placeholder" type="TextureRect" parent="Description/Sprite" unique_id=593362450]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_teedc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1477163289]
+auto_translate_mode = 2
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=524564987]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SettingsButton"
+text = "CTRL_UNBOUND"
+text_overrun_behavior = 3
+script = ExtResource("3_guh65")
+extend_amount = 2
+
+[node name="Reset" type="Button" parent="HBoxContainer" unique_id=276043324]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button")
+theme_type_variation = &"SettingsButtonRedder"
+script = ExtResource("3_guh65")
+extend_amount = 2
+click_override = "OffSound"
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Reset" unique_id=1772247257]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 19.0
+offset_bottom = 17.0
+texture = ExtResource("3_lsqhg")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("4_guh65")
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="pressed"]

@@ -2,6 +2,7 @@ class_name MainScene
 extends Control
 
 
+@onready var backgrounds: PanelContainer = %Backgrounds
 @onready var game_container: SubViewportContainer = %GameContainer
 @onready var game_viewport: SubViewport = %GameViewport
 @export var main_subscene: PackedScene
@@ -43,9 +44,16 @@ func update_container_sizing(scale_mode: int = LocalSettings.load_setting("Gener
 	
 	var scaling_factor: float = min(scale_x, scale_y)
 	var int_scaling_factor: int = min(scale_x, scale_y)
+	var bg_scale_factor: float
 	
 	var is_integer: bool = (scale_mode == 1)
 	if is_integer and int_scaling_factor > 0:
 		game_container.custom_minimum_size = base_size * int_scaling_factor
+		bg_scale_factor = int_scaling_factor
 	else:
 		game_container.custom_minimum_size = base_size * scaling_factor
+		bg_scale_factor = scaling_factor
+	
+	backgrounds.scale = Vector2.ONE * bg_scale_factor
+	backgrounds.anchor_right = 1.0 / bg_scale_factor
+	backgrounds.anchor_bottom = 1.0 / bg_scale_factor

@@ -32,9 +32,9 @@ func _ready() -> void:
 	get_popup().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	
 	if hover_override != "":
-		hover_sound = get_parent().get_node("%" + hover_override)
+		hover_sound = get_parent().owner.get_node("%" + hover_override)
 	if click_override != "":
-		click_sound = get_parent().get_node("%" + click_override)
+		click_sound = get_parent().owner.get_node("%" + click_override)
 	
 	item_selected.connect(on_item_pressed)
 	item_focused.connect(on_item_focus_entered)

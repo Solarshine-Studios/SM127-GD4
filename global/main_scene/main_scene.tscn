@@ -2,6 +2,47 @@
 
 [ext_resource type="Script" uid="uid://dslmj5e1et4tu" path="res://global/main_scene/main_scene.gd" id="1_ej72x"]
 [ext_resource type="PackedScene" uid="uid://ci7i0egnb0xae" path="res://menu/menu_controller/menu_controller.tscn" id="2_ceox2"]
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="3_gtbag"]
+[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://helpers/shaders/rotate_bricks.gdshader" id="4_x7ffo"]
+[ext_resource type="Script" uid="uid://v0bc3qgofkb5" path="res://helpers/shaders/rotate_bricks.gd" id="5_0o7gc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teedc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_teedc"]
+blend_mode = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtbag"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6t101"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_gtbag"]
+colors = PackedColorArray(1, 1, 1, 0.0627451, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_teedc"]
+gradient = SubResource("Gradient_gtbag")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7ffo"]
+shader = ExtResource("4_x7ffo")
+shader_parameter/rotation_angle = 15.0000007125
+shader_parameter/control_size = Vector2(768, 432)
+shader_parameter/tile_size = Vector2(24, 24)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teedc"]
+bg_color = Color(0, 0, 0, 0.2509804)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 0)
+border_blend = true
 
 [node name="MainScene" type="Control" unique_id=106067217 groups=["main_scene"]]
 layout_mode = 3
@@ -10,10 +51,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_gtbag")
 script = ExtResource("1_ej72x")
 main_subscene = ExtResource("2_ceox2")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1806084537]
+[node name="Black" type="ColorRect" parent="." unique_id=1547594348]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +64,42 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1634919566]
+[node name="Backgrounds" type="PanelContainer" parent="." unique_id=1579820672]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_teedc")
+
+[node name="BGBricks" type="PanelContainer" parent="Backgrounds" unique_id=1029607596]
+material = SubResource("CanvasItemMaterial_teedc")
+use_parent_material = true
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gtbag")
+
+[node name="Color" type="ColorRect" parent="Backgrounds/BGBricks" unique_id=1260065607]
+show_behind_parent = true
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gradient" type="TextureRect" parent="Backgrounds/BGBricks" unique_id=899648735]
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_6t101")
+layout_mode = 2
+texture = SubResource("GradientTexture2D_teedc")
+
+[node name="Bricks" type="PanelContainer" parent="Backgrounds/BGBricks" unique_id=522562005]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_x7ffo")
+layout_mode = 2
+theme_type_variation = &"PanelPattern1"
+script = ExtResource("5_0o7gc")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2027903413]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,14 +107,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameContainer" type="SubViewportContainer" parent="CenterContainer" unique_id=72145495]
+[node name="Shadow" type="PanelContainer" parent="CenterContainer" unique_id=1407948409]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_teedc")
+
+[node name="GameContainer" type="SubViewportContainer" parent="CenterContainer/Shadow" unique_id=72145495]
 unique_name_in_owner = true
 texture_filter = 2
 custom_minimum_size = Vector2(2, 2)
 layout_mode = 2
 stretch = true
 
-[node name="GameViewport" type="SubViewport" parent="CenterContainer/GameContainer" unique_id=2010178822]
+[node name="GameViewport" type="SubViewport" parent="CenterContainer/Shadow/GameContainer" unique_id=2010178822]
 unique_name_in_owner = true
 handle_input_locally = false
 msaa_2d = 2

@@ -31,9 +31,9 @@ func _ready() -> void:
 	initial_text = text
 	
 	if hover_override != "":
-		hover_sound = get_parent().get_node("%" + hover_override)
+		hover_sound = get_parent().owner.get_node("%" + hover_override)
 	if click_override != "":
-		click_sound = get_parent().get_node("%" + click_override)
+		click_sound = get_parent().owner.get_node("%" + click_override)
 	
 	focus_entered.connect(on_focus_entered)
 	focus_exited.connect(on_focus_exited)
