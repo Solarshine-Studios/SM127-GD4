@@ -1,4 +1,3 @@
-@tool
 class_name KeybindButton
 extends VBoxContainer
 
@@ -55,7 +54,7 @@ func change_button_text(new_text: String = "") -> void:
 	if new_text == "": 
 		new_text = return_default_text()
 	
-	if force_ctrl and new_text != UNBOUND_TEXT and new_text != remapper.INPUT_WAIT_TEXT and not is_controller:
+	if force_ctrl and new_text != tr(UNBOUND_TEXT) and new_text != remapper.INPUT_WAIT_TEXT and not is_controller:
 		button.text = CTRL_PREFIX + new_text
 	else:
 		button.text = new_text

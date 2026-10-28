@@ -90,11 +90,12 @@ enabled=PackedStringArray("res://addons/sync_spreadsheets/plugin.cfg")
 
 folder_colors={
 "res://editor/": "yellow",
-"res://generation/": "pink",
+"res://generation/": "green",
 "res://global/": "purple",
 "res://helpers/": "gray",
 "res://level/": "teal",
-"res://menu/": "blue"
+"res://menu/": "blue",
+"res://translations/": "pink"
 }
 
 [global_group]
@@ -116,7 +117,7 @@ skip_count={
 [internationalization]
 
 rendering/root_node_layout_direction=1
-locale/translations=PackedStringArray("res://global/translations/translations.en.translation", "res://global/translations/translations.es.translation", "res://global/translations/translations.it.translation", "res://global/translations/translations.nl.translation", "res://global/translations/translations.sv.translation", "res://global/translations/translations.ar.translation")
+locale/translations=PackedStringArray("res://translations/translations.en.translation", "res://translations/translations.es.translation", "res://translations/translations.it.translation", "res://translations/translations.de.translation", "res://translations/translations.nl.translation", "res://translations/translations.sv.translation", "res://translations/translations.ar.translation")
 
 [physics]
 

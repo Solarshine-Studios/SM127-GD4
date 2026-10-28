@@ -30,19 +30,19 @@
 [ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://helpers/shaders/rotate_bricks.gdshader" id="27_dliw2"]
 [ext_resource type="Script" uid="uid://b3pqu2blyd3hx" path="res://menu/options/controls/remapper.gd" id="27_fstpk"]
 [ext_resource type="Script" uid="uid://elhofgri7hr" path="res://menu/options/controls/input_switcher.gd" id="27_ishlg"]
-[ext_resource type="Script" uid="uid://v0bc3qgofkb5" path="res://helpers/shaders/rotate_bricks.gd" id="28_h1gew"]
 [ext_resource type="Texture2D" uid="uid://dft7t2m7uj6f1" path="res://global/assets/icons/delete.svg" id="28_moey5"]
 [ext_resource type="Script" uid="uid://rexdqo850f7v" path="res://menu/options/storage/mod_manager.gd" id="28_oto5u"]
 [ext_resource type="PackedScene" uid="uid://cjft2h4dacikg" path="res://menu/options/controls/keybind.tscn" id="29_h1gew"]
 [ext_resource type="Script" uid="uid://yeh6ji1uuqae" path="res://menu/scripts/press_countdown.gd" id="29_oto5u"]
+[ext_resource type="PackedScene" uid="uid://c4q2p2au8imsf" path="res://menu/options/controls/category.tscn" id="29_yh3v6"]
 [ext_resource type="Script" uid="uid://dbgurunwuajfb" path="res://menu/options/controls/preset_loader.gd" id="30_40nbm"]
 [ext_resource type="Script" uid="uid://wd1sqfk2d1qs" path="res://menu/scripts/smooth_scroll.gd" id="30_agyhm"]
 [ext_resource type="Script" uid="uid://bq7i0e3ur0out" path="res://menu/options/controls/preset_holder.gd" id="32_agyhm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fstpk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_agyhm"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/control_size = Vector2(284, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
@@ -651,11 +651,12 @@ default_focus = NodePath("VBoxContainer/InputType/Return")
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="InputType" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer" unique_id=2002750172]
+[node name="InputType" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer" unique_id=2002750172 node_paths=PackedStringArray("preset_loaders")]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 script = ExtResource("27_ishlg")
+preset_loaders = [NodePath("../Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset"), NodePath("../Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Preset"), NodePath("../Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Preset"), NodePath("../Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Preset")]
 
 [node name="Return" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType" unique_id=887716887]
 layout_mode = 2
@@ -724,44 +725,29 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 tab_0/title = "CTRL_CATEGORY_GAMEPLAY"
+tab_1/title = "CTRL_CATEGORY_INTERFACE"
+tab_2/title = "CTRL_CATEGORY_HOTKEYS"
+tab_3/title = "CTRL_CATEGORY_EDITOR"
 script = ExtResource("27_fstpk")
-categories = [NodePath("Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds")]
+categories = [NodePath("Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds"), NodePath("Interface/ScrollContainer/MarginContainer/VBoxContainer/Binds"), NodePath("Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds"), NodePath("Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds")]
 current_category = NodePath("Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds")
 
-[node name="Gameplay" type="PanelContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=1704769154]
-self_modulate = Color(1, 1, 1, 0.5019608)
-texture_repeat = 2
-material = SubResource("ShaderMaterial_fstpk")
+[node name="Gameplay" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=194472654 instance=ExtResource("29_yh3v6")]
+visible = false
 layout_mode = 2
-theme_type_variation = &"PanelPattern1"
-script = ExtResource("28_h1gew")
-metadata/_tab_index = 0
-metadata/_tab_name = "CTRL_CATEGORY_GAMEPLAY"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay" unique_id=2127360452]
+[node name="Rumble" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(194472654, 794094425) index="0" unique_id=704202981 instance=ExtResource("22_1e4vi")]
+unique_name_in_owner = true
 layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 4
-script = ExtResource("30_agyhm")
-custom_follow_focus = true
+size_flags_horizontal = 4
+default_value = true
+setting_section = &"Controls (Gameplay) (Controller)"
+setting_key = &"rumble"
+option_name = &"CFG_RUMBLE"
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer" unique_id=523801046]
-custom_maximum_size = Vector2(496, -1)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer" unique_id=473376995]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Preset" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" unique_id=529274814]
+[node name="Preset" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(194472654, 794094425) index="1" unique_id=529274814]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 16
@@ -819,6 +805,7 @@ is_controller = true
 
 [node name="None" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=369366467]
 layout_mode = 2
+focus_neighbor_right = NodePath("../Default")
 theme_type_variation = &"SettingsButton"
 text = "DATA_MOD_NONE"
 script = ExtResource("19_icm6w")
@@ -827,6 +814,8 @@ click_override = "OnSound"
 
 [node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=1759907936]
 layout_mode = 2
+focus_neighbor_left = NodePath("../None")
+focus_neighbor_right = NodePath("../SNES")
 theme_type_variation = &"SettingsButton"
 text = "CTRL_PRESET_DEFAULT"
 script = ExtResource("19_icm6w")
@@ -835,16 +824,17 @@ click_override = "OnSound"
 
 [node name="SNES" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=986871533]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Default")
 theme_type_variation = &"SettingsButton"
 text = "CTRL_PRESET_SNES"
 script = ExtResource("19_icm6w")
 extend_amount = 2
 click_override = "OnSound"
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2039477791]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(194472654, 794094425) index="2" unique_id=2039477791]
 layout_mode = 2
 
-[node name="Binds" type="GridContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1605037028]
+[node name="Binds" type="GridContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(194472654, 794094425) index="3" unique_id=1605037028]
 layout_mode = 2
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 16
@@ -928,6 +918,532 @@ option_name = &"CTRL_INTERACT"
 input_group = &"Controls (Gameplay)"
 input_key = &"interact"
 
+[node name="Interface" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=984768914 instance=ExtResource("29_yh3v6")]
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "CTRL_CATEGORY_INTERFACE"
+
+[node name="Preset" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(984768914, 794094425) index="0" unique_id=1588031823]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("30_40nbm")
+category_init = &"Controls (Interface)"
+default_preset_path = "res://menu/options/controls/presets/interface.cfg"
+default_controller_path = "res://menu/options/controls/presets/controller/interface.cfg"
+
+[node name="Keyboard" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=437171520]
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/interface.cfg"])
+
+[node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Preset/Keyboard" unique_id=1162552530]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_RESET"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="Controller" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=893703261]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/controller/interface.cfg", "res://menu/options/controls/presets/controller/interface_nintendo.cfg"])
+is_controller = true
+
+[node name="Xbox" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=198454831]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_INTERFACE_XBOX"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="Nintendo" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=1736468586]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_INTERFACE_NINTENDO"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(984768914, 794094425) index="1" unique_id=806587913]
+layout_mode = 2
+
+[node name="Binds" type="GridContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(984768914, 794094425) index="2" unique_id=631638811]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="UILeft" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=585594349 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_UI_LEFT"
+input_group = &"Controls (Interface)"
+input_key = &"ui_left"
+sprite_visible = false
+
+[node name="UIRight" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1265732890 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_UI_RIGHT"
+input_group = &"Controls (Interface)"
+input_key = &"ui_right"
+sprite_visible = false
+
+[node name="UIUp" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1211793901 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_UI_UP"
+input_group = &"Controls (Interface)"
+input_key = &"ui_up"
+sprite_visible = false
+
+[node name="UIDown" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1308404067 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_UI_DOWN"
+input_group = &"Controls (Interface)"
+input_key = &"ui_down"
+sprite_visible = false
+
+[node name="UIAccept" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1013869163 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_UI_ACCEPT"
+input_group = &"Controls (Interface)"
+input_key = &"ui_accept"
+sprite_visible = false
+
+[node name="UIBack" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1012002258 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_UI_BACK"
+input_group = &"Controls (Interface)"
+input_key = &"ui_cancel"
+sprite_visible = false
+
+[node name="Hotkeys" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=844771824 instance=ExtResource("29_yh3v6")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "CTRL_CATEGORY_HOTKEYS"
+
+[node name="Preset" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(844771824, 794094425) index="0" unique_id=1937538696]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("30_40nbm")
+category_init = &"Controls (Hotkeys)"
+default_preset_path = "res://menu/options/controls/presets/hotkeys.cfg"
+default_controller_path = "res://menu/options/controls/presets/controller/hotkeys.cfg"
+
+[node name="Keyboard" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=1855518598]
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/hotkeys.cfg"])
+
+[node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Preset/Keyboard" unique_id=1552444039]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_RESET"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="Controller" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=451689878]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/controller/hotkeys.cfg"])
+is_controller = true
+
+[node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=872701453]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_RESET"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(844771824, 794094425) index="1" unique_id=1042243246]
+layout_mode = 2
+
+[node name="Binds" type="GridContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(844771824, 794094425) index="2" unique_id=1863968147]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="Pause" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=710895298 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_PAUSE"
+input_group = &"Controls (Hotkeys)"
+input_key = &"pause"
+sprite_visible = false
+
+[node name="MuteMusic" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1395588550 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_MUTE_MUSIC"
+input_group = &"Controls (Hotkeys)"
+input_key = &"mute"
+sprite_visible = false
+
+[node name="HideUI" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=183861891 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_HIDE_UI"
+input_group = &"Controls (Hotkeys)"
+input_key = &"toggle_ui"
+sprite_visible = false
+
+[node name="PhotoMode" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1025349304 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_PHOTO_MODE"
+input_group = &"Controls (Hotkeys)"
+input_key = &"photo_mode"
+sprite_visible = false
+
+[node name="Retry" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=561786648 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_RETRY"
+input_group = &"Controls (Hotkeys)"
+input_key = &"reload"
+sprite_visible = false
+
+[node name="RetryStart" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1160789399 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_RETRY_START"
+input_group = &"Controls (Hotkeys)"
+input_key = &"reload_from_start"
+sprite_visible = false
+
+[node name="VolumeDown" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1844368668 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_VOL_DOWN"
+input_group = &"Controls (Hotkeys)"
+input_key = &"volume_down"
+sprite_visible = false
+
+[node name="VolumeUp" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=168986430 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_VOL_UP"
+input_group = &"Controls (Hotkeys)"
+input_key = &"volume_up"
+sprite_visible = false
+
+[node name="Fullscreen" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=60307425 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_FULLSCREEN"
+input_group = &"Controls (Hotkeys)"
+input_key = &"fullscreen"
+sprite_visible = false
+
+[node name="Editor" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=1216205327 instance=ExtResource("29_yh3v6")]
+visible = false
+material = SubResource("ShaderMaterial_agyhm")
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = "CTRL_CATEGORY_EDITOR"
+
+[node name="Preset" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1216205327, 794094425) index="0" unique_id=1403254639]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("30_40nbm")
+category_init = &"Controls (Editor)"
+default_preset_path = "res://menu/options/controls/presets/editor.cfg"
+default_controller_path = "res://menu/options/controls/presets/controller/editor.cfg"
+
+[node name="Keyboard" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=2078562455]
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/editor.cfg"])
+
+[node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Preset/Keyboard" unique_id=238942434]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_RESET"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="Controller" type="HBoxContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Preset" unique_id=133066838]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("32_agyhm")
+preset_paths = Array[String](["res://menu/options/controls/presets/controller/editor.cfg"])
+is_controller = true
+
+[node name="Default" type="Button" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Preset/Controller" unique_id=1055148411]
+layout_mode = 2
+theme_type_variation = &"SettingsButton"
+text = "CTRL_PRESET_RESET"
+script = ExtResource("19_icm6w")
+extend_amount = 2
+click_override = "OnSound"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1216205327, 794094425) index="1" unique_id=49084356]
+layout_mode = 2
+
+[node name="Binds" type="GridContainer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1216205327, 794094425) index="2" unique_id=1850298426]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="ZoomIn" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=995606296 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_ZOOM_IN"
+input_group = &"Controls (Editor)"
+input_key = &"zoom_in"
+sprite_visible = false
+
+[node name="ZoomOut" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=2035517508 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_ZOOM_OUT"
+input_group = &"Controls (Editor)"
+input_key = &"zoom_out"
+sprite_visible = false
+
+[node name="FastCamera" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=549995386 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_FAST_CAMERA"
+input_group = &"Controls (Editor)"
+input_key = &"speed_up_camera"
+sprite_visible = false
+
+[node name="TestLevel" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=563049069 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_TEST_LEVEL"
+input_group = &"Controls (Editor)"
+input_key = &"switch_modes"
+sprite_visible = false
+
+[node name="FocusLayer" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1466708057 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_FOCUS_LAYER"
+input_group = &"Controls (Editor)"
+input_key = &"layer_focus"
+sprite_visible = false
+
+[node name="PickFocusedItem" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=924661933 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_PICK_ITEM"
+input_group = &"Controls (Editor)"
+input_key = &"pick_focused_item"
+sprite_visible = false
+
+[node name="LastObject" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1952478332 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_LAST_OBJECT"
+input_group = &"Controls (Editor)"
+input_key = &"last_object"
+sprite_visible = false
+
+[node name="LastTile" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1364043344 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_LAST_TILE"
+input_group = &"Controls (Editor)"
+input_key = &"last_tile"
+sprite_visible = false
+
+[node name="Copy" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1202994344 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_COPY"
+input_group = &"Controls (Editor)"
+input_key = &"copy_selection"
+force_ctrl = true
+sprite_visible = false
+
+[node name="Cut" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=2001579805 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_CUT"
+input_group = &"Controls (Editor)"
+input_key = &"cut_selection"
+force_ctrl = true
+sprite_visible = false
+
+[node name="Paste" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1978642180 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_PASTE"
+input_group = &"Controls (Editor)"
+input_key = &"paste_clipboard"
+force_ctrl = true
+sprite_visible = false
+
+[node name="Delete" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1390536950 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_DELETE"
+input_group = &"Controls (Editor)"
+input_key = &"delete_selection"
+sprite_visible = false
+
+[node name="Undo" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1941536222 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_UNDO"
+input_group = &"Controls (Editor)"
+input_key = &"undo_action"
+force_ctrl = true
+sprite_visible = false
+
+[node name="Redo" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=601909308 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_REDO"
+input_group = &"Controls (Editor)"
+input_key = &"redo_action"
+force_ctrl = true
+sprite_visible = false
+
+[node name="Save" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1705829230 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_SAVE"
+input_group = &"Controls (Editor)"
+input_key = &"save_level"
+force_ctrl = true
+sprite_visible = false
+
+[node name="8PixelLock" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1708777675 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_PIXEL_LOCK"
+input_group = &"Controls (Editor)"
+input_key = &"8_pixel_lock"
+sprite_visible = false
+
+[node name="ShowOptions" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=760707812 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_SHOW_OPTIONS"
+input_group = &"Controls (Editor)"
+input_key = &"show_options"
+sprite_visible = false
+
+[node name="ToggleGrid" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1468096402 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_TOGGLE_GRID"
+input_group = &"Controls (Editor)"
+input_key = &"grid_toggle"
+sprite_visible = false
+
+[node name="LayerMenu" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1808804606 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_LAYER_MENU"
+input_group = &"Controls (Editor)"
+input_key = &"layer_menu"
+sprite_visible = false
+
+[node name="ItemPicker" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1767124539 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_ITEM_PICKER"
+input_group = &"Controls (Editor)"
+input_key = &"item_picker"
+sprite_visible = false
+
+[node name="ChoosePalette" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1663983896 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_CHOOSE_PALETTE"
+input_group = &"Controls (Editor)"
+input_key = &"choose_palette"
+sprite_visible = false
+
+[node name="RotateObject" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=147148231 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_ROTATE_OBJECT"
+input_group = &"Controls (Editor)"
+input_key = &"rotate_object"
+sprite_visible = false
+
+[node name="ScaleObject" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=341157256 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_SCALE_OBJECT"
+input_group = &"Controls (Editor)"
+input_key = &"scale_object"
+sprite_visible = false
+
+[node name="ToggleTangible" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=590257688 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_TOGGLE_TANGIBLE"
+input_group = &"Controls (Editor)"
+input_key = &"toggle_tangible"
+sprite_visible = false
+
+[node name="ToggleFunctional" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=610002632 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_TOGGLE_FUNCTIONAL"
+input_group = &"Controls (Editor)"
+input_key = &"toggle_functional"
+sprite_visible = false
+
+[node name="ToggleEraser" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=2128843644 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_TOGGLE_ERASER"
+input_group = &"Controls (Editor)"
+input_key = &"toggle_eraser"
+sprite_visible = false
+
+[node name="PenTool" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=333657266 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_PEN_TOOL"
+input_group = &"Controls (Editor)"
+input_key = &"pen_tool"
+sprite_visible = false
+
+[node name="MoveTool" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1233064088 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_MOVE_TOOL"
+input_group = &"Controls (Editor)"
+input_key = &"move_tool"
+sprite_visible = false
+
+[node name="PaintTool" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1903232785 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_PAINT_TOOL"
+input_group = &"Controls (Editor)"
+input_key = &"paint_tool"
+sprite_visible = false
+
+[node name="SelectionTool" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=666407686 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_SELECTION_TOOL"
+input_group = &"Controls (Editor)"
+input_key = &"selection_tool"
+sprite_visible = false
+
+[node name="FillTool" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=1469473407 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_FILL_TOOL"
+input_group = &"Controls (Editor)"
+input_key = &"fill_tool"
+sprite_visible = false
+
+[node name="DrawRectTool" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=492628157 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_DRAW_RECT_TOOL"
+input_group = &"Controls (Editor)"
+input_key = &"rect_fill_tool"
+sprite_visible = false
+
+[node name="FlipObjectH" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=128109458 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_FLIP_H"
+input_group = &"Controls (Editor)"
+input_key = &"mirror_h"
+sprite_visible = false
+
+[node name="FlipObjectV" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=397939601 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_FLIP_V"
+input_group = &"Controls (Editor)"
+input_key = &"mirror_v"
+sprite_visible = false
+
+[node name="HideHotbar" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor/ScrollContainer/MarginContainer/VBoxContainer/Binds" unique_id=210154442 instance=ExtResource("29_h1gew")]
+layout_mode = 2
+option_name = &"CTRL_HIDE_HOTBAR"
+input_group = &"Controls (Editor)"
+input_key = &"hide_hotbar"
+sprite_visible = false
+
 [node name="Character" type="Control" parent="HBoxContainer/Subscreens" unique_id=1072957576]
 visible = false
 layout_mode = 2
@@ -939,7 +1455,6 @@ layout_mode = 2
 script = ExtResource("20_uacow")
 
 [node name="Language" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=1746578122 node_paths=PackedStringArray("default_focus")]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 256
 theme_override_constants/margin_top = -5
@@ -959,14 +1474,13 @@ theme_type_variation = &"BlackBarLeft"
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer" unique_id=256025899]
 layout_mode = 2
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_bottom = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer" unique_id=1105965353]
 layout_mode = 2
-follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
+script = ExtResource("30_agyhm")
+custom_follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer" unique_id=1219035527]
 layout_mode = 2
@@ -976,6 +1490,7 @@ theme_override_constants/separation = 16
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=564419161]
 layout_mode = 2
+theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 16
 
 [node name="Label" type="Label" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer" unique_id=2067924057]
@@ -1017,6 +1532,10 @@ layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("27_dk8cj")
 
+[node name="Padding2" type="Control" parent="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1646880223]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
 [node name="Storage" type="MarginContainer" parent="HBoxContainer/Subscreens" unique_id=1022350147 node_paths=PackedStringArray("default_focus")]
 visible = false
 layout_mode = 2
@@ -1046,9 +1565,10 @@ theme_override_constants/margin_bottom = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer" unique_id=204529489]
 layout_mode = 2
-follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
+script = ExtResource("30_agyhm")
+custom_follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer" unique_id=1283003989]
 layout_mode = 2
@@ -1190,3 +1710,8 @@ libraries/ = SubResource("AnimationLibrary_gdns1")
 [connection signal="pressed" from="HBoxContainer/Subscreens/Language/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
 [connection signal="pressed" from="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/Return" to="HBoxContainer/Subscreens" method="change_subscreen" binds= [-1]]
 [connection signal="pressed" from="HBoxContainer/Subscreens/Storage/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer/DataFolder" to="HBoxContainer/Subscreens/Storage/ModManager" method="open_appdata"]
+
+[editable path="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay"]
+[editable path="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Interface"]
+[editable path="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Hotkeys"]
+[editable path="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Editor"]

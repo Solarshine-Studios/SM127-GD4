@@ -2,8 +2,8 @@ extends ScrollContainer
 
 
 const SNAP_THRESHOLD: float = 0.1
-const LERP_THRESHOLD: float = 8.0
-@export var lerp_speed: float = 18
+const LERP_THRESHOLD: float = 4.0
+@export var lerp_speed: float = 12
 
 var target_scroll: float = -1.0
 var last_scroll: float = 0.0

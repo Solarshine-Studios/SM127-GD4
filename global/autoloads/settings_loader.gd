@@ -15,7 +15,7 @@ func _ready() -> void:
 			load_category(category, config)
 	
 	if config.has_section_key("Controls (Player 1)", "rumble"):
-		change_setting("rumble", LocalSettings.load_setting("Controls (Player 1)", "rumble", true))
+		change_setting("rumble", LocalSettings.load_setting("Controls (Gameplay)", "rumble", true))
 	
 	# we can initialize this here for now i suppose
 	if not config.has_section_key("Header", "game_version"):
@@ -66,7 +66,6 @@ func change_setting(key: String, new_value: Variant) -> void:
 					get_window().borderless = true
 				2:
 					get_window().mode = Window.MODE_FULLSCREEN
-					get_window().borderless = true
 		
 		"scale_mode":
 			var main_scene: MainScene = get_tree().get_first_node_in_group("main_scene")
@@ -102,8 +101,7 @@ var last_non_muted_bgm: float = 70.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("fullscreen"):
-		print("Please implement the fullscreen hotkey!")
-		#LocalSettings.change_setting("General", "window_scale", 3 if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN else last_non_full_scale)
+		LocalSettings.change_setting("General", "window_mode", 2 if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN else 0)
 	
 	var current_scene: Node = get_tree().current_scene
 	if current_scene is not Editor:

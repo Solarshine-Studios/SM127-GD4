@@ -15,17 +15,17 @@ func _ready() -> void:
 	# exist in the config file yet
 	if not LocalSettings.config.has_section(category_init):
 		print(category_init + " doesn't exist, loading preset")
-		load_preset(default_preset_path, false, category_init)
+		load_preset(default_preset_path, false)
 	
 	var controller_category: String = (category_init + InputSettingsHelper.get_group_suffix(true))
 	if not LocalSettings.config.has_section(controller_category):
 		print(controller_category + " doesn't exist, loading preset")
-		load_preset(default_controller_path, true, category_init)
+		load_preset(default_controller_path, true)
 		
 	loading_defaults = false
 
 
-func load_preset(preset_path: String, is_controller: bool = false, category: String = "") -> void:
+func load_preset(preset_path: String, is_controller: bool = false) -> void:
 	var config: ConfigFile = ConfigFile.new()
 	
 	var err: Error = config.load(preset_path)
@@ -33,16 +33,12 @@ func load_preset(preset_path: String, is_controller: bool = false, category: Str
 		printerr("Error loading config file!")
 		return
 	
-	if category == "":
-		var first_button: KeybindButton = remapper.current_category.get_child(0)
-		category = first_button.input_group
-	
 	for key: String in config.get_section_keys("Preset"):
 		var value: Variant = config.get_value("Preset", key, [])
 		if value is Array:
-			InputSettingsHelper.change_setting(category, key, value, is_controller)
+			InputSettingsHelper.change_setting(category_init, key, value, is_controller)
 		else:
-			LocalSettings.change_setting(category + InputSettingsHelper.get_group_suffix(is_controller), key, value)
+			LocalSettings.change_setting(category_init + InputSettingsHelper.get_group_suffix(is_controller), key, value)
 	
 	# we load defaults on ready, which is before
 	# remapper loads; and this line causes errors then

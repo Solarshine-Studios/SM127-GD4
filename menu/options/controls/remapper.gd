@@ -1,5 +1,5 @@
 class_name Remapper
-extends Container
+extends TabContainerSound
 
 const INPUT_WAIT_TEXT: String = "CTRL_WAITING"
 
@@ -11,6 +11,7 @@ var is_controller: bool = false
 
 
 func _ready() -> void:
+	super()
 	is_controller = LastInputDevice.last_input_type == LastInputDevice.InputType.Controller
 	load_all_keybinds()
 

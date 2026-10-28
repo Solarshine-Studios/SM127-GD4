@@ -4,6 +4,8 @@ extends Control
 
 
 func _ready() -> void:
+	if is_instance_valid(material):
+		material = material.duplicate()
 	resized()
 
 func _notification(what: int) -> void:
