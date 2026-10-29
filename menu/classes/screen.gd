@@ -10,6 +10,13 @@ signal screen_change(new_screen_name: String)
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
+func _ready() -> void:
+	# it's often preset to make previews easier,
+	# but the theme should be set by the menu controller
+	# to make custom themes quick and easy to code
+	theme = null
+
+
 func transition(new_screen_name: String) -> void:
 	if is_instance_valid(get_viewport().gui_get_focus_owner()): 
 		get_viewport().gui_get_focus_owner().release_focus()

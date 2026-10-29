@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://piapcle7vsnp" path="res://global/assets/misc/grabber.svg" id="1_rqdkg"]
 [ext_resource type="Texture2D" uid="uid://bg5jm8kxcenf3" path="res://global/assets/misc/grabber_highlight.svg" id="2_8uv2w"]
 [ext_resource type="Texture2D" uid="uid://1484lhmfmjns" path="res://global/assets/icons/CheckUnchecked.svg" id="2_vo4cw"]
+[ext_resource type="FontFile" uid="uid://fdvddh12npag" path="res://global/assets/fonts/MARIO_Font_v3_Solid.otf" id="3_jffts"]
 [ext_resource type="Texture2D" uid="uid://bwd0ejh21x5vy" path="res://global/assets/misc/bricks.svg" id="5_4v75m"]
 [ext_resource type="Texture2D" uid="uid://dlkjuunc2plt2" path="res://global/assets/icons/CircleSelected.svg" id="5_houot"]
 [ext_resource type="Texture2D" uid="uid://d0maeihm5dogm" path="res://global/assets/icons/CircleUnselected.svg" id="6_4v75m"]
@@ -200,6 +201,20 @@ modulate_color = Color(0.68235296, 0.68235296, 0.68235296, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6t101"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_grcvg"]
+
+[sub_resource type="Gradient" id="Gradient_jffts"]
+colors = PackedColorArray(0, 0, 0, 0.7529412, 0, 0, 0, 0.47058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8f8qi"]
+gradient = SubResource("Gradient_jffts")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5wcc"]
+texture = SubResource("GradientTexture2D_8f8qi")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmrqs"]
 bg_color = Color(1, 1, 1, 1)
@@ -671,6 +686,18 @@ CheckButton/icons/unchecked = ExtResource("2_vo4cw")
 CheckButton/styles/disabled = SubResource("StyleBoxEmpty_teedc")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_6t101")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_grcvg")
+CreditsDim/base_type = &"PanelContainer"
+CreditsDim/styles/panel = SubResource("StyleBoxTexture_f5wcc")
+CreditsHeader/base_type = &"RichTextLabel"
+CreditsHeader/colors/default_color = Color(1, 1, 0.627451, 1)
+CreditsHeader/colors/font_shadow_color = Color(0, 0, 0, 1)
+CreditsHeader/constants/outline_size = 8
+CreditsHeader/constants/paragraph_separation = 6
+CreditsHeader/constants/shadow_offset_x = 0
+CreditsHeader/constants/shadow_offset_y = 2
+CreditsHeader/constants/shadow_outline_size = 8
+CreditsHeader/font_sizes/normal_font_size = 18
+CreditsHeader/fonts/normal_font = ExtResource("3_jffts")
 GridContainer/constants/h_separation = 0
 GridContainer/constants/v_separation = 0
 HBoxContainer/constants/separation = 0
@@ -799,6 +826,15 @@ TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_73iiu")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_hpgpa")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_1dyra")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_n7ejs")
+TitleText/base_type = &"RichTextLabel"
+TitleText/colors/font_shadow_color = Color(0, 0, 0, 1)
+TitleText/constants/outline_size = 8
+TitleText/constants/paragraph_separation = 4
+TitleText/constants/shadow_offset_x = 0
+TitleText/constants/shadow_offset_y = 4
+TitleText/constants/shadow_outline_size = 9
+TitleText/font_sizes/normal_font_size = 22
+TitleText/fonts/normal_font = ExtResource("3_jffts")
 VBoxContainer/constants/separation = 0
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_wmrqs")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0i1vp")

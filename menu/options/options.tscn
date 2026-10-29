@@ -39,10 +39,28 @@
 [ext_resource type="Script" uid="uid://wd1sqfk2d1qs" path="res://menu/scripts/smooth_scroll.gd" id="30_agyhm"]
 [ext_resource type="Script" uid="uid://bq7i0e3ur0out" path="res://menu/options/controls/preset_holder.gd" id="32_agyhm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_agyhm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ishlg"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(284, 0)
+shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/tile_size = Vector2(24, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gx25d"]
+shader = ExtResource("27_dliw2")
+shader_parameter/rotation_angle = 15.0
+shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/tile_size = Vector2(24, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aty68"]
+shader = ExtResource("27_dliw2")
+shader_parameter/rotation_angle = 15.0
+shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/tile_size = Vector2(24, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4e873"]
+shader = ExtResource("27_dliw2")
+shader_parameter/rotation_angle = 15.0
+shader_parameter/control_size = Vector2(496, 300)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
@@ -725,7 +743,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 tab_0/title = "CTRL_CATEGORY_GAMEPLAY"
 tab_1/title = "CTRL_CATEGORY_INTERFACE"
 tab_2/title = "CTRL_CATEGORY_HOTKEYS"
@@ -735,7 +753,7 @@ categories = [NodePath("Gameplay/ScrollContainer/MarginContainer/VBoxContainer/B
 current_category = NodePath("Gameplay/ScrollContainer/MarginContainer/VBoxContainer/Binds")
 
 [node name="Gameplay" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=194472654 instance=ExtResource("29_yh3v6")]
-visible = false
+material = SubResource("ShaderMaterial_ishlg")
 layout_mode = 2
 
 [node name="Rumble" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper/Gameplay/ScrollContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(194472654, 794094425) index="0" unique_id=704202981 instance=ExtResource("22_1e4vi")]
@@ -919,6 +937,8 @@ input_group = &"Controls (Gameplay)"
 input_key = &"interact"
 
 [node name="Interface" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=984768914 instance=ExtResource("29_yh3v6")]
+visible = false
+material = SubResource("ShaderMaterial_gx25d")
 layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = "CTRL_CATEGORY_INTERFACE"
@@ -1023,6 +1043,7 @@ sprite_visible = false
 
 [node name="Hotkeys" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=844771824 instance=ExtResource("29_yh3v6")]
 visible = false
+material = SubResource("ShaderMaterial_aty68")
 layout_mode = 2
 metadata/_tab_index = 2
 metadata/_tab_name = "CTRL_CATEGORY_HOTKEYS"
@@ -1140,7 +1161,7 @@ sprite_visible = false
 
 [node name="Editor" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/Remapper" unique_id=1216205327 instance=ExtResource("29_yh3v6")]
 visible = false
-material = SubResource("ShaderMaterial_agyhm")
+material = SubResource("ShaderMaterial_4e873")
 layout_mode = 2
 metadata/_tab_index = 3
 metadata/_tab_name = "CTRL_CATEGORY_EDITOR"

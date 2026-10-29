@@ -4,6 +4,7 @@ extends ScrollContainer
 const SNAP_THRESHOLD: float = 0.1
 const LERP_THRESHOLD: float = 4.0
 @export var lerp_speed: float = 12
+@export var mouse_lerp_speed: float = 32
 
 var target_scroll: float = -1.0
 var last_scroll: float = 0.0
@@ -17,7 +18,8 @@ func _process(delta: float) -> void:
 		scroll_vertical = int(last_scroll)
 	
 	if target_scroll > -1.0:
-		scroll_vertical = int(lerp(float(scroll_vertical), target_scroll, delta * lerp_speed))
+		var speed: float = mouse_lerp_speed if LastInputDevice.is_mouse else lerp_speed
+		scroll_vertical = int(lerp(float(scroll_vertical), target_scroll, delta * speed))
 		if abs(target_scroll - float(scroll_vertical)) < SNAP_THRESHOLD:
 			scroll_vertical = int(target_scroll)
 			target_scroll = -1.0

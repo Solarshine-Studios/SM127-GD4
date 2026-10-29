@@ -3,7 +3,6 @@ extends VBoxContainer
 
 ## consts
 const UNBOUND_TEXT: String = "CTRL_UNBOUND"
-const CTRL_PREFIX: String = "Ctrl+"
 
 @onready var label: Label = %Action
 @onready var button: Button = %Button
@@ -55,7 +54,12 @@ func change_button_text(new_text: String = "") -> void:
 		new_text = return_default_text()
 	
 	if force_ctrl and new_text != tr(UNBOUND_TEXT) and new_text != remapper.INPUT_WAIT_TEXT and not is_controller:
-		button.text = CTRL_PREFIX + new_text
+		button.text = ""
+		var keys: PackedStringArray = new_text.split(", ")
+		for key_name: String in keys:
+			if not button.text.is_empty():
+				button.text += ", "
+			button.text += tr("KEY_CTRL") + "+" + key_name
 	else:
 		button.text = new_text
 

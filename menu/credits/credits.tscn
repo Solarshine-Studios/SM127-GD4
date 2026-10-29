@@ -1,0 +1,1645 @@
+[gd_scene format=3 uid="uid://c2uvc1l3f8ope"]
+
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_1riif"]
+[ext_resource type="Script" uid="uid://b2dttbgtddlsu" path="res://menu/classes/screen.gd" id="1_r18j0"]
+[ext_resource type="Script" uid="uid://dewwy8qkw24ok" path="res://menu/scripts/ui_focus.gd" id="3_5tneb"]
+[ext_resource type="Script" uid="uid://dt2glxojic4dl" path="res://menu/scripts/buttons/button_hover_horizontal.gd" id="3_u3irj"]
+[ext_resource type="AudioStream" uid="uid://cr3q0at06loc6" path="res://global/assets/sounds/ui/hover.wav" id="4_bkb6l"]
+[ext_resource type="Texture2D" uid="uid://b5ovpoadanl6e" path="res://global/assets/misc/box_shadow.png" id="4_tgtjc"]
+[ext_resource type="AudioStream" uid="uid://b38u47l2sx7t6" path="res://global/assets/sounds/ui/click.wav" id="5_f5wcc"]
+[ext_resource type="Texture2D" uid="uid://dkwldnxac7qix" path="res://global/assets/icons/play.png" id="5_u3irj"]
+[ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="6_0ohnr"]
+[ext_resource type="AudioStream" uid="uid://b41mcssg7gdkq" path="res://global/assets/sounds/ui/back.wav" id="6_3qysn"]
+[ext_resource type="AudioStream" uid="uid://baapmeixggcae" path="res://global/assets/sounds/ui/option_on.wav" id="7_jgxj5"]
+[ext_resource type="Texture2D" uid="uid://0cckjhc4ylt5" path="res://global/assets/icons/redo.svg" id="7_u3irj"]
+[ext_resource type="AudioStream" uid="uid://chad1vrdmx2kx" path="res://global/assets/sounds/ui/option_off.wav" id="8_3vlj6"]
+[ext_resource type="Texture2D" uid="uid://bffvwwrcxqdf0" path="res://global/assets/icons/locales/mx.svg" id="8_swgwb"]
+[ext_resource type="Texture2D" uid="uid://b35e452qf7cw4" path="res://global/assets/icons/locales/it.svg" id="9_5tneb"]
+[ext_resource type="Script" uid="uid://bf1862rteq62i" path="res://menu/credits/roll.gd" id="9_f5wcc"]
+[ext_resource type="Texture2D" uid="uid://bxfrf6dwxatkn" path="res://global/assets/icons/locales/de.svg" id="10_ga71f"]
+[ext_resource type="Texture2D" uid="uid://nwsniqplwfdg" path="res://global/assets/icons/locales/nl.svg" id="11_k5443"]
+[ext_resource type="Texture2D" uid="uid://byf1rhi02kpbj" path="res://global/assets/icons/locales/se.svg" id="12_2ws13"]
+[ext_resource type="Texture2D" uid="uid://du08fq0owi8op" path="res://global/assets/icons/locales/arab.svg" id="13_py8mj"]
+[ext_resource type="Texture2D" uid="uid://bj0v8fy8ndtip" path="res://global/assets/icons/resume.png" id="20_3qysn"]
+
+[sub_resource type="Animation" id="Animation_bkb6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bars:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roll:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ga71f"]
+resource_name = "transition"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bars:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-192, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roll:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k5443"]
+_data = {
+&"RESET": SubResource("Animation_bkb6l"),
+&"transition": SubResource("Animation_ga71f")
+}
+
+[node name="Credits" type="Control" unique_id=1247517702]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1riif")
+script = ExtResource("1_r18j0")
+metadata/_custom_type_script = "uid://b2dttbgtddlsu"
+
+[node name="Focus" type="Control" parent="." unique_id=1490960476 node_paths=PackedStringArray("default_focus")]
+anchors_preset = 0
+script = ExtResource("3_5tneb")
+default_focus = NodePath("../Content/Buttons/VBoxContainer/Skip")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=585170825]
+unique_name_in_owner = true
+stream = ExtResource("4_bkb6l")
+volume_db = -10.0
+bus = &"Sounds"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1040229291]
+unique_name_in_owner = true
+stream = ExtResource("5_f5wcc")
+volume_db = -10.0
+bus = &"Sounds"
+
+[node name="BackSound" type="AudioStreamPlayer" parent="." unique_id=1778585367]
+unique_name_in_owner = true
+stream = ExtResource("6_3qysn")
+volume_db = -15.0
+bus = &"Sounds"
+
+[node name="OnSound" type="AudioStreamPlayer" parent="." unique_id=1328512836]
+unique_name_in_owner = true
+stream = ExtResource("7_jgxj5")
+volume_db = 1.0
+bus = &"Sounds"
+
+[node name="OffSound" type="AudioStreamPlayer" parent="." unique_id=1349608739]
+unique_name_in_owner = true
+stream = ExtResource("8_3vlj6")
+volume_db = 2.0
+bus = &"Sounds"
+
+[node name="Roll" type="PanelContainer" parent="." unique_id=364160820]
+custom_maximum_size = Vector2(768, 432)
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"CreditsDim"
+script = ExtResource("9_f5wcc")
+normal_scroll = 30.0
+fast_scroll = 150.0
+
+[node name="Credits" type="MarginContainer" parent="Roll" unique_id=1435527314]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+theme_override_constants/margin_top = 432
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Roll/Credits" unique_id=867867490]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="DevTeam" type="VBoxContainer" parent="Roll/Credits/VBoxContainer" unique_id=1946357627]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=2061085469]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"TitleText"
+bbcode_enabled = true
+text = "CREDITS_TEAM"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Programming" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=330260149]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1428314059]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_CODE"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Dignity" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1181154517]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Abdelrahman \"Dignity\" Essam"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1067500935]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"aloelucidity\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Plug" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=331162587]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Jake \"Plug N' Play\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1556631633]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"tabs\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Cass" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1585344858]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Cass Star\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Met" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=327790610]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"met3o\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Crug" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1441959779]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Cruglet\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Laith" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=989039453]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Laith Hijazi"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="BlockCycle" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=895173760]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"BlockCycle\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Riku" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=714730656]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Riku\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Theopold" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1089225298]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Theopold\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1700025442]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Brian \"Linktober\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SpriteArt" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1452523287]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=1365061103]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_SPRITES"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Krystal" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=731275729]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"KrystalPhantasm\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=964786075]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"aloelucidity\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Mack" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=1734193898]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Mack \"masterminer176\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=926309104]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Brian \"Linktober\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Lottie" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=63337506]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Charlotte \"charpurrr\" Fox"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Endood" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=1606659752]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Endood\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Composition" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=625909397]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=703386401]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_OST"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="AM4" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=675985521]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"AM4\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Plug" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=1085086736]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Jake \"Plug N' Play\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Laith" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=27005494]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Laith Hijazi"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=675048622]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"aloelucidity\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Aqua" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=287385851]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"AquaDoesStuff\" / \"Polynine\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="IncludedSongs" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1640387743]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1074392945]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_ONLINE_SONGS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Nintendo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=925421483]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Nintendo Co., Ltd"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Paragon" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=6899612]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Jermaine \"ParagonX9\" Blume"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RednGreen" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=251077512]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"RednGreen\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SuperM" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1144621878]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Súper M 795\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="m477" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1220968412]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"m477zorz\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="PaperMikes" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=2044569244]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"PaperMikes\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Valtteri" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1332459608]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Valtteri Valtteri\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LevelDesign" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=500349190]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1754220234]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_LD"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1989468375]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Brian \"Linktober\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1804250085]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"tabs\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Rudy" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1252686364]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Rudy \"Rudy12345mc\" Mueller"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Enrico" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1906416334]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"EnricosUt\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Fireflower" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1483232948]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Fireflower\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Minus26" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1515913634]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"-26 Lives\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Mack" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=372466638]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Mack \"masterminer176\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Sam" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=2096343415]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Samitizer\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Chri" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=873549034]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Christian \"chri_ti_03\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="UIDesign" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=298551577]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/UIDesign" unique_id=2107876073]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_UI"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/UIDesign" unique_id=1457754005]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"aloelucidity\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Ref" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/UIDesign" unique_id=439827200]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Refusion\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="PublicRelations" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1141764293]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=1074593484]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_PR"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Tali" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=1161415522]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Tali \"nbsurprise\" Wiltshire"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Dignity" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=245367762]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Abdelrahman \"Dignity\" Essam"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=1184350101]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"aloelucidity\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Enrico" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=7714241]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"EnricosUt\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Illustration" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1804453975]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=399359686]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_HD_ART"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Krystal" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=1025409071]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"KrystalPhantasm\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Agent" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=278337981]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Abdelrahman \"Dignity\" Essam"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=1875342883]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"aloelucidity\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=597734915]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"tabs\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Localization" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1367302651]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1418149806]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_LOCALIZATION"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Endood" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=2093237229]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Endood" unique_id=196607134]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "\"Endood\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Endood" unique_id=1968919831]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_swgwb")
+expand_mode = 1
+
+[node name="Enrico" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1668912907]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Enrico" unique_id=1049988477]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "\"EnricosUt\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Enrico" unique_id=1455286537]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_5tneb")
+expand_mode = 1
+
+[node name="Chri" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=219361860]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=595481928]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Christian \"chri_ti_03\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=1825938788]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_5tneb")
+expand_mode = 1
+
+[node name="Ize" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1271066787]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ize" unique_id=924192437]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "\"IzePlayz\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ize" unique_id=924645970]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("10_ga71f")
+expand_mode = 1
+
+[node name="Lottie" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1963157441]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=143821963]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Charlotte \"charpurrr\" Fox"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=1796579967]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("11_k5443")
+expand_mode = 1
+
+[node name="Luci" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1438507170]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Luci" unique_id=1137390797]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "\"aloelucidity\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Luci" unique_id=789751922]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("12_2ws13")
+expand_mode = 1
+
+[node name="Dignity" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1744812382]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=1033776319]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Abdelrahman \"Dignity\" Essam"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=196683565]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("13_py8mj")
+expand_mode = 1
+
+[node name="Icons" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=537034767]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Icons" unique_id=1470948914]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_REFUSION"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Ref" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Icons" unique_id=1291596424]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Refusion\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LSSTeam" type="VBoxContainer" parent="Roll/Credits/VBoxContainer" unique_id=166137236]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam" unique_id=1034484200]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"TitleText"
+bbcode_enabled = true
+text = "CREDITS_LSS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Administration" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/LSSTeam" unique_id=147407623]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=287067550]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_LSS_ADMIN"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LB" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=2032049632]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Luigibonus\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="TFD" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=1658921136]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"The Flying Dutchman\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Vex" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=2068105802]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"vexavios\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Seven" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=1387294029]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"bluSeven\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Pop" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=1944915021]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Popthatcorn14\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Moderation" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/LSSTeam" unique_id=1717425608]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1245970083]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_LSS_MODS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Vort" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1740245015]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Vortoxium\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Rudy" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1133173625]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Rudy \"Rudy12345mc\" Mueller"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Skopler" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1662540024]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Skopler\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Markey" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=14076797]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Markey97\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1705963624]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Brian \"Linktober\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Lyrith" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1477010583]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Lyrith\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Viral" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=816226938]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"ViralStigma\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Stevo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1857831934]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Stevoisiak\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ResignedTeam" type="VBoxContainer" parent="Roll/Credits/VBoxContainer" unique_id=2134385128]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam" unique_id=1090369078]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"TitleText"
+bbcode_enabled = true
+text = "CREDITS_RESIGNED"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Programming" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam" unique_id=1966840075]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1433983927]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_CODE"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Silver" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=2021300468]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"SilvererCoin\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Flare" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1629876692]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Flarewire\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Entiss" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1274067668]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Joshua \"Entiss\" Eagles"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Traffic" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=850454473]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Griffin \"TrafficConeGod\" Lora"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Certi" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=2048909510]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"certi\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Chloro" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=299609864]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Chlorobyte\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Skeleton" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=730203621]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"ZeroPlayerRodent\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Fluent" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1214201164]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"FluentCoding\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="JuPa" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=31197072]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"JuPaHe64\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SpriteArt" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam" unique_id=832616554]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=447063268]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_SPRITES"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Antonio" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1282712603]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Antonio \"Obsidian4\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Pumpkin" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1661273365]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"PumpkinVolt\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Doram" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=339916720]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Doram Baramour "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Azzy" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=532336340]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Asriel \"Hrasyurr\" Dreemurr"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Reshi" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1829271216]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Reshi"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Nan" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1664596594]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"NanTheDark\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Astra" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1421680093]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"AstraSpec\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Saneko" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=450025403]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Saneko\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Composition" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam" unique_id=831132035]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=2039911810]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_OST"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Arin" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=453536235]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Arin \"ArieJuice\" Milan"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Fast" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=1932301565]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"FastMario\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Jerry" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=686445924]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"JerryStuff (Ro)\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LevelDesign" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam" unique_id=1609410349]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/LevelDesign" unique_id=1049634647]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_LD"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Silver" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/LevelDesign" unique_id=1190647044]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"SilvererCoin\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="PublicRelations" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam" unique_id=201668188]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/PublicRelations" unique_id=1227672903]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_PR"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ML" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/PublicRelations" unique_id=841928929]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"That's Mama Luigi To You\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Fast" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/PublicRelations" unique_id=1898230862]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"FastMario\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Illustration" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam" unique_id=560647950]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Illustration" unique_id=580565997]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_HD_ART"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="T4ctical" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Illustration" unique_id=2017793647]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"T4ctical\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SpecialThanks" type="VBoxContainer" parent="Roll/Credits/VBoxContainer" unique_id=982178460]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks" unique_id=2021971866]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"TitleText"
+bbcode_enabled = true
+text = "CREDITS_SPECIAL_THANKS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Regular" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/SpecialThanks" unique_id=1926387036]
+layout_mode = 2
+
+[node name="Kaze" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=163071143]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Kaze Emanuar"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Skopler" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1263579600]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Skopler\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="John" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=600017351]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "John \"John Espagueti Largo DLC\" Espagueti Largo"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MrE" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1310543313]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Matias \"MrEGamer\" Eberbach"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Daniar" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=37686519]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Daniar \"arcatchik\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="JohnSequel" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=2057925773]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "John \"JohnDevelopment\" Russell"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="m4r10" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1521843199]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"m4r10_fan2008\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Moola" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=313199169]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Moola Mixtape\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Dude" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1252166797]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"DudeGamer64\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="DudeSequel" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=2080402690]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Dude Solid\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Hakon" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=280396104]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"HakonEM\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Gold" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1206117621]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"G0ldYosh\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Andrat" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1738392493]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"AndratVA\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Zerde" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1345170433]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"zerdebird\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Gibom" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1557166411]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Gibom\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Rovert" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1438971814]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Rovert\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Danger" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1404317641]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Ernest \"Danger Cliff\" Whitehead"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Funz" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1957230435]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Funz\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Yaya" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1773459567]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Yaya\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Davin" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1895791711]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Davin\""
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Runouw" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks" unique_id=868599208]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "CREDITS_RUNOUW"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="You" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks" unique_id=1690224807]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "CREDITS_YOU"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Join" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks" unique_id=1155701960]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "CREDITS_JOIN"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Bars" type="MarginContainer" parent="." unique_id=162529855]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_rotation = 0.5235988
+mouse_filter = 2
+
+[node name="Bottom" type="Panel" parent="Bars" unique_id=1249778594]
+custom_minimum_size = Vector2(0, 213)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_type_variation = &"WhiteBarBottom"
+
+[node name="Content" type="MarginContainer" parent="." unique_id=517500146]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 24
+
+[node name="Buttons" type="MarginContainer" parent="Content" unique_id=30159288]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_rotation = 0.02617994
+offset_transform_visual_only = false
+mouse_filter = 2
+theme_override_constants/margin_left = -3
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/Buttons" unique_id=910114400]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Speed" type="Button" parent="Content/Buttons/VBoxContainer" unique_id=2138568060]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-24, 0)
+text = "CREDITS_FASTER"
+alignment = 2
+script = ExtResource("3_u3irj")
+click_override = "OnSound"
+
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/Speed" unique_id=101723740]
+modulate = Color(1, 1, 1, 0.2509804)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tgtjc")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="IconFast" type="TextureRect" parent="Content/Buttons/VBoxContainer/Speed" unique_id=737737520]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 106.0
+offset_top = 5.5
+offset_right = 124.0
+offset_bottom = 23.5
+texture = ExtResource("20_3qysn")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_0ohnr")
+offset = Vector2(-4, 0)
+
+[node name="IconSlow" type="TextureRect" parent="Content/Buttons/VBoxContainer/Speed" unique_id=1418306881]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 110.0
+offset_top = 7.5
+offset_right = 124.0
+offset_bottom = 21.5
+texture = ExtResource("5_u3irj")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_0ohnr")
+offset = Vector2(-4, 0)
+
+[node name="Skip" type="Button" parent="Content/Buttons/VBoxContainer" unique_id=2106269703]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-24, 0)
+theme_type_variation = &"ButtonRed"
+text = "CREDITS_SKIP"
+alignment = 2
+script = ExtResource("3_u3irj")
+click_override = "BackSound"
+
+[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/Skip" unique_id=1063207994]
+modulate = Color(1, 1, 1, 0.2509804)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tgtjc")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/Skip" unique_id=544503198]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 3.5
+offset_right = 148.0
+offset_bottom = 25.5
+texture = ExtResource("7_u3irj")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_0ohnr")
+offset = Vector2(-4, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=6030541]
+libraries/ = SubResource("AnimationLibrary_k5443")
+
+[connection signal="screen_opened" from="." to="Roll" method="screen_opened"]
+[connection signal="back_press" from="Focus" to="Content/Buttons/VBoxContainer/Skip" method="emit_signal" binds= ["pressed"]]
+[connection signal="done_rolling" from="Roll" to="." method="transition" binds= ["MainMenu"]]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/Speed" to="Roll" method="toggle_speed"]
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/Skip" to="." method="transition" binds= ["MainMenu"]]

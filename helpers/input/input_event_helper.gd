@@ -326,7 +326,7 @@ static func get_key_human_name(keycode: Key) -> String:
 		KEY_INSERT:
 			return trs("KEY_INSERT")
 		KEY_DELETE:
-			return trs("KEY_KEY_DELETE")
+			return trs("KEY_DELETE")
 		KEY_PAUSE:
 			return trs("KEY_PAUSE")
 		KEY_PRINT:

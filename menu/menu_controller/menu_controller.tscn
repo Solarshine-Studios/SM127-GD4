@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ci7i0egnb0xae"]
 
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_g03je"]
 [ext_resource type="PackedScene" uid="uid://cc73f7h414kk8" path="res://menu/main_menu/main_menu.tscn" id="1_mvm0o"]
 [ext_resource type="Script" uid="uid://c1wxdqdd501af" path="res://menu/classes/screen_manager.gd" id="1_xnxtf"]
 [ext_resource type="PackedScene" uid="uid://d4dnapvnvo7s4" path="res://menu/options/options.tscn" id="2_284cb"]
+[ext_resource type="PackedScene" uid="uid://c2uvc1l3f8ope" path="res://menu/credits/credits.tscn" id="4_hdrsb"]
 
 [node name="MenuController" type="Node2D" unique_id=789114145]
 
@@ -17,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_g03je")
 script = ExtResource("1_xnxtf")
 default_screen = NodePath("MainMenu")
 
@@ -24,5 +27,9 @@ default_screen = NodePath("MainMenu")
 layout_mode = 1
 
 [node name="Options" parent="UI/Screens" unique_id=945336530 instance=ExtResource("2_284cb")]
+visible = false
+layout_mode = 1
+
+[node name="Credits" parent="UI/Screens" unique_id=1247517702 instance=ExtResource("4_hdrsb")]
 visible = false
 layout_mode = 1

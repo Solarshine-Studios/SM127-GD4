@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 	if not is_instance_valid(listening_keybind): return
 	if not InputEventHelper.is_valid_input_event(event.get_class(), is_controller): return
 	if listening_keybind.force_ctrl and event is InputEventKey:
-		if OS.get_keycode_string((event as InputEventKey).keycode) == "Control": return
+		if (event as InputEventKey).keycode == KEY_CTRL: return
 	
 	var action: Dictionary = InputEventHelper.serialize_event(event)
 	if action == InputEventHelper.EMPTY_DICTIONARY:
