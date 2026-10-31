@@ -77,7 +77,7 @@ animation = "idle"
 
 [node name="JumpAction" type="Node" parent="PhysicsStates/Ground" unique_id=866862932 node_paths=PackedStringArray("triple_jump_action", "air_physics")]
 script = ExtResource("6")
-jump_powers = Array[float]([350.0, 425.0])
+jump_heights = Array[float]([2.0, 3.0])
 jump_animations = Array[String](["jump", "double_jump"])
 jump_is_directional = Array[bool]([true, false])
 fall_animations = Array[String](["fall", "double_jump_fall"])
@@ -92,7 +92,7 @@ disable_snap = true
 [node name="TripleJumpAction" type="Node" parent="PhysicsStates/Ground" unique_id=1223926221 node_paths=PackedStringArray("somersault_physics")]
 script = ExtResource("8")
 launch_power = 100.0
-jump_power = 495.0
+jump_height = 4.0
 somersault_physics = NodePath("../../Somersault")
 animation = "triple_jump"
 disable_snap = true

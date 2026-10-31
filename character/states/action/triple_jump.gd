@@ -2,12 +2,21 @@ class_name TripleJumpAction
 extends ActionState
 
 
+const TILE_SIZE: int = 32
+
 @export var launch_power: float
-@export var jump_power: float
+@export var jump_height: float
 @export var somersault_physics: PhysicsState
 
 var jump_released: bool = false
 const HEIGHT_MULT: float = 0.7
+
+
+## jump heights are tracked in tiles here, not velocity
+## this makes em easy to track and easy to tweak :)
+func get_jump_power() -> float:
+	var gravity_per_sec: float = character.get_gravity_sum() / get_physics_process_delta_time() 
+	return sqrt(jump_height * gravity_per_sec * TILE_SIZE * 2)
 
 
 ### Main logic
@@ -16,7 +25,7 @@ const HEIGHT_MULT: float = 0.7
 func _on_enter() -> void:
 	jump_released = false
 	character.velocity.x += launch_power * character.facing_direction
-	character.velocity.y = min(-jump_power, character.velocity.y)
+	character.velocity.y = min(-get_jump_power(), character.velocity.y)
 	character.set_state("physics", somersault_physics)
 
 

@@ -39,7 +39,7 @@ process_callback = 0
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2122496586]
 script = SubResource("GDScript_37kl0")
 
-[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=843115271]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=843115271]
 polygon = PackedVector2Array(-590, 108, -435, 186, -407, 116, -349, 128, -371, 209, -292, 243, -99, 277, -84, 165, 22, 170, 45, 193, 60, 263, 106, 303, 298, 119, 635, 146, 796, 343, 800, 423, 719, 504, -186, 548, -818, 417, -714, -32, -539, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1288253803]
@@ -53,3 +53,6 @@ shape = SubResource("SegmentShape2D_37kl0")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=496000996]
 position = Vector2(-146, 257)
 shape = SubResource("SegmentShape2D_37kl0")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1222443996]
+polygon = PackedVector2Array(736, 128, 832, 128, 832, 112, 864, 112, 864, 128, 928, 128, 928, 96, 960, 96, 960, 128, 1024, 128, 1024, 80, 1056, 80, 1056, 128, 1120, 128, 1120, 64, 1152, 64, 1152, 128, 1216, 128, 1216, 48, 1248, 48, 1248, 128, 1312, 128, 1312, 32, 1344, 32, 1344, 128, 1408, 128, 1408, 16, 1440, 16, 1440, 128, 1504, 128, 1504, 0, 1536, 0, 1536, 128, 1600, 128, 1600, 272, 800, 272)

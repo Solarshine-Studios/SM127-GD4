@@ -2,7 +2,9 @@ class_name JumpAction
 extends ActionState
 
 
-@export var jump_powers: Array[float]
+const TILE_SIZE: int = 32
+
+@export var jump_heights: Array[float]
 @export var jump_animations: Array[String]
 @export var jump_is_directional: Array[bool]
 @export var fall_animations: Array[String]
@@ -18,6 +20,13 @@ var pressed_buffer: float
 
 var jump_released: bool = false
 const HEIGHT_MULT: float = 0.7
+
+
+## jump heights are tracked in tiles here, not velocity
+## this makes em easy to track and easy to tweak :)
+func get_jump_power(jump_height: float) -> float:
+	var gravity_per_sec: float = character.get_gravity_sum() / get_physics_process_delta_time() 
+	return sqrt(jump_height * gravity_per_sec * TILE_SIZE * 2)
 
 
 ### Main logic
@@ -42,7 +51,9 @@ func _on_enter() -> void:
 		air_physics.anim_is_directional = fall_is_directional[jump_sequence]
 		
 		character.set_state("physics", air_physics)
-		character.velocity.y = min(-jump_powers[jump_sequence], character.velocity.y)
+		
+		var jump_power: float = get_jump_power(jump_heights[jump_sequence])
+		character.velocity.y = min(-jump_power, character.velocity.y)
 	
 	jump_sequence += 1
 	reset_timer = 0.175
