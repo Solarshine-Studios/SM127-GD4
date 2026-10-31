@@ -19,7 +19,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/stretch_mode=4
 boot_splash/image="uid://dq5w0aomu52mg"
 config/icon="uid://dysfdr3lwasw2"
-config/windows_native_icon="res://global/assets/artwork/game/icon.ico"
+config/windows_native_icon="res://assets/artwork/game/icon.ico"
 
 [audio]
 
@@ -85,14 +85,18 @@ mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 [file_customization]
 
 folder_colors={
-"res://character/": "red",
+"res://assets/": "red",
+"res://character/": "orange",
 "res://editor/": "yellow",
 "res://generation/": "green",
-"res://global/": "purple",
-"res://helpers/": "gray",
-"res://level/": "teal",
-"res://menu/": "blue",
-"res://translations/": "pink"
+"res://global/": "teal",
+"res://helpers/": "blue",
+"res://level/": "purple",
+"res://level/data/": "yellow",
+"res://menu/": "pink",
+"res://menu/pause/": "purple",
+"res://menu/themes/": "red",
+"res://translations/": "gray"
 }
 
 [global_group]

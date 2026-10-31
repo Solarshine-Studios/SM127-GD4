@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://qwsckk4rwuts"]
+
+[ext_resource type="Script" uid="uid://dj1mgcjevu1kw" path="res://menu/pause/pause_controller.gd" id="1_lxhp1"]
+[ext_resource type="Shader" uid="uid://c0gw5yrbpipbb" path="res://assets/shaders/blur.gdshader" id="2_8fu1h"]
+[ext_resource type="Script" uid="uid://c1wxdqdd501af" path="res://menu/classes/screen_manager.gd" id="2_r0vjw"]
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/themes/default/default.tres" id="3_82ib2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82ib2"]
+shader = ExtResource("2_8fu1h")
+shader_parameter/blur_amount = 0.0
+
+[sub_resource type="Animation" id="Animation_f4f6f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tint:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/blur_amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5vpgl"]
+resource_name = "transition"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tint:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.299, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/blur_amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0000000475, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h30lq"]
+_data = {
+&"RESET": SubResource("Animation_f4f6f"),
+&"transition": SubResource("Animation_5vpgl")
+}
+
+[node name="PauseController" type="CanvasLayer" unique_id=532719823]
+process_mode = 3
+layer = 64
+script = ExtResource("1_lxhp1")
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1400349080]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Blur" type="CanvasLayer" parent="." unique_id=1571927994]
+unique_name_in_owner = true
+layer = 62
+
+[node name="Shader" type="ColorRect" parent="Blur" unique_id=162450023]
+visible = false
+material = SubResource("ShaderMaterial_82ib2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Tint" type="Panel" parent="Blur/Shader" unique_id=91969577]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_82ib2")
+theme_type_variation = &"PauseTint"
+
+[node name="BlurAnimation" type="AnimationPlayer" parent="Blur/Shader" unique_id=838931341]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_h30lq")
+
+[node name="Screens" type="Control" parent="." unique_id=1017614171]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("2_r0vjw")

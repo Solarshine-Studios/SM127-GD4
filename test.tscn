@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djo422cvlb0l7" path="res://menu/menu_controller/menu_controller.gd" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://cpoiaf33dcvs5" path="res://character/character.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://bobyj1xpkk7l7" path="res://level/camera/camera.tscn" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://qwsckk4rwuts" path="res://menu/pause/pause_controller.tscn" id="2_ppyta"]
 
 [sub_resource type="GDScript" id="GDScript_37kl0"]
 script/source = "extends StaticBody2D
@@ -30,6 +31,8 @@ b = Vector2(1, -50)
 
 [node name="Test" type="Node2D" unique_id=204644469]
 script = ExtResource("1_8uh7m")
+
+[node name="PauseController" parent="." unique_id=532719823 instance=ExtResource("2_ppyta")]
 
 [node name="Camera" parent="." unique_id=180537288 node_paths=PackedStringArray("character") instance=ExtResource("2_6uqi0")]
 character = NodePath("../Character")

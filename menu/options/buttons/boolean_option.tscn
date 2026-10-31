@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ce771ljnl5m3m"]
 
-[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_n8fqg"]
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/themes/default/default.tres" id="1_n8fqg"]
 [ext_resource type="Script" uid="uid://cx6nyw7j01xqi" path="res://menu/options/buttons/boolean_option.gd" id="1_woa65"]
 [ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="2_5mf1j"]
 [ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="4_8qphy"]
-[ext_resource type="Texture2D" uid="uid://1484lhmfmjns" path="res://global/assets/icons/CheckUnchecked.svg" id="4_wwlda"]
+[ext_resource type="Texture2D" uid="uid://1484lhmfmjns" path="res://assets/icons/CheckUnchecked.svg" id="4_wwlda"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teedc"]
 

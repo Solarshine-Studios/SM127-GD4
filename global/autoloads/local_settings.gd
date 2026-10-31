@@ -8,6 +8,9 @@ var config: ConfigFile = ConfigFile.new()
 
 
 func _init() -> void:
+	# this should run even while paused...
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	if not FileAccess.file_exists(FILE_PATH):
 		config.save(FILE_PATH)
 

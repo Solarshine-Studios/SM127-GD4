@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cjft2h4dacikg"]
 
-[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_7twx3"]
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/themes/default/default.tres" id="1_7twx3"]
 [ext_resource type="Script" uid="uid://b0ktl8dsb8kn8" path="res://menu/options/controls/keybind.gd" id="2_fgv5s"]
 [ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="3_guh65"]
-[ext_resource type="Texture2D" uid="uid://b6bknw48bydot" path="res://global/assets/icons/reset_save.png" id="3_lsqhg"]
+[ext_resource type="Texture2D" uid="uid://b6bknw48bydot" path="res://assets/icons/reset_save.png" id="3_lsqhg"]
 [ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="4_guh65"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_teedc"]

@@ -6,6 +6,10 @@ const CATEGORIES: Array[String] = [
 	"Header"
 ]
 
+func _init() -> void:
+	# this should run even while paused...
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _ready() -> void:
 	var config: ConfigFile = LocalSettings.config
 	

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dslmj5e1et4tu" path="res://global/main_scene/main_scene.gd" id="1_ej72x"]
 [ext_resource type="PackedScene" uid="uid://ci7i0egnb0xae" path="res://menu/menu_controller/menu_controller.tscn" id="2_ceox2"]
-[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="3_gtbag"]
-[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://helpers/shaders/rotate_bricks.gdshader" id="4_x7ffo"]
-[ext_resource type="Script" uid="uid://v0bc3qgofkb5" path="res://helpers/shaders/rotate_bricks.gd" id="5_0o7gc"]
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/themes/default/default.tres" id="3_gtbag"]
+[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://assets/shaders/rotate_bricks.gdshader" id="4_x7ffo"]
+[ext_resource type="Script" uid="uid://v0bc3qgofkb5" path="res://assets/shaders/rotate_bricks.gd" id="5_0o7gc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teedc"]
 
@@ -29,7 +29,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 1)
 metadata/_snap_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7ffo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0o7gc"]
 shader = ExtResource("4_x7ffo")
 shader_parameter/rotation_angle = 15.0000007125
 shader_parameter/control_size = Vector2(768, 432)
@@ -44,7 +44,11 @@ border_width_bottom = 8
 border_color = Color(0, 0, 0, 0)
 border_blend = true
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_teedc"]
+viewport_path = NodePath("GameViewport")
+
 [node name="MainScene" type="Control" unique_id=106067217 groups=["main_scene"]]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,6 +58,19 @@ grow_vertical = 2
 theme = ExtResource("3_gtbag")
 script = ExtResource("1_ej72x")
 main_subscene = ExtResource("2_ceox2")
+
+[node name="GameViewport" type="SubViewport" parent="." unique_id=2010178822]
+unique_name_in_owner = true
+process_mode = 1
+handle_input_locally = false
+msaa_2d = 2
+canvas_item_default_texture_filter = 0
+gui_snap_controls_to_pixels = false
+gui_embed_subwindows = true
+size = Vector2i(2, 2)
+size_2d_override = Vector2i(768, 432)
+size_2d_override_stretch = true
+render_target_update_mode = 4
 
 [node name="Black" type="ColorRect" parent="." unique_id=1547594348]
 layout_mode = 1
@@ -94,7 +111,7 @@ texture = SubResource("GradientTexture2D_teedc")
 
 [node name="Bricks" type="PanelContainer" parent="Backgrounds/BGBricks" unique_id=522562005]
 texture_repeat = 2
-material = SubResource("ShaderMaterial_x7ffo")
+material = SubResource("ShaderMaterial_0o7gc")
 layout_mode = 2
 theme_type_variation = &"PanelPattern1"
 script = ExtResource("5_0o7gc")
@@ -111,21 +128,9 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_teedc")
 
-[node name="GameContainer" type="SubViewportContainer" parent="CenterContainer/Shadow" unique_id=72145495]
+[node name="ViewportTexture" type="TextureRect" parent="CenterContainer/Shadow" unique_id=1286010755]
 unique_name_in_owner = true
 texture_filter = 2
-custom_minimum_size = Vector2(2, 2)
 layout_mode = 2
-stretch = true
-
-[node name="GameViewport" type="SubViewport" parent="CenterContainer/Shadow/GameContainer" unique_id=2010178822]
-unique_name_in_owner = true
-handle_input_locally = false
-msaa_2d = 2
-canvas_item_default_texture_filter = 0
-gui_snap_controls_to_pixels = false
-gui_embed_subwindows = true
-size = Vector2i(2, 2)
-size_2d_override = Vector2i(768, 432)
-size_2d_override_stretch = true
-render_target_update_mode = 4
+texture = SubResource("ViewportTexture_teedc")
+expand_mode = 1

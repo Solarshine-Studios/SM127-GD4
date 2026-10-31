@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4q2p2au8imsf"]
 
-[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://helpers/shaders/rotate_bricks.gdshader" id="1_u8p3f"]
-[ext_resource type="Script" uid="uid://v0bc3qgofkb5" path="res://helpers/shaders/rotate_bricks.gd" id="2_8ij5v"]
+[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://assets/shaders/rotate_bricks.gdshader" id="1_u8p3f"]
+[ext_resource type="Script" uid="uid://v0bc3qgofkb5" path="res://assets/shaders/rotate_bricks.gd" id="2_8ij5v"]
 [ext_resource type="Script" uid="uid://wd1sqfk2d1qs" path="res://menu/scripts/smooth_scroll.gd" id="3_gydj2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8p3f"]

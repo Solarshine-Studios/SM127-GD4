@@ -3,7 +3,7 @@ extends Control
 
 
 @onready var backgrounds: PanelContainer = %Backgrounds
-@onready var game_container: SubViewportContainer = %GameContainer
+@onready var viewport_texture: TextureRect = %ViewportTexture
 @onready var game_viewport: SubViewport = %GameViewport
 @export var main_subscene: PackedScene
 
@@ -11,14 +11,15 @@ signal scene_changed
 
 
 func _ready() -> void:
+	viewport_texture.gui_input.connect(game_viewport.push_input)
+	
 	change_scene_to_packed(main_subscene)
 	get_window().size_changed.connect(update_container_sizing)
 	update_container_sizing()
 
-
+## Changing scenes
 func change_scene_to_packed(packed_scene: PackedScene) -> void:
 	_deferred_change_scene.call_deferred(packed_scene)
-
 
 func _deferred_change_scene(packed_scene: PackedScene) -> void:
 	for child in game_viewport.get_children():
@@ -29,9 +30,12 @@ func _deferred_change_scene(packed_scene: PackedScene) -> void:
 	game_viewport.add_child(scene_node)
 	scene_changed.emit()
 
+## Viewport management
+func _unhandled_input(event: InputEvent) -> void:
+	game_viewport.push_input(event)
 
 func update_container_sizing(scale_mode: int = LocalSettings.load_setting("General", "scale_mode", 0)) -> void:
-	if not is_instance_valid(game_container):
+	if not is_instance_valid(viewport_texture):
 		return
 	
 	var base_size := Vector2(
@@ -48,10 +52,12 @@ func update_container_sizing(scale_mode: int = LocalSettings.load_setting("Gener
 	
 	var is_integer: bool = (scale_mode == 1)
 	if is_integer and int_scaling_factor > 0:
-		game_container.custom_minimum_size = base_size * int_scaling_factor
+		game_viewport.size = base_size * int_scaling_factor
+		viewport_texture.custom_minimum_size = base_size * int_scaling_factor
 		bg_scale_factor = int_scaling_factor
 	else:
-		game_container.custom_minimum_size = base_size * scaling_factor
+		game_viewport.size = base_size * ceil(scaling_factor)
+		viewport_texture.custom_minimum_size = base_size * scaling_factor
 		bg_scale_factor = scaling_factor
 	
 	backgrounds.scale = Vector2.ONE * bg_scale_factor

@@ -1,25 +1,25 @@
 [gd_scene format=3 uid="uid://d4dnapvnvo7s4"]
 
 [ext_resource type="Script" uid="uid://b2dttbgtddlsu" path="res://menu/classes/screen.gd" id="1_0i2s0"]
-[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_j4osv"]
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/themes/default/default.tres" id="1_j4osv"]
 [ext_resource type="PackedScene" uid="uid://cf6ojtnr8rqbm" path="res://menu/background_scroll/background.tscn" id="3_duted"]
 [ext_resource type="Script" uid="uid://dewwy8qkw24ok" path="res://menu/scripts/ui_focus.gd" id="3_kwmgx"]
-[ext_resource type="AudioStream" uid="uid://cr3q0at06loc6" path="res://global/assets/sounds/ui/hover.wav" id="3_nh0v0"]
+[ext_resource type="AudioStream" uid="uid://cr3q0at06loc6" path="res://assets/sounds/ui/hover.wav" id="3_nh0v0"]
 [ext_resource type="Script" uid="uid://buo7k8mlwj73a" path="res://menu/options/exit_controller.gd" id="3_oc5hi"]
-[ext_resource type="AudioStream" uid="uid://b38u47l2sx7t6" path="res://global/assets/sounds/ui/click.wav" id="5_fdtvw"]
-[ext_resource type="AudioStream" uid="uid://b41mcssg7gdkq" path="res://global/assets/sounds/ui/back.wav" id="7_gdns1"]
+[ext_resource type="AudioStream" uid="uid://b38u47l2sx7t6" path="res://assets/sounds/ui/click.wav" id="5_fdtvw"]
+[ext_resource type="AudioStream" uid="uid://b41mcssg7gdkq" path="res://assets/sounds/ui/back.wav" id="7_gdns1"]
 [ext_resource type="Script" uid="uid://dt2glxojic4dl" path="res://menu/scripts/buttons/button_hover_horizontal.gd" id="7_i3paj"]
-[ext_resource type="AudioStream" uid="uid://baapmeixggcae" path="res://global/assets/sounds/ui/option_on.wav" id="8_4lb0y"]
-[ext_resource type="Texture2D" uid="uid://b5ovpoadanl6e" path="res://global/assets/misc/box_shadow.png" id="8_43j44"]
-[ext_resource type="Texture2D" uid="uid://0gf3ck63jis2" path="res://global/assets/icons/back.png" id="9_07bmx"]
-[ext_resource type="AudioStream" uid="uid://chad1vrdmx2kx" path="res://global/assets/sounds/ui/option_off.wav" id="9_uobkh"]
+[ext_resource type="AudioStream" uid="uid://baapmeixggcae" path="res://assets/sounds/ui/option_on.wav" id="8_4lb0y"]
+[ext_resource type="Texture2D" uid="uid://b5ovpoadanl6e" path="res://assets/misc/box_shadow.png" id="8_43j44"]
+[ext_resource type="Texture2D" uid="uid://0gf3ck63jis2" path="res://assets/icons/back.png" id="9_07bmx"]
+[ext_resource type="AudioStream" uid="uid://chad1vrdmx2kx" path="res://assets/sounds/ui/option_off.wav" id="9_uobkh"]
 [ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="10_h2314"]
-[ext_resource type="Texture2D" uid="uid://dbve6bg1dotti" path="res://global/assets/icons/edit.png" id="11_i3paj"]
-[ext_resource type="Texture2D" uid="uid://bc3j72xr32r2w" path="res://global/assets/icons/Controller.svg" id="12_43j44"]
-[ext_resource type="Texture2D" uid="uid://bu76d38k5mbj4" path="res://global/assets/icons/folder.png" id="13_fl4cp"]
-[ext_resource type="Texture2D" uid="uid://pxn6kqvk1ads" path="res://global/assets/icons/mario.png" id="13_h2314"]
-[ext_resource type="Texture2D" uid="uid://ca1vhmi6uyduv" path="res://global/assets/icons/palette.svg" id="14_fdtvw"]
-[ext_resource type="Texture2D" uid="uid://cweavm2wrxn85" path="res://global/assets/icons/comments.png" id="18_ub8if"]
+[ext_resource type="Texture2D" uid="uid://dbve6bg1dotti" path="res://assets/icons/edit.png" id="11_i3paj"]
+[ext_resource type="Texture2D" uid="uid://bc3j72xr32r2w" path="res://assets/icons/Controller.svg" id="12_43j44"]
+[ext_resource type="Texture2D" uid="uid://bu76d38k5mbj4" path="res://assets/icons/folder.png" id="13_fl4cp"]
+[ext_resource type="Texture2D" uid="uid://pxn6kqvk1ads" path="res://assets/icons/mario.png" id="13_h2314"]
+[ext_resource type="Texture2D" uid="uid://ca1vhmi6uyduv" path="res://assets/icons/palette.svg" id="14_fdtvw"]
+[ext_resource type="Texture2D" uid="uid://cweavm2wrxn85" path="res://assets/icons/comments.png" id="18_ub8if"]
 [ext_resource type="Script" uid="uid://ct83pwr2bcaap" path="res://menu/scripts/buttons/button_hover_vertical.gd" id="19_icm6w"]
 [ext_resource type="PackedScene" uid="uid://7o3ntw2lnd56" path="res://menu/options/buttons/slider_option.tscn" id="19_v5wmh"]
 [ext_resource type="Script" uid="uid://bgw5p3sik0ewc" path="res://menu/options/subscreen_manager.gd" id="19_w2jst"]
@@ -27,10 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://ce771ljnl5m3m" path="res://menu/options/buttons/boolean_option.tscn" id="22_1e4vi"]
 [ext_resource type="PackedScene" uid="uid://7hpx7wc2jud5" path="res://menu/options/buttons/enum_option.tscn" id="25_uobkh"]
 [ext_resource type="Script" uid="uid://blnp4oh717hc2" path="res://menu/options/language/languages.gd" id="27_dk8cj"]
-[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://helpers/shaders/rotate_bricks.gdshader" id="27_dliw2"]
+[ext_resource type="Shader" uid="uid://d0dswr6begch6" path="res://assets/shaders/rotate_bricks.gdshader" id="27_dliw2"]
 [ext_resource type="Script" uid="uid://b3pqu2blyd3hx" path="res://menu/options/controls/remapper.gd" id="27_fstpk"]
 [ext_resource type="Script" uid="uid://elhofgri7hr" path="res://menu/options/controls/input_switcher.gd" id="27_ishlg"]
-[ext_resource type="Texture2D" uid="uid://dft7t2m7uj6f1" path="res://global/assets/icons/delete.svg" id="28_moey5"]
+[ext_resource type="Texture2D" uid="uid://dft7t2m7uj6f1" path="res://assets/icons/delete.svg" id="28_moey5"]
 [ext_resource type="Script" uid="uid://rexdqo850f7v" path="res://menu/options/storage/mod_manager.gd" id="28_oto5u"]
 [ext_resource type="PackedScene" uid="uid://cjft2h4dacikg" path="res://menu/options/controls/keybind.tscn" id="29_h1gew"]
 [ext_resource type="Script" uid="uid://yeh6ji1uuqae" path="res://menu/scripts/press_countdown.gd" id="29_oto5u"]
@@ -48,19 +48,19 @@ shader_parameter/tile_size = Vector2(24, 24)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gx25d"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/control_size = Vector2(428, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aty68"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/control_size = Vector2(428, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4e873"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/control_size = Vector2(428, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="Animation" id="Animation_fdtvw"]

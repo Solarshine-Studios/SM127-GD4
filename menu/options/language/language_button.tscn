@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5muj50ghdr1m"]
 
 [ext_resource type="Script" uid="uid://dt2glxojic4dl" path="res://menu/scripts/buttons/button_hover_horizontal.gd" id="1_ss4u5"]
-[ext_resource type="Texture2D" uid="uid://c332ddmrfy82c" path="res://global/assets/icons/locales/gb.svg" id="2_xhlku"]
+[ext_resource type="Texture2D" uid="uid://c332ddmrfy82c" path="res://assets/icons/locales/gb.svg" id="2_xhlku"]
 [ext_resource type="Script" uid="uid://cd13ag0xsnmdy" path="res://menu/scripts/icon_align.gd" id="3_rxpxt"]
 
 [node name="Language" type="Button" unique_id=1763309841]

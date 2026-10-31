@@ -2,7 +2,7 @@ extends VBoxContainer
 
 
 const LANGUAGE_BUTTON: PackedScene = preload("res://menu/options/language/language_button.tscn")
-const FLAG_PATH: String = "res://global/assets/icons/locales/%s.svg"
+const FLAG_PATH: String = "res://assets/icons/locales/%s.svg"
 
 
 func _ready() -> void:

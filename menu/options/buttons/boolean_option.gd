@@ -1,8 +1,8 @@
 @tool
 extends OptionBase
 
-const CHECK_CHECKED: Texture = preload("res://global/assets/icons/CheckChecked.svg")
-const CHECK_UNCHECKED: Texture = preload("res://global/assets/icons/CheckUnchecked.svg")
+const CHECK_CHECKED: Texture = preload("res://assets/icons/CheckChecked.svg")
+const CHECK_UNCHECKED: Texture = preload("res://assets/icons/CheckUnchecked.svg")
 
 @onready var on_sound: AudioStreamPlayer = owner.get_node("%OnSound")
 @onready var off_sound: AudioStreamPlayer = owner.get_node("%OffSound")

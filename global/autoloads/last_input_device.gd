@@ -83,6 +83,10 @@ func stop_rumble() -> void:
 	if not last_input_type == InputType.Controller: return
 	Input.stop_joy_vibration(last_controller)
 
+func _init() -> void:
+	# this should run even while paused...
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 # for hiding the cursor on inactivity
 func _ready() -> void:
 	mouse_idle_timer = Timer.new()

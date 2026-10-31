@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://dlkjuunc2plt2"
+path="res://.godot/imported/CircleSelected.svg-cd8bb19427a7c45f35b7a9ea2e3afcc2.dpitex"
+
+[deps]
+
+source_file="res://assets/icons/CircleSelected.svg"
+dest_files=["res://.godot/imported/CircleSelected.svg-cd8bb19427a7c45f35b7a9ea2e3afcc2.dpitex"]
+
+[params]
+
+base_scale=0.1
+saturation=1.0
+color_map={
+Color(1, 1, 1, 1): Color(0.043137256, 0.2901961, 0.42745098, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

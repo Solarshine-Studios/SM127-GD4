@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cf6ojtnr8rqbm"]
 
 [ext_resource type="Script" uid="uid://dqew8cdre3fb7" path="res://menu/background_scroll/background.gd" id="1_htk03"]
-[ext_resource type="Shader" uid="uid://b0w6jm22tq6na" path="res://helpers/shaders/stripes.gdshader" id="2_5sxns"]
+[ext_resource type="Shader" uid="uid://b0w6jm22tq6na" path="res://assets/shaders/stripes.gdshader" id="2_5sxns"]
 [ext_resource type="Texture2D" uid="uid://dkypep4vcnj5u" path="res://menu/background_scroll/icons.png" id="2_j41au"]
-[ext_resource type="Shader" uid="uid://ggvlnqny6qac" path="res://helpers/shaders/icon_scroll.gdshader" id="3_pts1a"]
-[ext_resource type="Shader" uid="uid://1ll73euxmn85" path="res://helpers/shaders/static_overlay.gdshader" id="5_wywx3"]
+[ext_resource type="Shader" uid="uid://ggvlnqny6qac" path="res://assets/shaders/icon_scroll.gdshader" id="3_pts1a"]
+[ext_resource type="Shader" uid="uid://1ll73euxmn85" path="res://assets/shaders/static_overlay.gdshader" id="5_wywx3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_teedc"]
 shader = ExtResource("2_5sxns")
