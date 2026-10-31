@@ -25,7 +25,7 @@ const HEIGHT_MULT: float = 0.7
 ## jump heights are tracked in tiles here, not velocity
 ## this makes em easy to track and easy to tweak :)
 func get_jump_power(jump_height: float) -> float:
-	var gravity_per_sec: float = character.get_gravity_sum() / get_physics_process_delta_time() 
+	var gravity_per_sec: float = character.BASE_GRAVITY / get_physics_process_delta_time() 
 	return sqrt(jump_height * gravity_per_sec * TILE_SIZE * 2)
 
 

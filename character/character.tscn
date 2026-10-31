@@ -86,7 +86,18 @@ triple_jump_threshold = 80.0
 triple_jump_action = NodePath("../TripleJumpAction")
 air_physics = NodePath("../../Air")
 max_jumps = 3
+priority = null
+allow_priority_override = null
+gravity_factor = null
+override_size = null
+custom_size = null
 animation = "jump_right"
+anim_speed = null
+anim_is_directional = null
+sprite_offset = null
+sprite_rot = null
+sprite_skew = null
+sprite_scale = null
 disable_snap = true
 
 [node name="TripleJumpAction" type="Node" parent="PhysicsStates/Ground" unique_id=1223926221 node_paths=PackedStringArray("somersault_physics")]
@@ -94,7 +105,18 @@ script = ExtResource("8")
 launch_power = 100.0
 jump_height = 4.0
 somersault_physics = NodePath("../../Somersault")
+priority = null
+allow_priority_override = null
+gravity_factor = null
+override_size = null
+custom_size = null
 animation = "triple_jump"
+anim_speed = null
+anim_is_directional = null
+sprite_offset = null
+sprite_rot = null
+sprite_skew = null
+sprite_scale = null
 disable_snap = true
 
 [node name="Debug" type="VBoxContainer" parent="." unique_id=45701321]

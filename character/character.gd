@@ -2,10 +2,13 @@ class_name Character
 extends CharacterBody2D
 
 
+### Constants
+const BASE_GRAVITY: float = 15.64
+
 ### Basics
 var input: Dictionary[String, Array]
 var facing_direction: int = 1
-var gravity: float = 7.82
+var gravity: float = BASE_GRAVITY
 
 ### Attributes
 @export var gravity_factor: float = 1
@@ -141,8 +144,11 @@ func is_walled_right() -> bool:
 
 ### Physics
 func get_gravity_sum() -> float:
-	# yeah, for some reason gravity is twice as strong as advertised in 127
-	var total_factor: float = gravity * 2 * gravity_factor
+	# TODO:
+	# for some reason gravity is twice as strong as advertised in 127
+	# so we should proably update the gravity variables in older levels
+	# when we get to those
+	var total_factor: float = gravity * gravity_factor
 	if is_instance_valid(physics):
 		total_factor *= physics.gravity_factor
 	if is_instance_valid(action):
