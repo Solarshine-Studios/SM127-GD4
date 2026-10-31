@@ -11,8 +11,6 @@ signal scene_changed
 
 
 func _ready() -> void:
-	viewport_texture.gui_input.connect(game_viewport.push_input)
-	
 	change_scene_to_packed(main_subscene)
 	get_window().size_changed.connect(update_container_sizing)
 	update_container_sizing()
@@ -31,8 +29,11 @@ func _deferred_change_scene(packed_scene: PackedScene) -> void:
 	scene_changed.emit()
 
 ## Viewport management
-func _unhandled_input(event: InputEvent) -> void:
-	game_viewport.push_input(event)
+func _input(event: InputEvent) -> void:
+	var final_transform: Transform2D
+	final_transform = final_transform.translated(-viewport_texture.get_screen_position())
+	final_transform = final_transform.scaled(Vector2(game_viewport.size) / viewport_texture.size)
+	game_viewport.push_input(event.xformed_by(final_transform))
 
 func update_container_sizing(scale_mode: int = LocalSettings.load_setting("General", "scale_mode", 0)) -> void:
 	if not is_instance_valid(viewport_texture):
