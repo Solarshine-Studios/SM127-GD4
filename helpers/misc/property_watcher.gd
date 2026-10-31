@@ -9,7 +9,7 @@ func _process(_delta: float) -> void:
 	
 	var property: Variant = object_to_watch[property_to_watch]
 	if property is Vector2:
-		property = "(%.2f, %.2f)" % [property.x, property.y]
+		property = "(%.1f, %.1f)" % [property.x, property.y]
 	if property is Object:
 		property = property.name
 	text = str(property)
