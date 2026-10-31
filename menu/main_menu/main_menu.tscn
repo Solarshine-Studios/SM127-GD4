@@ -582,6 +582,7 @@ speed = 1.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=612941687]
 libraries/ = SubResource("AnimationLibrary_xajbr")
 
+[connection signal="pressed" from="Content/Buttons/VBoxContainer/DevLevels" to="ButtonFunctions" method="temp_test"]
 [connection signal="pressed" from="Content/Buttons/VBoxContainer/DevLevels" to="." method="transition" binds= ["LevelsList"]]
 [connection signal="pressed" from="Content/Buttons/VBoxContainer/LSS" to="." method="transition" binds= ["LevelPortal"]]
 [connection signal="pressed" from="Content/Buttons/VBoxContainer/CustomLevels" to="." method="transition" binds= ["LevelsList"]]

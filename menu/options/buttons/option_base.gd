@@ -50,9 +50,5 @@ func _ready() -> void:
 
 
 ## override these
-func _update_value() -> void:
-	pass
-
-
-func _get_default_value() -> Variant:
-	return null
+@abstract func _update_value() -> void
+@abstract func _get_default_value() -> Variant

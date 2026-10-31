@@ -21,7 +21,6 @@ func item_selected(index: int) -> void:
 
 
 func _update_value() -> void:
-	super()
 	option_button.selected = value
 
 

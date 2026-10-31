@@ -44,6 +44,16 @@ gradient = SubResource("Gradient_50abb")
 fill_to = Vector2(0, 1)
 metadata/_snap_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_lthov"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.439216, 0.439216, 0.439216, 0, 1, 1, 1, 0.552941)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ns7bc"]
+gradient = SubResource("Gradient_lthov")
+fill = 1
+fill_from = Vector2(0.2, 0.2)
+fill_to = Vector2(1, 1)
+
 [node name="Background" type="Control" unique_id=1233741731]
 texture_filter = 2
 layout_mode = 3
@@ -71,8 +81,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_6t101")
@@ -122,3 +130,11 @@ material = SubResource("CanvasItemMaterial_duted")
 layout_mode = 2
 texture = SubResource("GradientTexture2D_wywx3")
 metadata/_tab_index = 1
+
+[node name="LevelList" type="TextureRect" parent="Gradients" unique_id=1951552873]
+visible = false
+modulate = Color(0.435294, 0.427451, 0.780392, 0.564706)
+material = SubResource("CanvasItemMaterial_duted")
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ns7bc")
+metadata/_tab_index = 2

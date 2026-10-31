@@ -82,13 +82,10 @@ window/stretch/aspect="ignore"
 mouse_cursor/custom_image="uid://dbd0accjjk1pi"
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/sync_spreadsheets/plugin.cfg")
-
 [file_customization]
 
 folder_colors={
+"res://character/": "red",
 "res://editor/": "yellow",
 "res://generation/": "green",
 "res://global/": "purple",

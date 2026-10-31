@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://cpoiaf33dcvs5"]
+
+[ext_resource type="Script" uid="uid://dpsjh6pxtmuji" path="res://character/character.gd" id="1"]
+[ext_resource type="Script" uid="uid://d4cvr0y55v18j" path="res://character/components/ray_setup.gd" id="2"]
+[ext_resource type="Script" uid="uid://bqek84y4jnf6e" path="res://character/components/collider.gd" id="3"]
+[ext_resource type="Script" uid="uid://c47fuj1mbh16p" path="res://character/states/physics/air.gd" id="4"]
+[ext_resource type="Script" uid="uid://cg5ryvddrq36e" path="res://character/states/physics/ground.gd" id="5"]
+[ext_resource type="Script" uid="uid://4d5xs4xdph30" path="res://character/states/action/jump.gd" id="6"]
+[ext_resource type="Script" uid="uid://c8oe8jn5dwvr1" path="res://helpers/misc/property_watcher.gd" id="7"]
+[ext_resource type="Script" uid="uid://bgntes0f2dumm" path="res://character/states/action/triple_jump.gd" id="8"]
+[ext_resource type="Script" uid="uid://6xd2ynal18rh" path="res://character/states/physics/somersault.gd" id="9"]
+[ext_resource type="SpriteFrames" uid="uid://82vkq7amauho" path="res://character/assets/mario/frames.tres" id="10"]
+[ext_resource type="Script" uid="uid://bo3eqre5ptfhi" path="res://character/components/animator.gd" id="11"]
+
+[node name="Character" type="CharacterBody2D" unique_id=1097269363]
+script = ExtResource("1")
+base_size = Vector2(12, 27)
+
+[node name="Animator" type="AnimatedSprite2D" parent="." unique_id=903907172]
+unique_name_in_owner = true
+position = Vector2(0, -24)
+sprite_frames = ExtResource("10")
+animation = &"walk"
+script = ExtResource("11")
+
+[node name="Components" type="Node2D" parent="." unique_id=1163864308]
+
+[node name="Collider" type="Node2D" parent="Components" unique_id=1841741792]
+unique_name_in_owner = true
+script = ExtResource("3")
+
+[node name="RaySetup" type="Node2D" parent="Components/Collider" unique_id=1034299258]
+script = ExtResource("2")
+head_height = 27.0
+body_width = 6.0
+ceiling_casts = 3
+floor_casts = 3
+horizontal_casts = 4
+ceiling_corner_width = 2.0
+floor_corner_width = 2.0
+corner_height = 8.0
+
+[node name="PhysicsStates" type="Node" parent="." unique_id=612454018]
+unique_name_in_owner = true
+
+[node name="Air" type="Node" parent="PhysicsStates" unique_id=1747212418]
+script = ExtResource("4")
+move_speed = 216.0
+acceleration = 16.0
+overshoot_speed = 0.25
+friction = 2.3
+overshoot_friction = 4.6
+ground_name = "Ground"
+animation = "fall"
+anim_is_directional = true
+
+[node name="Somersault" type="Node" parent="PhysicsStates" unique_id=1322741610]
+script = ExtResource("9")
+air_name = "Air"
+move_speed = 216.0
+acceleration = 10.0
+overshoot_speed = 0.25
+friction = 2.3
+overshoot_friction = 4.6
+ground_name = "Ground"
+
+[node name="Ground" type="Node" parent="PhysicsStates" unique_id=1940939466]
+script = ExtResource("5")
+move_speed = 216.0
+acceleration = 16.0
+overshoot_speed = 3.5
+turn_speed = 30.0
+friction = 27.0
+air_name = "Air"
+animation = "idle"
+
+[node name="JumpAction" type="Node" parent="PhysicsStates/Ground" unique_id=866862932 node_paths=PackedStringArray("triple_jump_action", "air_physics")]
+script = ExtResource("6")
+jump_powers = Array[float]([350.0, 425.0])
+jump_animations = Array[String](["jump", "double_jump"])
+jump_is_directional = Array[bool]([true, false])
+fall_animations = Array[String](["fall", "double_jump_fall"])
+fall_is_directional = Array[bool]([true, false])
+triple_jump_threshold = 80.0
+triple_jump_action = NodePath("../TripleJumpAction")
+air_physics = NodePath("../../Air")
+max_jumps = 3
+animation = "jump_right"
+disable_snap = true
+
+[node name="TripleJumpAction" type="Node" parent="PhysicsStates/Ground" unique_id=1223926221 node_paths=PackedStringArray("somersault_physics")]
+script = ExtResource("8")
+launch_power = 100.0
+jump_power = 495.0
+somersault_physics = NodePath("../../Somersault")
+animation = "triple_jump"
+disable_snap = true
+
+[node name="Debug" type="VBoxContainer" parent="." unique_id=45701321]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -116.0
+offset_right = 1.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Debug" unique_id=1306515174]
+layout_mode = 2
+horizontal_alignment = 1
+script = ExtResource("7")
+object_to_watch = NodePath("../..")
+property_to_watch = "velocity"
+
+[node name="Label2" type="Label" parent="Debug" unique_id=882728167]
+layout_mode = 2
+horizontal_alignment = 1
+script = ExtResource("7")
+object_to_watch = NodePath("../..")
+property_to_watch = "physics"
+
+[node name="Label3" type="Label" parent="Debug" unique_id=1919466911]
+layout_mode = 2
+horizontal_alignment = 1
+script = ExtResource("7")
+object_to_watch = NodePath("../..")
+property_to_watch = "action"

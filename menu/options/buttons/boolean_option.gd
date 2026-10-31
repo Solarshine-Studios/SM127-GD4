@@ -26,7 +26,6 @@ func set_option_name(new_value: StringName) -> void:
 
 
 func _update_value() -> void:
-	super()
 	icon.texture = CHECK_CHECKED if value else CHECK_UNCHECKED
 	button.click_sound = on_sound if value else off_sound
 

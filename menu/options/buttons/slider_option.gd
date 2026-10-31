@@ -21,7 +21,6 @@ func _ready() -> void:
 
 
 func _update_value() -> void:
-	super()
 	value_label.text = str(int(value))
 	slider.set_value_no_signal(value)
 

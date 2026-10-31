@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://5amn4lx5tyt0"]
+
+[ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/menu_themes/default/default.tres" id="1_k1blm"]
+[ext_resource type="Script" uid="uid://b2dttbgtddlsu" path="res://menu/classes/screen.gd" id="1_wqjue"]
+[ext_resource type="Texture2D" uid="uid://b5ovpoadanl6e" path="res://global/assets/misc/box_shadow.png" id="3_rnrwr"]
+[ext_resource type="PackedScene" uid="uid://cf6ojtnr8rqbm" path="res://menu/background_scroll/background.tscn" id="3_xxtb1"]
+
+[node name="LevelList" type="Control" unique_id=539566198]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k1blm")
+script = ExtResource("1_wqjue")
+metadata/_custom_type_script = "uid://b2dttbgtddlsu"
+
+[node name="Content" type="MarginContainer" parent="." unique_id=1688335449]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 56
+theme_override_constants/margin_top = 56
+theme_override_constants/margin_right = 56
+theme_override_constants/margin_bottom = 56
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content" unique_id=1250440374]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Content/VBoxContainer" unique_id=296305457]
+layout_mode = 2
+
+[node name="Padding" type="Control" parent="Content/VBoxContainer/Buttons" unique_id=126829684]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Counters" type="MarginContainer" parent="Content/VBoxContainer/Buttons" unique_id=1200461075]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Content/VBoxContainer/Buttons/Counters" unique_id=804723496]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/VBoxContainer/Buttons/Counters" unique_id=1868212859]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Buttons/Counters/VBoxContainer" unique_id=1109917298]
+layout_mode = 2
+
+[node name="Main" type="PanelContainer" parent="Content/VBoxContainer" unique_id=809556436]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"LevelListGlow"
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Main" unique_id=1125502816]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = -9
+theme_override_constants/margin_bottom = -11
+
+[node name="Shadow" type="NinePatchRect" parent="Content/VBoxContainer/Main/MarginContainer" unique_id=377563949]
+modulate = Color(1, 1, 1, 0.2509804)
+show_behind_parent = true
+layout_mode = 2
+texture = ExtResource("3_rnrwr")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="Background" parent="Content/VBoxContainer/Main" unique_id=1233741731 instance=ExtResource("3_xxtb1")]
+layout_mode = 2
+gradient_style = 2

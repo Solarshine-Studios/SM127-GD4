@@ -289,6 +289,15 @@ corner_radius_bottom_right = 32
 expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teedc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0)
+border_blend = true
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_houot"]
 bg_color = Color(0.64, 0.64, 0.64, 0.9411765)
 skew = Vector2(0.5, 0)
@@ -496,7 +505,7 @@ shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_size = 2
 shadow_offset = Vector2(6, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teedc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fg32o"]
 bg_color = Color(0, 0, 0, 0.5019608)
 border_width_left = 4
 border_width_top = 2
@@ -714,6 +723,8 @@ HSlider/styles/slider = SubResource("StyleBoxFlat_tkmwf")
 Label/colors/font_color = Color(1, 1, 1, 1)
 LargeLabel/base_type = &"Label"
 LargeLabel/font_sizes/font_size = 20
+LevelListGlow/base_type = &"PanelContainer"
+LevelListGlow/styles/panel = SubResource("StyleBoxFlat_teedc")
 OptionButton/colors/font_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
 OptionButton/colors/font_focus_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
 OptionButton/colors/font_hover_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
@@ -820,7 +831,7 @@ SettingsButtonSelected/styles/pressed = SubResource("StyleBoxFlat_jffts")
 SettingsPanel/base_type = &"PanelContainer"
 SettingsPanel/styles/panel = SubResource("StyleBoxFlat_dxc3b")
 TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
-TabContainer/styles/panel = SubResource("StyleBoxFlat_teedc")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_fg32o")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_x13f2")
 TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_73iiu")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_hpgpa")
