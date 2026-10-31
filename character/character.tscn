@@ -46,11 +46,6 @@ unique_name_in_owner = true
 
 [node name="Air" type="Node" parent="PhysicsStates" unique_id=1747212418]
 script = ExtResource("4")
-move_speed = 216.0
-acceleration = 16.0
-overshoot_speed = 0.25
-friction = 2.3
-overshoot_friction = 4.6
 ground_name = "Ground"
 animation = "fall"
 anim_is_directional = true
@@ -58,20 +53,11 @@ anim_is_directional = true
 [node name="Somersault" type="Node" parent="PhysicsStates" unique_id=1322741610]
 script = ExtResource("9")
 air_name = "Air"
-move_speed = 216.0
 acceleration = 10.0
-overshoot_speed = 0.25
-friction = 2.3
-overshoot_friction = 4.6
 ground_name = "Ground"
 
 [node name="Ground" type="Node" parent="PhysicsStates" unique_id=1940939466]
 script = ExtResource("5")
-move_speed = 216.0
-acceleration = 16.0
-overshoot_speed = 3.5
-turn_speed = 30.0
-friction = 27.0
 air_name = "Air"
 animation = "idle"
 
@@ -86,18 +72,7 @@ triple_jump_threshold = 80.0
 triple_jump_action = NodePath("../TripleJumpAction")
 air_physics = NodePath("../../Air")
 max_jumps = 3
-priority = null
-allow_priority_override = null
-gravity_factor = null
-override_size = null
-custom_size = null
 animation = "jump_right"
-anim_speed = null
-anim_is_directional = null
-sprite_offset = null
-sprite_rot = null
-sprite_skew = null
-sprite_scale = null
 disable_snap = true
 
 [node name="TripleJumpAction" type="Node" parent="PhysicsStates/Ground" unique_id=1223926221 node_paths=PackedStringArray("somersault_physics")]
@@ -105,18 +80,7 @@ script = ExtResource("8")
 launch_power = 100.0
 jump_height = 4.0
 somersault_physics = NodePath("../../Somersault")
-priority = null
-allow_priority_override = null
-gravity_factor = null
-override_size = null
-custom_size = null
 animation = "triple_jump"
-anim_speed = null
-anim_is_directional = null
-sprite_offset = null
-sprite_rot = null
-sprite_skew = null
-sprite_scale = null
 disable_snap = true
 
 [node name="Debug" type="VBoxContainer" parent="." unique_id=45701321]

@@ -1,22 +1,19 @@
 class_name AirPhysics
 extends PhysicsState
 
-
 @export_group("Air Movement")
-@export var move_speed: float
-@export var acceleration: float
-@export var overshoot_speed: float
-
-@export var friction: float
-@export var overshoot_friction: float
+@export var move_speed: float = 216.0
+@export var acceleration: float = 16.0
+@export var overshoot_speed: float = 0.25
+@export var friction: float = 2.3
+@export var overshoot_friction: float = 4.6
 
 @export_group("Misc")
+@export var max_fall_speed: float = 640.0
 @export var set_facing: bool = true
 @export var ground_name: String
 
-
-### Main logic
-
+### Movement logic
 func do_movement(move_dir: int) -> void:
 	var relative_vel: float = character.velocity.x * move_dir
 	var factor: float
@@ -33,7 +30,6 @@ func do_movement(move_dir: int) -> void:
 	if set_facing:
 		character.facing_direction = move_dir
 
-
 func do_friction() -> void:
 	var working_friction: float = friction
 	if abs(character.velocity.x) > move_speed:
@@ -41,12 +37,18 @@ func do_friction() -> void:
 	
 	character.velocity.x = move_toward(character.velocity.x, 0, working_friction)
 
+### Main logic
+func _on_enter() -> void: pass
 
-## runs every frame while active
+func _on_exit() -> void:
+	animation = "fall"
+	anim_is_directional = true
+
 func _update(_delta: float) -> void:
 	## Gravity
 	var total_gravity: float = character.get_gravity_sum()
 	character.velocity.y += total_gravity
+	character.velocity.y = minf(character.velocity.y, max_fall_speed)
 	
 	## Movement
 	var move_dir: int = 0
@@ -60,23 +62,12 @@ func _update(_delta: float) -> void:
 	else:
 		do_friction()
 
-
-## runs once when this state stops being active
-func _on_exit() -> void:
-	animation = "fall"
-	anim_is_directional = true
-
+func _general_update(_delta: float) -> void: pass
 
 ### Transitions
-
-## runs this check every frame while inactive and 
-## in the character's current pool of states
 func _startup_check() -> bool:
 	return not character.is_grounded()
 
-## runs this check every frame while active
-## the string returned is the name of the state to change to
-## return self.name for no change!
 func _transition_check() -> String:
 	if character.is_grounded():
 		return ground_name

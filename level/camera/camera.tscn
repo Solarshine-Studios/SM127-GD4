@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bobyj1xpkk7l7"]
+
+[ext_resource type="Script" uid="uid://bcdqgv3w1l2bi" path="res://level/camera/camera.gd" id="1_gkjs7"]
+[ext_resource type="Script" uid="uid://bgmaxvx7b2gdl" path="res://level/camera/states/follow.gd" id="2_lv4bh"]
+[ext_resource type="Script" uid="uid://bjfknkeogs8ux" path="res://level/camera/states/fast_follow.gd" id="3_21fu4"]
+[ext_resource type="Script" uid="uid://c3n17o82rpfoc" path="res://level/camera/states/vertical/airborne.gd" id="4_hh0ja"]
+[ext_resource type="Script" uid="uid://bty5gpkw34ebh" path="res://level/camera/states/vertical/grounded.gd" id="5_jjrxs"]
+
+[node name="Camera" type="Camera2D" unique_id=180537288]
+process_callback = 0
+script = ExtResource("1_gkjs7")
+follow_offset = Vector2(0, -13)
+
+[node name="HorizontalStates" type="Node" parent="." unique_id=184466761]
+unique_name_in_owner = true
+
+[node name="Follow" type="Node" parent="HorizontalStates" unique_id=1381436070]
+script = ExtResource("2_lv4bh")
+axis = "x"
+
+[node name="FastFollow" type="Node" parent="HorizontalStates" unique_id=1089602827]
+script = ExtResource("3_21fu4")
+follow_physics = PackedStringArray("PLACEHOLDER")
+priority = 0
+axis = "x"
+
+[node name="VerticalStates" type="Node" parent="." unique_id=1755986549]
+unique_name_in_owner = true
+
+[node name="Airborne" type="Node" parent="VerticalStates" unique_id=2028943527]
+script = ExtResource("4_hh0ja")
+margin = 64.0
+slow_follow_speed = 2.0
+
+[node name="Grounded" type="Node" parent="VerticalStates" unique_id=204184348]
+script = ExtResource("5_jjrxs")
+
+[node name="Follow" type="Node" parent="VerticalStates" unique_id=331675968]
+script = ExtResource("2_lv4bh")
+follow_physics = PackedStringArray("PLACEHOLDER")
+margin = 24.0
+lerp_slower_speed = 6.0
+lerp_faster_speed = 6.0
+max_lead_distance = 224.0
+priority = 0
+
+[node name="FastFollow" type="Node" parent="VerticalStates" unique_id=250691547]
+script = ExtResource("3_21fu4")
+follow_physics = PackedStringArray("PLACEHOLDER")
+priority = 0

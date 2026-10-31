@@ -1,7 +1,6 @@
 class_name SubscreenManager
 extends MarginContainer
 
-
 const DARKEN_TWEEN_DURATION: float = 0.2
 
 @onready var focus: UIFocus = %Focus
@@ -16,11 +15,9 @@ var last_focus: Control
 
 signal exit_screen
 
-
 func _ready() -> void:
 	for child: Control in get_children():
 		child.hide()
-
 
 func go_back() -> void:
 	back_sound.play()
@@ -28,7 +25,6 @@ func go_back() -> void:
 		change_subscreen(-1)
 	else:
 		exit_screen.emit()
-
 
 # -1 means closed
 func change_subscreen(new_subscreen: int = -1) -> void:

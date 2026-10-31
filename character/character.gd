@@ -48,7 +48,6 @@ func _physics_process(delta: float) -> void:
 	collider._update(delta)
 	animator._update(delta)
 
-
 ### States
 func set_state(type: String, state: State) -> void:
 	var old_state: State = self[type]
@@ -59,7 +58,6 @@ func set_state(type: String, state: State) -> void:
 	
 	if is_instance_valid(state):
 		state._on_enter()
-
 
 func check_startups(cur_state: State, container: Node) -> State:
 	var cur_priority: int = int(-INF)
@@ -82,7 +80,6 @@ func check_startups(cur_state: State, container: Node) -> State:
 				return char_state
 	return null
 
-
 func handle_general_updates(delta: float) -> void:
 	if is_instance_valid(physics_states):
 		for phys: PhysicsState in physics_states.get_children():
@@ -96,7 +93,6 @@ func handle_general_updates(delta: float) -> void:
 					var link: StateLink = act
 					action_state = link.link_to
 				action_state._general_update(delta)
-
 
 func update_states(delta: float, type: String, container: Node) -> void:
 	## handle updates, transitions
@@ -124,7 +120,6 @@ func update_states(delta: float, type: String, container: Node) -> void:
 		if is_instance_valid(startup_state):
 			set_state(type, startup_state)
 
-
 ### Collision queries
 func is_grounded() -> bool:
 	return collider.floor_info["is_colliding"]
@@ -140,7 +135,6 @@ func is_walled_left() -> bool:
 
 func is_walled_right() -> bool:
 	return collider.right_info["is_colliding"]
-
 
 ### Physics
 func get_gravity_sum() -> float:
@@ -168,7 +162,6 @@ func can_snap() -> bool:
 	if is_instance_valid(physics):
 		return not physics.disable_snap
 	return true
-
 
 ### Inputs
 var inputs_list: Array[String] = [

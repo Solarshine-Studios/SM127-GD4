@@ -27,40 +27,27 @@ extends Node
 @export_group("Collision")
 @export var disable_snap: bool
 
-
 var character: Character
 func _enter_tree() -> void:
 	character = get_owner()
 
+## runs once when this state begins being active
+@abstract func _on_enter() -> void
+
+## runs once when this state stops being active
+@abstract func _on_exit() -> void
+
+## runs every frame while active
+@abstract func _update(_delta: float) -> void
+
+## always runs no matter what, before any of the other functions
+@abstract func _general_update(_delta: float) -> void
 
 ## runs this check every frame while inactive and 
 ## in the character's current pool of states
-func _startup_check() -> bool:
-	return false
-
+@abstract func _startup_check() -> bool
 
 ## runs this check every frame while active
 ## the string returned is the name of the state to change to
 ## return self.name for no change!
-func _transition_check() -> String:
-	return name
-
-
-## runs every frame while active
-func _update(_delta: float) -> void:
-	pass
-
-
-## runs once when this state begins being active
-func _on_enter() -> void:
-	pass
-
-
-## runs once when this state stops being active
-func _on_exit() -> void:
-	pass
-
-
-## always runs no matter what, before any of the other functions
-func _general_update(_delta: float) -> void:
-	pass
+@abstract func _transition_check() -> String

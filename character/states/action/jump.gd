@@ -1,7 +1,6 @@
 class_name JumpAction
 extends ActionState
 
-
 const TILE_SIZE: int = 32
 
 @export var jump_heights: Array[float]
@@ -21,17 +20,13 @@ var pressed_buffer: float
 var jump_released: bool = false
 const HEIGHT_MULT: float = 0.7
 
-
 ## jump heights are tracked in tiles here, not velocity
 ## this makes em easy to track and easy to tweak :)
 func get_jump_power(jump_height: float) -> float:
 	var gravity_per_sec: float = character.BASE_GRAVITY / get_physics_process_delta_time() 
 	return sqrt(jump_height * gravity_per_sec * TILE_SIZE * 2)
 
-
 ### Main logic
-
-## runs once when this state begins being active
 func _on_enter() -> void:
 	jump_released = false
 	character.override_timer = 0
@@ -61,16 +56,14 @@ func _on_enter() -> void:
 		jump_sequence = 0
 		reset_timer = 0
 
+func _on_exit() -> void: pass
 
-## runs every frame while active
 func _update(_delta: float) -> void:
 	## jump height variation
 	if not jump_released and not character.input["jump"][0]:
 		jump_released = true
 		character.velocity.y *= HEIGHT_MULT
 
-
-## always runs no matter what, before any of the other functions
 func _general_update(delta: float) -> void:
 	var jump_just_pressed: bool = character.input["jump"][1]
 	if jump_just_pressed:
@@ -84,18 +77,10 @@ func _general_update(delta: float) -> void:
 		if reset_timer == 0:
 			jump_sequence = 0
 
-
 ### Transitions
-
-## runs this check every frame while inactive and 
-## in the character's current pool of states
 func _startup_check() -> bool:
 	return pressed_buffer > 0
 
-
-## runs this check every frame while active
-## the string returned is the name of the state to change to
-## return self.name for no change!
 func _transition_check() -> String:
 	if character.velocity.y > 2 or character.physics is GroundPhysics:
 		return ""
