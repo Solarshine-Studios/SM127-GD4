@@ -10,6 +10,8 @@ const COUNTDOWN: AudioStream = preload("uid://dq058palx2mwr")
 const COUNTDOWN_END: AudioStream = preload("uid://c6txqpvcekkwe")
 
 @onready var button: ButtonSound = get_parent()
+@onready var initial_min_size: float = button.custom_minimum_size.x
+@onready var initial_max_size: float = button.custom_maximum_size.x
 var audio_player: AudioStreamPlayer
 
 @export var countdown_style: TextStyle = TextStyle.left
@@ -48,9 +50,7 @@ func update_text(number: float) -> void:
 	var last_text: String = button.text
 	
 	var count_text: String = "[" + str(ceili(number)) + "]"
-	var reg_text: String = button.initial_text
-	if button.should_handle_spaces():
-		reg_text = tr(reg_text.strip_edges())
+	var reg_text: String = tr(button.initial_text.strip_edges())
 	
 	match countdown_style:
 		TextStyle.left:
@@ -67,6 +67,9 @@ func update_text(number: float) -> void:
 		text_changed.emit()
 
 func button_down() -> void:
+	button.custom_minimum_size.x = button.size.x
+	button.custom_maximum_size.x = button.size.x
+	
 	if Input.is_action_pressed("skip_count"):
 		count = 0.01
 	else:
@@ -75,6 +78,8 @@ func button_down() -> void:
 		audio_player.play()
 
 func button_up() -> void:
+	button.custom_minimum_size.x = initial_min_size
+	button.custom_maximum_size.x = initial_max_size
 	count = -1.0
 	
 	var reg_text: String = button.initial_text

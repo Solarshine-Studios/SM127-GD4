@@ -29,6 +29,8 @@ func _ready() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_TRANSLATION_CHANGED:
 		update_offset.call_deferred()
+	if what == NOTIFICATION_RESIZED or what == NOTIFICATION_VISIBILITY_CHANGED:
+		update_offset.call_deferred()
 
 
 func update_offset() -> void:
@@ -73,7 +75,7 @@ func update_offset() -> void:
 	
 	match parent.alignment:
 		HorizontalAlignment.HORIZONTAL_ALIGNMENT_CENTER:
-			text_left = padding_left + (available_width - text_width) / 2.0
+			text_left = (available_width / 2.0) - (text_width / 2.0)
 		HorizontalAlignment.HORIZONTAL_ALIGNMENT_LEFT:
 			text_left = padding_left
 		HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT:

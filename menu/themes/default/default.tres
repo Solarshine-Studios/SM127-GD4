@@ -3,12 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://duu2h3dllug77" path="res://assets/icons/CheckChecked.svg" id="1_1b031"]
 [ext_resource type="Texture2D" uid="uid://1484lhmfmjns" path="res://assets/icons/CheckUnchecked.svg" id="2_ypfus"]
 [ext_resource type="FontFile" uid="uid://fdvddh12npag" path="res://assets/fonts/MARIO_Font_v3_Solid.otf" id="3_m1jir"]
+[ext_resource type="FontFile" uid="uid://cbl4ml5kak81e" path="res://assets/fonts/Blaka-Regular.ttf" id="4_3vwbs"]
 [ext_resource type="Texture2D" uid="uid://piapcle7vsnp" path="res://assets/misc/grabber.svg" id="4_rsdb1"]
 [ext_resource type="Texture2D" uid="uid://bg5jm8kxcenf3" path="res://assets/misc/grabber_highlight.svg" id="5_3vwbs"]
 [ext_resource type="Texture2D" uid="uid://bwd0ejh21x5vy" path="res://assets/misc/bricks.svg" id="6_xhfph"]
 [ext_resource type="Texture2D" uid="uid://dlkjuunc2plt2" path="res://assets/icons/CircleSelected.svg" id="7_rgblf"]
 [ext_resource type="Texture2D" uid="uid://d0maeihm5dogm" path="res://assets/icons/CircleUnselected.svg" id="8_0x6fo"]
-[ext_resource type="FontFile" uid="uid://duqnbnl6b24n2" path="res://assets/fonts/delfino.ttf" id="9_3isvb"]
+[ext_resource type="FontFile" uid="uid://mmco3dxtqasv" path="res://assets/fonts/MARIOMAKER.otf" id="9_ypfus"]
+[ext_resource type="FontFile" uid="uid://dck7ecjy1naj7" path="res://assets/fonts/FOT-PopHappinessStd-EB.otf" id="10_ypfus"]
+[ext_resource type="FontFile" uid="uid://dlotui8v4sm24" path="res://assets/fonts/Marhey-VariableFont_wght.ttf" id="11_m1jir"]
 
 [sub_resource type="Gradient" id="Gradient_houot"]
 offsets = PackedFloat32Array(0, 0.078, 0.38, 1)
@@ -216,6 +219,15 @@ metadata/_snap_enabled = true
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5wcc"]
 texture = SubResource("GradientTexture2D_8f8qi")
 
+[sub_resource type="FontVariation" id="FontVariation_pi66r"]
+base_font = ExtResource("4_3vwbs")
+variation_transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+spacing_glyph = 5
+
+[sub_resource type="FontVariation" id="FontVariation_xhfph"]
+fallbacks = Array[Font]([SubResource("FontVariation_pi66r")])
+base_font = ExtResource("3_m1jir")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmrqs"]
 bg_color = Color(1, 1, 1, 1)
 border_color = Color(1, 1, 1, 0)
@@ -386,6 +398,31 @@ expand_margin_bottom = 4.0
 texture = ExtResource("6_xhfph")
 modulate_color = Color(1, 1, 1, 0.03137255)
 
+[sub_resource type="Gradient" id="Gradient_qs6vt"]
+offsets = PackedFloat32Array(0, 0.944, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.83137256, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qs6vt"]
+gradient = SubResource("Gradient_qs6vt")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rsdb1"]
+texture = SubResource("GradientTexture2D_qs6vt")
+modulate_color = Color(0, 0.043137256, 0.3137255, 0.8784314)
+
+[sub_resource type="Gradient" id="Gradient_rsdb1"]
+colors = PackedColorArray(0, 0.043137, 0.313726, 0.878431, 0.039216, 0.282353, 0.423529, 0.25098)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1vtvh"]
+gradient = SubResource("Gradient_rsdb1")
+fill = 1
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjf8f"]
+texture = SubResource("GradientTexture2D_1vtvh")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fu1h"]
 bg_color = Color(0.047059, 0.07451, 0.176471, 0.376471)
 
@@ -418,6 +455,88 @@ shadow_offset = Vector2(6, 6)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_e11wa"]
 color = Color(0.043137256, 0.2901961, 0.42745098, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_rsdb1"]
+base_font = ExtResource("11_m1jir")
+variation_opentype = {
+2003265652: 400
+}
+variation_embolden = 0.7
+variation_transform = Transform2D(1.05, 0, 0, 1, 0, 0)
+spacing_glyph = 1
+spacing_top = -4
+spacing_bottom = -4
+
+[sub_resource type="FontVariation" id="FontVariation_3vwbs"]
+fallbacks = Array[Font]([SubResource("FontVariation_rsdb1")])
+base_font = ExtResource("10_ypfus")
+variation_embolden = 0.5
+variation_transform = Transform2D(1.05, 0, 0, 1, 0, 0)
+spacing_top = 5
+spacing_bottom = -14
+baseline_offset = -0.2
+
+[sub_resource type="FontVariation" id="FontVariation_mk4g5"]
+base_font = ExtResource("11_m1jir")
+variation_opentype = {
+2003265652: 400
+}
+variation_embolden = 0.7
+variation_transform = Transform2D(1.05, 0.3, 0, 1, 0, 0)
+spacing_glyph = 1
+spacing_top = -4
+spacing_bottom = -4
+
+[sub_resource type="FontVariation" id="FontVariation_x22u0"]
+fallbacks = Array[Font]([SubResource("FontVariation_mk4g5")])
+base_font = ExtResource("10_ypfus")
+variation_embolden = 0.5
+variation_transform = Transform2D(1.05, 0.3, 0, 1, 0, 0)
+spacing_top = 5
+spacing_bottom = -14
+baseline_offset = -0.2
+
+[sub_resource type="FontVariation" id="FontVariation_0x6fo"]
+base_font = ExtResource("11_m1jir")
+variation_opentype = {
+2003265652: 400
+}
+variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
+spacing_top = -4
+spacing_bottom = -4
+
+[sub_resource type="FontVariation" id="FontVariation_3isvb"]
+fallbacks = Array[Font]([SubResource("FontVariation_0x6fo")])
+base_font = ExtResource("10_ypfus")
+variation_embolden = -0.2
+variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
+spacing_glyph = -1
+spacing_top = 4
+spacing_bottom = -14
+baseline_offset = -0.2
+
+[sub_resource type="FontVariation" id="FontVariation_2u066"]
+base_font = ExtResource("9_ypfus")
+spacing_top = -2
+spacing_bottom = -8
+baseline_offset = -0.08
+
+[sub_resource type="FontVariation" id="FontVariation_vuj35"]
+base_font = ExtResource("11_m1jir")
+variation_opentype = {
+2003265652: 400
+}
+spacing_top = -4
+spacing_bottom = -4
+
+[sub_resource type="FontVariation" id="FontVariation_qv4bq"]
+fallbacks = Array[Font]([SubResource("FontVariation_vuj35")])
+base_font = ExtResource("10_ypfus")
+variation_embolden = -0.2
+spacing_glyph = -1
+spacing_top = 4
+spacing_bottom = -14
+baseline_offset = -0.2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_houot"]
 
@@ -491,8 +610,6 @@ shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_size = 2
 shadow_offset = Vector2(6, 6)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oto5u"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxc3b"]
 bg_color = Color(1, 1, 1, 1)
 skew = Vector2(0.5, 0)
@@ -507,6 +624,20 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_size = 2
 shadow_offset = Vector2(6, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdcx4"]
+bg_color = Color(0, 0, 0, 0.25098)
+skew = Vector2(-0.5, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0)
+border_blend = true
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fg32o"]
 bg_color = Color(0, 0, 0, 0.5019608)
@@ -596,6 +727,10 @@ border_blend = true
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 
+[sub_resource type="FontVariation" id="FontVariation_rgblf"]
+fallbacks = Array[Font]([SubResource("FontVariation_pi66r")])
+base_font = ExtResource("3_m1jir")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i1vp"]
 bg_color = Color(0.5882353, 0.6313726, 0.92156863, 1)
 border_color = Color(0.5888, 0.63295996, 0.92, 0)
@@ -632,16 +767,6 @@ corner_radius_bottom_left = 2
 color = Color(1, 1, 1, 0.5019608)
 vertical = true
 
-[sub_resource type="Gradient" id="Gradient_qs6vt"]
-offsets = PackedFloat32Array(0, 0.944, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.83137256, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qs6vt"]
-gradient = SubResource("Gradient_qs6vt")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-metadata/_snap_enabled = true
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8f8qi"]
 texture = SubResource("GradientTexture2D_qs6vt")
 
@@ -652,12 +777,6 @@ metadata/_snap_enabled = true
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_teedc"]
 texture = SubResource("GradientTexture2D_v4imr")
-
-[sub_resource type="FontVariation" id="FontVariation_qv4bq"]
-base_font = ExtResource("9_3isvb")
-spacing_glyph = -1
-spacing_space = 1
-spacing_top = 1
 
 [resource]
 default_font = SubResource("FontVariation_qv4bq")
@@ -703,13 +822,13 @@ CreditsDim/styles/panel = SubResource("StyleBoxTexture_f5wcc")
 CreditsHeader/base_type = &"RichTextLabel"
 CreditsHeader/colors/default_color = Color(1, 1, 0.627451, 1)
 CreditsHeader/colors/font_shadow_color = Color(0, 0, 0, 1)
-CreditsHeader/constants/outline_size = 8
+CreditsHeader/constants/outline_size = 10
 CreditsHeader/constants/paragraph_separation = 6
 CreditsHeader/constants/shadow_offset_x = 0
 CreditsHeader/constants/shadow_offset_y = 2
-CreditsHeader/constants/shadow_outline_size = 8
+CreditsHeader/constants/shadow_outline_size = 10
 CreditsHeader/font_sizes/normal_font_size = 18
-CreditsHeader/fonts/normal_font = ExtResource("3_m1jir")
+CreditsHeader/fonts/normal_font = SubResource("FontVariation_xhfph")
 GridContainer/constants/h_separation = 0
 GridContainer/constants/v_separation = 0
 HBoxContainer/constants/separation = 0
@@ -728,6 +847,28 @@ LargeLabel/base_type = &"Label"
 LargeLabel/font_sizes/font_size = 20
 LevelListGlow/base_type = &"PanelContainer"
 LevelListGlow/styles/panel = SubResource("StyleBoxFlat_teedc")
+MissionDescription/base_type = &"RichTextLabel"
+MissionDescription/colors/font_outline_color = Color(0, 0.043137256, 0.3137255, 1)
+MissionDescription/constants/outline_size = 8
+MissionDescription/font_sizes/bold_font_size = 14
+MissionDescription/font_sizes/bold_italics_font_size = 14
+MissionDescription/font_sizes/italics_font_size = 14
+MissionDescription/font_sizes/mono_font_size = 14
+MissionDescription/font_sizes/normal_font_size = 14
+MissionIndex/base_type = &"MissionTitle"
+MissionIndex/font_sizes/normal_font_size = 15
+MissionTitle/base_type = &"RichTextLabel"
+MissionTitle/colors/font_outline_color = Color(0, 0.043137256, 0.3137255, 1)
+MissionTitle/colors/font_shadow_color = Color(0, 0.043137256, 0.3137255, 1)
+MissionTitle/constants/outline_size = 8
+MissionTitle/constants/shadow_offset_x = 0
+MissionTitle/constants/shadow_offset_y = 2
+MissionTitle/constants/shadow_outline_size = 8
+MissionTitle/font_sizes/bold_font_size = 20
+MissionTitle/font_sizes/bold_italics_font_size = 20
+MissionTitle/font_sizes/italics_font_size = 20
+MissionTitle/font_sizes/mono_font_size = 20
+MissionTitle/font_sizes/normal_font_size = 20
 OptionButton/colors/font_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
 OptionButton/colors/font_focus_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
 OptionButton/colors/font_hover_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
@@ -747,6 +888,16 @@ Panel/styles/panel = SubResource("StyleBoxFlat_e11wa")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_e11wa")
 PanelPattern1/base_type = &"PanelContainer"
 PanelPattern1/styles/panel = SubResource("StyleBoxTexture_6t101")
+PauseBarBottom/base_type = &"Panel"
+PauseBarBottom/styles/panel = SubResource("StyleBoxTexture_rsdb1")
+PauseButton/base_type = &"SettingsButton"
+PauseButton/font_sizes/font_size = 18
+PauseButtonRed/base_type = &"SettingsButtonRed"
+PauseButtonRed/font_sizes/font_size = 18
+PauseButtonRedder/base_type = &"SettingsButtonRedder"
+PauseButtonRedder/font_sizes/font_size = 18
+PausePanel/base_type = &"Panel"
+PausePanel/styles/panel = SubResource("StyleBoxTexture_bjf8f")
 PauseTint/base_type = &"Panel"
 PauseTint/styles/panel = SubResource("StyleBoxFlat_8fu1h")
 PopupMenu/colors/font_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
@@ -762,6 +913,11 @@ PopupMenu/styles/panel = SubResource("StyleBoxFlat_8f8qi")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_e11wa")
 RedLabel/base_type = &"Label"
 RedLabel/colors/font_color = Color(0.69411767, 0.2, 0.2, 1)
+RichTextLabel/fonts/bold_font = SubResource("FontVariation_3vwbs")
+RichTextLabel/fonts/bold_italics_font = SubResource("FontVariation_x22u0")
+RichTextLabel/fonts/italics_font = SubResource("FontVariation_3isvb")
+RichTextLabel/fonts/mono_font = SubResource("FontVariation_2u066")
+RichTextLabel/fonts/normal_font = SubResource("FontVariation_qv4bq")
 SettingsButton/base_type = &"Button"
 SettingsButton/colors/font_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
 SettingsButton/colors/font_disabled_color = Color(0.043137256, 0.2901961, 0.42745098, 1)
@@ -783,7 +939,7 @@ SettingsButton/styles/focus = SubResource("StyleBoxEmpty_houot")
 SettingsButton/styles/hover = SubResource("StyleBoxFlat_4v75m")
 SettingsButton/styles/normal = SubResource("StyleBoxFlat_vo4cw")
 SettingsButton/styles/pressed = SubResource("StyleBoxFlat_jffts")
-SettingsButtonRed/base_type = &"Button"
+SettingsButtonRed/base_type = &"SettingsButton"
 SettingsButtonRed/colors/font_color = Color(0.69411767, 0.2, 0.2, 1)
 SettingsButtonRed/colors/font_disabled_color = Color(0.69411767, 0.2, 0.2, 1)
 SettingsButtonRed/colors/font_focus_color = Color(0.69411767, 0.2, 0.2, 1)
@@ -794,13 +950,7 @@ SettingsButtonRed/colors/icon_focus_color = Color(0.69411767, 0.2, 0.2, 1)
 SettingsButtonRed/colors/icon_hover_color = Color(0.69411767, 0.2, 0.2, 1)
 SettingsButtonRed/colors/icon_normal_color = Color(0.69411767, 0.2, 0.2, 1)
 SettingsButtonRed/colors/icon_pressed_color = Color(0.69411767, 0.2, 0.2, 1)
-SettingsButtonRed/font_sizes/font_size = 16
-SettingsButtonRed/styles/disabled = SubResource("StyleBoxFlat_houot")
-SettingsButtonRed/styles/focus = SubResource("StyleBoxEmpty_houot")
-SettingsButtonRed/styles/hover = SubResource("StyleBoxFlat_4v75m")
-SettingsButtonRed/styles/normal = SubResource("StyleBoxFlat_vo4cw")
-SettingsButtonRed/styles/pressed = SubResource("StyleBoxFlat_jffts")
-SettingsButtonRedder/base_type = &"Button"
+SettingsButtonRedder/base_type = &"SettingsButton"
 SettingsButtonRedder/colors/font_color = Color(1, 1, 1, 1)
 SettingsButtonRedder/colors/font_disabled_color = Color(1, 1, 1, 1)
 SettingsButtonRedder/colors/font_focus_color = Color(1, 1, 1, 1)
@@ -816,7 +966,7 @@ SettingsButtonRedder/styles/focus = SubResource("StyleBoxEmpty_lsqhg")
 SettingsButtonRedder/styles/hover = SubResource("StyleBoxFlat_ag0wk")
 SettingsButtonRedder/styles/normal = SubResource("StyleBoxFlat_3a0pu")
 SettingsButtonRedder/styles/pressed = SubResource("StyleBoxFlat_nhyvv")
-SettingsButtonSelected/base_type = &"Button"
+SettingsButtonSelected/base_type = &"SettingsButton"
 SettingsButtonSelected/colors/font_color = Color(0.54509807, 0.2784314, 0.6, 1)
 SettingsButtonSelected/colors/font_disabled_color = Color(0.54509807, 0.2784314, 0.6, 1)
 SettingsButtonSelected/colors/font_focus_color = Color(0.54509807, 0.2784314, 0.6, 1)
@@ -827,14 +977,10 @@ SettingsButtonSelected/colors/icon_focus_color = Color(0.54509807, 0.2784314, 0.
 SettingsButtonSelected/colors/icon_hover_color = Color(0.54509807, 0.2784314, 0.6, 1)
 SettingsButtonSelected/colors/icon_normal_color = Color(0.54509807, 0.2784314, 0.6, 1)
 SettingsButtonSelected/colors/icon_pressed_color = Color(0.54509807, 0.2784314, 0.6, 1)
-SettingsButtonSelected/font_sizes/font_size = 16
-SettingsButtonSelected/styles/disabled = SubResource("StyleBoxFlat_houot")
-SettingsButtonSelected/styles/focus = SubResource("StyleBoxEmpty_oto5u")
-SettingsButtonSelected/styles/hover = SubResource("StyleBoxFlat_4v75m")
-SettingsButtonSelected/styles/normal = SubResource("StyleBoxFlat_vo4cw")
-SettingsButtonSelected/styles/pressed = SubResource("StyleBoxFlat_jffts")
 SettingsPanel/base_type = &"PanelContainer"
 SettingsPanel/styles/panel = SubResource("StyleBoxFlat_dxc3b")
+SlantedPanel/base_type = &"Panel"
+SlantedPanel/styles/panel = SubResource("StyleBoxFlat_mdcx4")
 TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
 TabContainer/styles/panel = SubResource("StyleBoxFlat_fg32o")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_x13f2")
@@ -844,13 +990,17 @@ TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_1dyra")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_n7ejs")
 TitleText/base_type = &"RichTextLabel"
 TitleText/colors/font_shadow_color = Color(0, 0, 0, 1)
-TitleText/constants/outline_size = 8
+TitleText/constants/outline_size = 10
 TitleText/constants/paragraph_separation = 4
 TitleText/constants/shadow_offset_x = 0
 TitleText/constants/shadow_offset_y = 4
-TitleText/constants/shadow_outline_size = 9
+TitleText/constants/shadow_outline_size = 10
+TitleText/font_sizes/bold_font_size = 22
+TitleText/font_sizes/bold_italics_font_size = 22
+TitleText/font_sizes/italics_font_size = 22
+TitleText/font_sizes/mono_font_size = 22
 TitleText/font_sizes/normal_font_size = 22
-TitleText/fonts/normal_font = ExtResource("3_m1jir")
+TitleText/fonts/normal_font = SubResource("FontVariation_rgblf")
 VBoxContainer/constants/separation = 0
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_wmrqs")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0i1vp")

@@ -29,8 +29,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	var focus_owner: Control = get_viewport().gui_get_focus_owner()
 	if event.is_action_pressed("ui_cancel"):
-		if not (focus_owner is LineEdit or focus_owner is TextEdit): 
-			back_press.emit()
+		if not (focus_owner is LineEdit or focus_owner is TextEdit):
+			if not owner is Screen or not (owner as Screen).transitioning: 
+				back_press.emit()
 	
 	if disabled: return
 	if not is_instance_valid(default_focus): return
@@ -42,7 +43,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		or event.is_action_pressed("ui_down")):
 			# we don't want the cursor to move immediately after grabbing focus
 			await get_tree().process_frame
-			default_focus.grab_focus()
+			if default_focus.get_focus_mode_with_override() == FocusMode.FOCUS_ALL:
+				default_focus.grab_focus()
 
 
 func set_default_focus(node_path: String) -> void:

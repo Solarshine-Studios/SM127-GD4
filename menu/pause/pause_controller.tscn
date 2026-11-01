@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dj1mgcjevu1kw" path="res://menu/pause/pause_controller.gd" id="1_lxhp1"]
 [ext_resource type="Shader" uid="uid://c0gw5yrbpipbb" path="res://assets/shaders/blur.gdshader" id="2_8fu1h"]
+[ext_resource type="AudioStream" uid="uid://c2r228237a4ah" path="res://assets/sounds/ui/pause.wav" id="2_gucuk"]
 [ext_resource type="Script" uid="uid://c1wxdqdd501af" path="res://menu/classes/screen_manager.gd" id="2_r0vjw"]
 [ext_resource type="Theme" uid="uid://ckact2emln8px" path="res://menu/themes/default/default.tres" id="3_82ib2"]
+[ext_resource type="AudioStream" uid="uid://cyenuaqpjfgoc" path="res://assets/sounds/ui/unpause.wav" id="3_gm6yj"]
+[ext_resource type="PackedScene" uid="uid://limlanp03qs8" path="res://menu/pause/pause_main/pause_main.tscn" id="5_f4f6f"]
+[ext_resource type="PackedScene" uid="uid://d4dnapvnvo7s4" path="res://menu/options/options.tscn" id="6_5vpgl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82ib2"]
 shader = ExtResource("2_8fu1h")
@@ -95,16 +99,29 @@ _data = {
 &"transition": SubResource("Animation_5vpgl")
 }
 
-[node name="PauseController" type="CanvasLayer" unique_id=532719823]
+[node name="PauseController" type="CanvasLayer" unique_id=532719823 node_paths=PackedStringArray("main_screen")]
 process_mode = 3
 layer = 64
 script = ExtResource("1_lxhp1")
+main_screen = NodePath("Screens/MainMenu")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=1400349080]
 unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="PauseSound" type="AudioStreamPlayer" parent="." unique_id=1814979060]
+unique_name_in_owner = true
+stream = ExtResource("2_gucuk")
+volume_db = -3.0
+bus = &"Sounds"
+
+[node name="UnpauseSound" type="AudioStreamPlayer" parent="." unique_id=645799260]
+unique_name_in_owner = true
+stream = ExtResource("3_gm6yj")
+volume_db = -3.0
+bus = &"Sounds"
 
 [node name="Blur" type="CanvasLayer" parent="." unique_id=1571927994]
 unique_name_in_owner = true
@@ -139,9 +156,20 @@ libraries/ = SubResource("AnimationLibrary_h30lq")
 
 [node name="Screens" type="Control" parent="." unique_id=1017614171]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("3_82ib2")
 script = ExtResource("2_r0vjw")
+
+[node name="MainMenu" parent="Screens" unique_id=98409672 instance=ExtResource("5_f4f6f")]
+layout_mode = 1
+
+[node name="Options" parent="Screens" unique_id=945336530 instance=ExtResource("6_5vpgl")]
+visible = false
+layout_mode = 1

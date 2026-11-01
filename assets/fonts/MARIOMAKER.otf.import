@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://duqnbnl6b24n2"
-path="res://.godot/imported/delfino.ttf-88bdf28982f76c95427fe024909cbf1c.fontdata"
+uid="uid://mmco3dxtqasv"
+path="res://.godot/imported/MARIOMAKER.otf-bb7911cd14f5ea6841f39b876bb4d374.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/delfino.ttf"
-dest_files=["res://.godot/imported/delfino.ttf-88bdf28982f76c95427fe024909cbf1c.fontdata"]
+source_file="res://assets/fonts/MARIOMAKER.otf"
+dest_files=["res://.godot/imported/MARIOMAKER.otf-bb7911cd14f5ea6841f39b876bb4d374.fontdata"]
 
 [params]
 

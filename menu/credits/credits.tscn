@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://nwsniqplwfdg" path="res://assets/icons/locales/nl.svg" id="11_k5443"]
 [ext_resource type="Texture2D" uid="uid://byf1rhi02kpbj" path="res://assets/icons/locales/se.svg" id="12_2ws13"]
 [ext_resource type="Texture2D" uid="uid://du08fq0owi8op" path="res://assets/icons/locales/arab.svg" id="13_py8mj"]
+[ext_resource type="Texture2D" uid="uid://br2r2ik7137xg" path="res://assets/misc/godot_full.svg" id="16_jgxj5"]
 [ext_resource type="Texture2D" uid="uid://bj0v8fy8ndtip" path="res://assets/icons/resume.png" id="20_3qysn"]
 
 [sub_resource type="Animation" id="Animation_bkb6l"]
@@ -39,26 +40,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/path = NodePath("Roll:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Roll:modulate")
+tracks/2/path = NodePath("Content/Buttons:offset_transform_position_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ga71f"]
@@ -80,26 +81,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/path = NodePath("Roll:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(2, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-192, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Roll:modulate")
+tracks/2/path = NodePath("Content/Buttons:offset_transform_position_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(0, 0), Vector2(-1.1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k5443"]
@@ -110,6 +111,7 @@ _data = {
 
 [node name="Credits" type="Control" unique_id=1247517702]
 texture_filter = 2
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,59 +206,110 @@ text = "CREDITS_CODE"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Dignity" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1181154517]
+[node name="Dignity" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1787234809]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Dignity" unique_id=1181154517]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Abdelrahman \"Dignity\" Essam"
+text = "Abdelrahman Essam"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Dignity" unique_id=489149521]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Dignity" unique_id=724130546]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]dignity[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1067500935]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"aloelucidity\""
+text = "[code]aloelucidity[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Plug" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=331162587]
+[node name="Plug" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=2035498189]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Plug" unique_id=1538233724]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Jake \"Plug N' Play\""
+text = "\"Jake\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Plug" unique_id=1603549716]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Plug" unique_id=1775423407]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Plug N' Play[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1372524057]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]tabs[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1556631633]
+[node name="Cass" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1838585528]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"tabs\""
+text = "[code]Cass Star[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Cass" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1585344858]
+[node name="Met" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=204211212]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Cass Star\""
+text = "[code]met3o[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Met" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=327790610]
+[node name="Crug" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=745826313]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"met3o\""
-fit_content = true
-horizontal_alignment = 1
-
-[node name="Crug" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1441959779]
-clip_contents = false
-layout_mode = 2
-bbcode_enabled = true
-text = "\"Cruglet\""
+text = "[code]Cruglet[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -268,37 +321,66 @@ text = "Laith Hijazi"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="BlockCycle" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=895173760]
+[node name="BlockCycle" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=886106130]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"BlockCycle\""
+text = "[code]BlockCycle[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Riku" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=714730656]
+[node name="Riku" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1715943571]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Riku\""
+text = "[code]Riku5543[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Theopold" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1089225298]
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=530953598]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Theopold\""
+text = "[code]Linktoberton[/code]"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=1700025442]
+[node name="Theopold" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Programming" unique_id=106199883]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Theopold" unique_id=943520941]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Brian \"Linktober\""
+text = "[code]Theopold[/code]"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Theopold" unique_id=267432668]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username2" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Programming/Theopold" unique_id=1218198181]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]BockyBlock[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SpriteArt" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1452523287]
 layout_mode = 2
@@ -312,51 +394,111 @@ text = "CREDITS_SPRITES"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Krystal" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=731275729]
+[node name="Nintendo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=2119881568]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"KrystalPhantasm\""
+text = "Nintendo Co., Ltd"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=964786075]
+[node name="Krystal" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=977907935]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"aloelucidity\""
+text = "[code]KrystalPhantasm[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Mack" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=1734193898]
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=133367236]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Mack \"masterminer176\""
+text = "[code]aloelucidity[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=926309104]
-clip_contents = false
+[node name="Mack" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=1750881789]
 layout_mode = 2
-bbcode_enabled = true
-text = "Brian \"Linktober\""
-fit_content = true
-horizontal_alignment = 1
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Lottie" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=63337506]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt/Mack" unique_id=1937573911]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Charlotte \"charpurrr\" Fox"
+text = "\"Mack\""
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Endood" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=1606659752]
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt/Mack" unique_id=642417924]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt/Mack" unique_id=889991855]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Endood\""
+text = "[code]masterminer176[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=71540798]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Linktoberton[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lottie" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=693749935]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt/Lottie" unique_id=589941782]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Charlotte Fox"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt/Lottie" unique_id=1662133286]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt/Lottie" unique_id=1465890586]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]charpurrr[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Endood" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/SpriteArt" unique_id=852387281]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Endood[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -372,23 +514,47 @@ text = "CREDITS_OST"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="AM4" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=675985521]
+[node name="AM4" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=1780749699]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"AM4\""
+text = "[code]AM4[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Plug" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=1085086736]
+[node name="Plug" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=501949293]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition/Plug" unique_id=339939759]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Jake \"Plug N' Play\""
+text = "\"Jake\""
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Laith" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=27005494]
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Composition/Plug" unique_id=731881502]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition/Plug" unique_id=849099448]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Plug N' Play[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Laith" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=298340562]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
@@ -396,21 +562,46 @@ text = "Laith Hijazi"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=675048622]
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=456339024]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"aloelucidity\""
+text = "[code]aloelucidity[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Aqua" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=287385851]
+[node name="Aqua" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Composition" unique_id=1577434223]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition/Aqua" unique_id=1045862193]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"AquaDoesStuff\" / \"Polynine\""
+text = "[code]AquaDoesStuff[/code]"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Composition/Aqua" unique_id=1946164608]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username2" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Composition/Aqua" unique_id=638018949]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Polynine[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="IncludedSongs" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1640387743]
 layout_mode = 2
@@ -432,51 +623,79 @@ text = "Nintendo Co., Ltd"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Paragon" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=6899612]
+[node name="Paragon" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=172482535]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs/Paragon" unique_id=2058876873]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Jermaine \"ParagonX9\" Blume"
+text = "Jermaine Blume"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs/Paragon" unique_id=794200532]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs/Paragon" unique_id=1310382743]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]ParagonX9[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RednGreen" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=133398188]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]RednGreen[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="RednGreen" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=251077512]
+[node name="SuperM" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1554869202]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"RednGreen\""
+text = "[code]Súper M 795[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="SuperM" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1144621878]
+[node name="m477" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=736102453]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Súper M 795\""
+text = "[code]m477zorz[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="m477" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1220968412]
+[node name="PaperMikes" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=394299326]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"m477zorz\""
+text = "[code]PaperMikes[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="PaperMikes" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=2044569244]
+[node name="Valtteri" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1180731213]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"PaperMikes\""
-fit_content = true
-horizontal_alignment = 1
-
-[node name="Valtteri" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/IncludedSongs" unique_id=1332459608]
-clip_contents = false
-layout_mode = 2
-bbcode_enabled = true
-text = "\"Valtteri Valtteri\""
+text = "[code]Valtteri Valtteri[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -492,77 +711,153 @@ text = "CREDITS_LD"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1989468375]
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=538139215]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Brian \"Linktober\""
+text = "[code]Linktoberton[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=166234237]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]tabs[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1804250085]
-clip_contents = false
+[node name="Rudy" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=2028407532]
 layout_mode = 2
-bbcode_enabled = true
-text = "\"tabs\""
-fit_content = true
-horizontal_alignment = 1
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Rudy" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1252686364]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Rudy" unique_id=88421591]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Rudy \"Rudy12345mc\" Mueller"
+text = "Rudy Mueller"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Rudy" unique_id=1379888518]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Rudy" unique_id=1612869335]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Rudy12345mc[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Enrico" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1906416334]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"EnricosUt\""
+text = "Enrico Sutera"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Fireflower" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1483232948]
+[node name="Fireflower" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1953210153]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Fireflower\""
+text = "[code]Fireflower[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Minus26" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1515913634]
+[node name="Minus26" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=635718614]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"-26 Lives\""
+text = "[code]-26 Lives[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Mack" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=372466638]
+[node name="Mack" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=789975096]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Mack" unique_id=1155578014]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Mack \"masterminer176\""
+text = "\"Mack\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Mack" unique_id=1297187424]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Mack" unique_id=2098422347]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]masterminer176[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sam" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=1755068786]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Samitizer[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Sam" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=2096343415]
-clip_contents = false
+[node name="Chri" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=284899468]
 layout_mode = 2
-bbcode_enabled = true
-text = "\"Samitizer\""
-fit_content = true
-horizontal_alignment = 1
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Chri" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=873549034]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Chri" unique_id=102857280]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Christian \"chri_ti_03\""
+text = "\"Christian\""
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Chri" unique_id=408896547]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Chri" unique_id=798692884]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]chri_ti_03[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="UIDesign" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=298551577]
 layout_mode = 2
@@ -576,21 +871,109 @@ text = "CREDITS_UI"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/UIDesign" unique_id=1457754005]
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/UIDesign" unique_id=886432236]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"aloelucidity\""
+text = "[code]aloelucidity[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Ref" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/UIDesign" unique_id=439827200]
+[node name="Ref" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/UIDesign" unique_id=1865503823]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Refusion\""
+text = "[code]Refusion[/code]"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="Fonts" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=90837494]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts" unique_id=146693365]
+clip_contents = false
+layout_mode = 2
+theme_type_variation = &"CreditsHeader"
+bbcode_enabled = true
+text = "CREDITS_FONT"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Nintendo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts" unique_id=417063777]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Nintendo Co., Ltd"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Marhey" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts" unique_id=1877632192]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Nintendo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts/Marhey" unique_id=542393623]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Nur Syamsi"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts/Marhey" unique_id=1692478490]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("13_py8mj")
+expand_mode = 1
+
+[node name="Marhey2" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts" unique_id=1936458664]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Nintendo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts/Marhey2" unique_id=581227386]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Bustanul Arifin"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts/Marhey2" unique_id=595994807]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("13_py8mj")
+expand_mode = 1
+
+[node name="Blaka" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts" unique_id=1190073521]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Nintendo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts/Blaka" unique_id=1171979975]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Mohamed Gaber"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Fonts/Blaka" unique_id=1156739207]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("13_py8mj")
+expand_mode = 1
 
 [node name="PublicRelations" type="VBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam" unique_id=1141764293]
 layout_mode = 2
@@ -604,27 +987,74 @@ text = "CREDITS_PR"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Tali" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=1161415522]
-clip_contents = false
+[node name="Tali" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=1575939892]
 layout_mode = 2
-bbcode_enabled = true
-text = "Tali \"nbsurprise\" Wiltshire"
-fit_content = true
-horizontal_alignment = 1
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Dignity" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=245367762]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations/Tali" unique_id=2107389258]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Abdelrahman \"Dignity\" Essam"
+text = "Tali Wiltshire"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=1184350101]
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations/Tali" unique_id=1197787249]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations/Tali" unique_id=2064235519]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"aloelucidity\""
+text = "[code]nbsurprise[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dignity" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=663959120]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations/Dignity" unique_id=563242351]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Abdelrahman Essam"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations/Dignity" unique_id=343876116]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations/Dignity" unique_id=1022738402]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]dignity[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/PublicRelations" unique_id=1817440273]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]aloelucidity[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -632,7 +1062,7 @@ horizontal_alignment = 1
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"EnricosUt\""
+text = "Enrico Sutera"
 fit_content = true
 horizontal_alignment = 1
 
@@ -648,35 +1078,39 @@ text = "CREDITS_HD_ART"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Krystal" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=1025409071]
+[node name="Krystal" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=316479993]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"KrystalPhantasm\""
+text = "[code]KrystalPhantasm[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Agent" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=278337981]
+[node name="Agent" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=358187884]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Abdelrahman \"Dignity\" Essam"
+text = "[code]AgentOfGames[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=1875342883]
+[node name="Luci" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=1387563643]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"aloelucidity\""
+text = "[code]aloelucidity[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=597734915]
+[node name="Tabs" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Illustration" unique_id=773907532]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"tabs\""
+text = "[code]tabs[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -697,12 +1131,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Endood" unique_id=196607134]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Endood" unique_id=557113177]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
-size_flags_horizontal = 3
 bbcode_enabled = true
-text = "\"Endood\""
+text = "[code]Endood[/code]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -725,7 +1159,7 @@ clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-text = "\"EnricosUt\""
+text = "Enrico Sutera"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -738,22 +1172,38 @@ size_flags_vertical = 4
 texture = ExtResource("9_5tneb")
 expand_mode = 1
 
-[node name="Chri" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=219361860]
+[node name="Chri" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1607126981]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=595481928]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=562851217]
 clip_contents = false
 layout_mode = 2
-size_flags_horizontal = 3
 bbcode_enabled = true
-text = "Christian \"chri_ti_03\""
+text = "\"Christian\""
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=1825938788]
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=597772907]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=484943215]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]chri_ti_03[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=401656867]
 custom_minimum_size = Vector2(20, 16)
 custom_maximum_size = Vector2(20, 16)
 layout_mode = 2
@@ -766,12 +1216,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ize" unique_id=924192437]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ize" unique_id=230101414]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
-size_flags_horizontal = 3
 bbcode_enabled = true
-text = "\"IzePlayz\""
+text = "[code]IzePlayz[/code]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -784,22 +1234,38 @@ size_flags_vertical = 4
 texture = ExtResource("10_ga71f")
 expand_mode = 1
 
-[node name="Lottie" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1963157441]
+[node name="Lottie" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1505606411]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=143821963]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=1021528432]
 clip_contents = false
 layout_mode = 2
-size_flags_horizontal = 3
 bbcode_enabled = true
-text = "Charlotte \"charpurrr\" Fox"
+text = "Charlotte Fox"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=1796579967]
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=236683536]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=1864908512]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]charpurrr[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Lottie" unique_id=1615998772]
 custom_minimum_size = Vector2(20, 16)
 custom_maximum_size = Vector2(20, 16)
 layout_mode = 2
@@ -812,12 +1278,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Luci" unique_id=1137390797]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Luci" unique_id=1825779875]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
-size_flags_horizontal = 3
 bbcode_enabled = true
-text = "\"aloelucidity\""
+text = "[code]aloelucidity[/code]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -830,22 +1296,38 @@ size_flags_vertical = 4
 texture = ExtResource("12_2ws13")
 expand_mode = 1
 
-[node name="Dignity" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1744812382]
+[node name="Dignity" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=574842538]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=1033776319]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=822278914]
 clip_contents = false
 layout_mode = 2
-size_flags_horizontal = 3
 bbcode_enabled = true
-text = "Abdelrahman \"Dignity\" Essam"
+text = "Abdelrahman Essam"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=196683565]
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=380220285]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=548591841]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]dignity[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Dignity" unique_id=1521984813]
 custom_minimum_size = Vector2(20, 16)
 custom_maximum_size = Vector2(20, 16)
 layout_mode = 2
@@ -865,11 +1347,12 @@ text = "CREDITS_REFUSION"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Ref" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Icons" unique_id=1291596424]
+[node name="Ref" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Icons" unique_id=1701082790]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Refusion\""
+text = "[code]Refusion[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -899,42 +1382,70 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="LB" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=2032049632]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Luigibonus\""
+text = "[code]Luigibonus[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="TFD" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=1658921136]
+[node name="TFD" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=1078881748]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration/TFD" unique_id=1759963040]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"The Flying Dutchman\""
+text = "[code]The Flying Dutchman[/code]"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration/TFD" unique_id=1660134930]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username2" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration/TFD" unique_id=217117264]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]MrGerund[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Vex" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=2068105802]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"vexavios\""
+text = "[code]vexavios[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Seven" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=1387294029]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"bluSeven\""
+text = "[code]bluSeven[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Pop" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Administration" unique_id=1944915021]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Popthatcorn14\""
+text = "[code]Popthatcorn14[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -951,66 +1462,98 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="Vort" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1740245015]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Vortoxium\""
+text = "[code]Vortoxium[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Rudy" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1133173625]
+[node name="Rudy" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1380915860]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation/Rudy" unique_id=1428068088]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Rudy \"Rudy12345mc\" Mueller"
+text = "Rudy Mueller"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation/Rudy" unique_id=1106270546]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation/Rudy" unique_id=366510817]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Rudy12345mc[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Skopler" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1662540024]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Skopler\""
+text = "[code]Skopler[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Markey" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=14076797]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Markey97\""
+text = "[code]Markey97[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1705963624]
+[node name="Link" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=394175802]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Brian \"Linktober\""
+text = "[code]Linktoberton[/code]"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Lyrith" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1477010583]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Lyrith\""
+text = "[code]Lyrith[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Viral" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=816226938]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"ViralStigma\""
+text = "[code]ViralStigma[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Stevo" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/LSSTeam/Moderation" unique_id=1857831934]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Stevoisiak\""
+text = "[code]Stevoisiak[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1040,74 +1583,150 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="Silver" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=2021300468]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"SilvererCoin\""
+text = "[code]SilvererCoin[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Flare" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1629876692]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Flarewire\""
+text = "[code]Flarewire[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Entiss" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1274067668]
-clip_contents = false
+[node name="Entiss" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1430582125]
 layout_mode = 2
-bbcode_enabled = true
-text = "Joshua \"Entiss\" Eagles"
-fit_content = true
-horizontal_alignment = 1
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Traffic" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=850454473]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Entiss" unique_id=1906195868]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Griffin \"TrafficConeGod\" Lora"
+text = "Joshua Eagles"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Entiss" unique_id=96403572]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Entiss" unique_id=434770320]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Entiss[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Traffic" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1066808332]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Traffic" unique_id=246492820]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Griffin Lora"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Traffic" unique_id=623698004]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Traffic" unique_id=673429179]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]TrafficConeGod[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Certi" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=2048909510]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"certi\""
+text = "[code]certi[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Chloro" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=299609864]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Chlorobyte\""
+text = "[code]Chlorobyte[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Skeleton" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=730203621]
+[node name="Skeleton" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=826953387]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Skeleton" unique_id=1453920294]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"ZeroPlayerRodent\""
+text = "[code]Skeleton Tour Guide[/code]"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Skeleton" unique_id=579935391]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username2" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming/Skeleton" unique_id=678843568]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]ZeroPlayerRodent[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Fluent" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=1214201164]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"FluentCoding\""
+text = "[code]FluentCoding[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="JuPa" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Programming" unique_id=31197072]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"JuPaHe64\""
+text = "[code]JuPaHe64[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1123,19 +1742,43 @@ text = "CREDITS_SPRITES"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Antonio" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1282712603]
+[node name="Antonio" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1776993584]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt/Antonio" unique_id=779071958]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Antonio \"Obsidian4\""
+text = "\"Antonio\""
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt/Antonio" unique_id=947620240]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt/Antonio" unique_id=611959559]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Obsidian4[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Pumpkin" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1661273365]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"PumpkinVolt\""
+text = "[code]PumpkinVolt[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1147,43 +1790,70 @@ text = "Doram Baramour "
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Azzy" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=532336340]
+[node name="Azzy" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=688498910]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt/Azzy" unique_id=1707813856]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Asriel \"Hrasyurr\" Dreemurr"
+text = "\"Azzy\""
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt/Azzy" unique_id=591920668]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt/Azzy" unique_id=1657779695]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Hrasyurr[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Reshi" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1829271216]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Reshi"
+text = "[code]Reshi[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Nan" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1664596594]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"NanTheDark\""
+text = "[code]NanTheDark[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Astra" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=1421680093]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"AstraSpec\""
+text = "[code]AstraSpec[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Saneko" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/SpriteArt" unique_id=450025403]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Saneko\""
+text = "[code]Saneko[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1199,27 +1869,52 @@ text = "CREDITS_OST"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Arin" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=453536235]
+[node name="Arie" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=1858771853]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition/Arie" unique_id=436517018]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Arin \"ArieJuice\" Milan"
+text = "Arin Milan"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition/Arie" unique_id=1887052227]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition/Arie" unique_id=990368548]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]ArieJuice[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Fast" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=1932301565]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"FastMario\""
+text = "[code]FastMario[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Jerry" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Composition" unique_id=686445924]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"JerryStuff (Ro)\""
+text = "[code]JerryStuff (Ro)[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1235,11 +1930,12 @@ text = "CREDITS_LD"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Silver" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/LevelDesign" unique_id=1190647044]
+[node name="Silver" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/LevelDesign" unique_id=109365767]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"SilvererCoin\""
+text = "[code]SilvererCoin[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1256,18 +1952,20 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="ML" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/PublicRelations" unique_id=841928929]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"That's Mama Luigi To You\""
+text = "[code]That's Mama Luigi To You[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Fast" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/PublicRelations" unique_id=1898230862]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"FastMario\""
+text = "[code]FastMario[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1284,10 +1982,11 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="T4ctical" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/ResignedTeam/Illustration" unique_id=2017793647]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"T4ctical\""
+text = "[code]T4ctical[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1316,154 +2015,274 @@ fit_content = true
 horizontal_alignment = 1
 
 [node name="Skopler" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1263579600]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Skopler\""
+text = "[code]Skopler[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="John" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=600017351]
-clip_contents = false
+[node name="John" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1252521550]
 layout_mode = 2
-bbcode_enabled = true
-text = "John \"John Espagueti Largo DLC\" Espagueti Largo"
-fit_content = true
-horizontal_alignment = 1
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="MrE" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1310543313]
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/John" unique_id=1315711363]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Matias \"MrEGamer\" Eberbach"
+text = "John Espagueti Largo"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Daniar" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=37686519]
-clip_contents = false
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/John" unique_id=659544476]
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
-bbcode_enabled = true
-text = "Daniar \"arcatchik\""
-fit_content = true
-horizontal_alignment = 1
+size_flags_vertical = 4
 
-[node name="JohnSequel" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=2057925773]
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/John" unique_id=879310986]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "John \"JohnDevelopment\" Russell"
+text = "[code]John Espagueti Largo DLC[/code]"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MrE" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1213787091]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/MrE" unique_id=1147455604]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Matias Eberbach"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/MrE" unique_id=1304540001]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/MrE" unique_id=241707469]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]MrEGamer[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Daniar" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1530068287]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/Daniar" unique_id=674451143]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "\"Daniar\""
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/Daniar" unique_id=117283921]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/Daniar" unique_id=1306501824]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]arcatchik[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JohnSequel" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1126062472]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/JohnSequel" unique_id=1668398640]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "John Russell"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/JohnSequel" unique_id=141174201]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/JohnSequel" unique_id=767040116]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]JohnDevelopment[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="m4r10" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1521843199]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"m4r10_fan2008\""
+text = "[code]m4r10_fan2008[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Moola" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=313199169]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Moola Mixtape\""
+text = "[code]Moola Mixtape[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Dude" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1252166797]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"DudeGamer64\""
+text = "[code]DudeGamer64[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="DudeSequel" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=2080402690]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Dude Solid\""
-fit_content = true
-horizontal_alignment = 1
-
-[node name="Hakon" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=280396104]
-clip_contents = false
-layout_mode = 2
-bbcode_enabled = true
-text = "\"HakonEM\""
+text = "[code]Dude Solid[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Gold" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1206117621]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"G0ldYosh\""
+text = "[code]G0ldYosh[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Andrat" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1738392493]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"AndratVA\""
+text = "[code]AndratVA[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Zerde" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1345170433]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"zerdebird\""
+text = "[code]zerdebird[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Gibom" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1557166411]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Gibom\""
+text = "[code]Gibom[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Rovert" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1438971814]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Rovert\""
+text = "[code]Rovertronic[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Danger" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1404317641]
+[node name="Danger" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=777642901]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/Danger" unique_id=189292899]
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "Ernest \"Danger Cliff\" Whitehead"
+text = "Ernest Whitehead"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/Danger" unique_id=83854129]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular/Danger" unique_id=813229751]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Danger Cliff[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Funz" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1957230435]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Funz\""
+text = "[code]Funz[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Yaya" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1773459567]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Yaya\""
+text = "[code]Yaya[/code]"
 fit_content = true
 horizontal_alignment = 1
 
 [node name="Davin" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/SpecialThanks/Regular" unique_id=1895791711]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "\"Davin\""
+text = "[code]Davin[/code]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -1490,6 +2309,13 @@ bbcode_enabled = true
 text = "CREDITS_JOIN"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="Godot" type="TextureRect" parent="Roll/Credits/VBoxContainer" unique_id=1157383930]
+custom_minimum_size = Vector2(0, 112)
+layout_mode = 2
+texture = ExtResource("16_jgxj5")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Bars" type="MarginContainer" parent="." unique_id=162529855]
 layout_mode = 1
@@ -1569,9 +2395,8 @@ patch_margin_bottom = 11
 [node name="IconFast" type="TextureRect" parent="Content/Buttons/VBoxContainer/Speed" unique_id=737737520]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 3.0
 offset_top = 5.5
-offset_right = 21.0
+offset_right = 18.0
 offset_bottom = 23.5
 texture = ExtResource("20_3qysn")
 expand_mode = 1
@@ -1583,9 +2408,9 @@ offset = Vector2(-4, 0)
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = 7.0
+offset_left = 4.0
 offset_top = 7.5
-offset_right = 21.0
+offset_right = 18.0
 offset_bottom = 21.5
 texture = ExtResource("5_u3irj")
 expand_mode = 1
@@ -1625,9 +2450,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/Skip" unique_id=544503198]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 25.0
 offset_top = 3.5
-offset_right = 53.0
+offset_right = 47.0
 offset_bottom = 25.5
 texture = ExtResource("7_u3irj")
 expand_mode = 1

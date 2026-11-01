@@ -31,9 +31,9 @@ func _ready() -> void:
 	initial_text = text
 	
 	if hover_override != "":
-		hover_sound = get_parent().owner.get_node("%" + hover_override)
+		hover_sound = get_parent().owner.get_node_or_null("%" + hover_override)
 	if click_override != "":
-		click_sound = get_parent().owner.get_node("%" + click_override)
+		click_sound = get_parent().owner.get_node_or_null("%" + click_override)
 	
 	focus_entered.connect(on_focus_entered)
 	focus_exited.connect(on_focus_exited)
@@ -83,7 +83,8 @@ func handle_spaces(override_text: String = "") -> void:
 func on_mouse_entered() -> void:
 	if disabled:
 		return
-	hover_sound.play()
+	if is_instance_valid(hover_sound):
+		hover_sound.play()
 
 
 func on_mouse_exited() -> void:
@@ -95,7 +96,8 @@ func on_mouse_exited() -> void:
 func on_focus_entered() -> void:
 	if disabled:
 		return
-	hover_sound.play()
+	if is_instance_valid(hover_sound):
+		hover_sound.play()
 	
 	if highlight_on_focus:
 		modulate = original_modulate * 1.4
@@ -111,4 +113,5 @@ func on_focus_exited() -> void:
 
 
 func on_pressed() -> void:
-	click_sound.play()
+	if is_instance_valid(click_sound):
+		click_sound.play()

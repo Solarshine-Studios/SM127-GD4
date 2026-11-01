@@ -42,25 +42,25 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ishlg"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(496, 300)
+shader_parameter/control_size = Vector2(496, 302)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gx25d"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(428, 0)
+shader_parameter/control_size = Vector2(434, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aty68"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(428, 0)
+shader_parameter/control_size = Vector2(434, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4e873"]
 shader = ExtResource("27_dliw2")
 shader_parameter/rotation_angle = 15.0
-shader_parameter/control_size = Vector2(428, 0)
+shader_parameter/control_size = Vector2(434, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [sub_resource type="Animation" id="Animation_fdtvw"]
@@ -68,79 +68,79 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/TabButtons:offset_transform_position")
+tracks/0/path = NodePath("HBoxContainer/Subscreens:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer/Subscreens:modulate:a")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Background:modulate")
+tracks/2/path = NodePath("HBoxContainer/TabButtons:offset_transform_position_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_oc5hi"]
 resource_name = "transition"
 length = 0.5
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/TabButtons:offset_transform_position")
+tracks/0/path = NodePath("HBoxContainer/Subscreens:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(2, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-224, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer/Subscreens:modulate:a")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [1.0, 0.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Background:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.2, 0.5),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/TabButtons:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gdns1"]
@@ -151,6 +151,7 @@ _data = {
 
 [node name="Options" type="Control" unique_id=945336530]
 texture_filter = 2
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -266,9 +267,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/TabButtons/Panel/VBoxContainer/Back" unique_id=1562963988]
 layout_mode = 0
-offset_left = 143.0
+offset_left = 141.0
 offset_top = 4.5
-offset_right = 163.0
+offset_right = 161.0
 offset_bottom = 24.5
 texture = ExtResource("9_07bmx")
 expand_mode = 1
@@ -308,9 +309,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/TabButtons/Panel/VBoxContainer/General" unique_id=766475279]
 layout_mode = 0
-offset_left = 55.0
+offset_left = 53.0
 offset_top = 4.5
-offset_right = 75.0
+offset_right = 73.0
 offset_bottom = 24.5
 texture = ExtResource("11_i3paj")
 expand_mode = 1
@@ -347,9 +348,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/TabButtons/Panel/VBoxContainer/Controls" unique_id=1573866970]
 layout_mode = 0
-offset_left = 42.0
+offset_left = 37.0
 offset_top = 4.5
-offset_right = 62.0
+offset_right = 57.0
 offset_bottom = 24.5
 texture = ExtResource("12_43j44")
 expand_mode = 1
@@ -386,9 +387,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/TabButtons/Panel/VBoxContainer/Character" unique_id=1871768629]
 layout_mode = 0
-offset_left = 31.0
+offset_left = 26.0
 offset_top = 4.5
-offset_right = 51.0
+offset_right = 46.0
 offset_bottom = 24.5
 texture = ExtResource("13_h2314")
 expand_mode = 1
@@ -425,9 +426,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/TabButtons/Panel/VBoxContainer/Themes" unique_id=671321432]
 layout_mode = 0
-offset_left = 67.0
+offset_left = 66.0
 offset_top = 4.5
-offset_right = 87.0
+offset_right = 86.0
 offset_bottom = 24.5
 texture = ExtResource("14_fdtvw")
 expand_mode = 1
@@ -464,9 +465,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/TabButtons/Panel/VBoxContainer/Language" unique_id=305211170]
 layout_mode = 0
-offset_left = 38.0
+offset_left = 35.0
 offset_top = 4.5
-offset_right = 58.0
+offset_right = 55.0
 offset_bottom = 24.5
 texture = ExtResource("18_ub8if")
 expand_mode = 1
@@ -503,9 +504,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/TabButtons/Panel/VBoxContainer/Storage" unique_id=187316870]
 layout_mode = 0
-offset_left = 57.0
+offset_left = 53.0
 offset_top = 4.5
-offset_right = 77.0
+offset_right = 73.0
 offset_bottom = 24.5
 texture = ExtResource("13_fl4cp")
 expand_mode = 1
@@ -537,18 +538,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"SettingsButtonRed"
-text = "    LVL_RETURN"
+text = "     LVL_RETURN"
 script = ExtResource("19_icm6w")
 extend_amount = 2
 click_override = "BackSound"
-leading_spaces = 4
+leading_spaces = 5
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/General/VBoxContainer/Return" unique_id=1185266046]
 self_modulate = Color(0.69411767, 0.2, 0.2, 1)
 layout_mode = 0
 offset_left = 2.0
+offset_top = -0.5
 offset_right = 22.0
-offset_bottom = 20.0
+offset_bottom = 19.5
 texture = ExtResource("9_07bmx")
 expand_mode = 1
 stretch_mode = 5
@@ -681,18 +683,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"SettingsButtonRed"
-text = "    LVL_RETURN"
+text = "     LVL_RETURN"
 script = ExtResource("19_icm6w")
 extend_amount = 2
 click_override = "BackSound"
-leading_spaces = 4
+leading_spaces = 5
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/Subscreens/Controls/VBoxContainer/InputType/Return" unique_id=686140754]
 self_modulate = Color(0.69411767, 0.2, 0.2, 1)
 layout_mode = 0
 offset_left = 2.0
+offset_top = -0.5
 offset_right = 22.0
-offset_bottom = 20.0
+offset_bottom = 19.5
 texture = ExtResource("9_07bmx")
 expand_mode = 1
 stretch_mode = 5

@@ -31,14 +31,14 @@ leading_spaces = 4
 unique_name_in_owner = true
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
 layout_mode = 0
-offset_left = 32.0
+offset_left = 29.50003
 offset_top = 5.0
-offset_right = 47.0
+offset_right = 44.5
 offset_bottom = 20.0
 texture = ExtResource("4_wwlda")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("4_8qphy")
-offset = Vector2(16, 0)
+offset = Vector2(15, 0)
 
 [connection signal="pressed" from="Button" to="." method="pressed"]

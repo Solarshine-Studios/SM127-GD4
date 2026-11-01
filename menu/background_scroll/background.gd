@@ -2,6 +2,7 @@
 extends Control
 
 @onready var overlay: Control = $Overlay
+@onready var stripes: TextureRect = $Stripes
 @onready var scroll: Control = $Scroll
 @onready var gradients: TabContainer = $Gradients
 
@@ -37,3 +38,4 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not is_visible_in_tree(): return
 	scroll.modulate.a = modulate.a
+	stripes.modulate.a = modulate.a

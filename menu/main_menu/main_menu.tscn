@@ -38,19 +38,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/path = NodePath("Bars:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Content/Versioning:offset_transform_position")
+tracks/2/path = NodePath("Content/Buttons:offset_transform_position_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -62,14 +62,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Bars:modulate")
+tracks/3/path = NodePath("Content/Versioning:offset_transform_position_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LogoAnchor/Logo:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_j2lry"]
@@ -85,43 +97,55 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [0.0, 360.0]
+"values": [0.0, 32.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Content/Buttons:offset_transform_position")
+tracks/1/path = NodePath("Bars:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(2, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-240, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Content/Versioning:offset_transform_position")
+tracks/2/path = NodePath("Content/Buttons:offset_transform_position_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(192, 0)]
+"values": [Vector2(0, 0), Vector2(-1.1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Bars:modulate")
+tracks/3/path = NodePath("Content/Versioning:offset_transform_position_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(0, 0), Vector2(1.1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LogoAnchor/Logo:offset_transform_position_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xajbr"]
@@ -132,6 +156,7 @@ _data = {
 
 [node name="MainMenu" type="Control" unique_id=1507611894]
 texture_filter = 2
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,11 +170,6 @@ script = ExtResource("1_q6idt")
 anchors_preset = 0
 script = ExtResource("3_ih8bj")
 
-[node name="Focus" type="Control" parent="." unique_id=1236307833 node_paths=PackedStringArray("default_focus")]
-anchors_preset = 0
-script = ExtResource("3_rp3yq")
-default_focus = NodePath("../Content/Buttons/VBoxContainer/DevLevels")
-
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1902960258]
 unique_name_in_owner = true
 stream = ExtResource("4_qv4bq")
@@ -161,6 +181,11 @@ unique_name_in_owner = true
 stream = ExtResource("6_ih8bj")
 volume_db = -10.0
 bus = &"Sounds"
+
+[node name="Focus" type="Control" parent="." unique_id=1236307833 node_paths=PackedStringArray("default_focus")]
+anchors_preset = 0
+script = ExtResource("3_rp3yq")
+default_focus = NodePath("../Content/Buttons/VBoxContainer/DevLevels")
 
 [node name="Bars" type="MarginContainer" parent="." unique_id=1064741758]
 layout_mode = 1
@@ -245,9 +270,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/DevLevels" unique_id=588262921]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 116.0
 offset_top = 1.5
-offset_right = 136.0
+offset_right = 142.0
 offset_bottom = 27.5
 texture = ExtResource("9_xajbr")
 expand_mode = 1
@@ -285,9 +310,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/LSS" unique_id=1355840241 node_paths=PackedStringArray("countdown")]
 layout_mode = 0
-offset_left = 179.0
+offset_left = 177.0
 offset_top = 1.5
-offset_right = 205.0
+offset_right = 203.0
 offset_bottom = 27.5
 texture = ExtResource("8_duu7v")
 expand_mode = 1
@@ -373,9 +398,9 @@ patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Quit" unique_id=1528360127 node_paths=PackedStringArray("countdown")]
 layout_mode = 0
-offset_left = 56.0
+offset_left = 53.0
 offset_top = 4.5
-offset_right = 76.0
+offset_right = 73.0
 offset_bottom = 24.5
 texture = ExtResource("4_prid6")
 expand_mode = 1
@@ -516,9 +541,26 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = -8
 theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="Content/Versioning/Version" unique_id=302712135]
+[node name="Panel" type="Panel" parent="Content/Versioning/Version" unique_id=1058363583]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_rotation = 0.02617994
+offset_transform_pivot_ratio = Vector2(0, 0.5)
 mouse_filter = 2
+theme_type_variation = &"SlantedPanel"
+
+[node name="Panel2" type="Panel" parent="Content/Versioning/Version/Panel" unique_id=814781249]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_rotation = -0.05235988
+offset_transform_pivot_ratio = Vector2(0, 0.5)
+mouse_filter = 2
+theme_type_variation = &"SlantedPanel"
 
 [node name="MarginContainer" type="MarginContainer" parent="Content/Versioning/Version" unique_id=535911571]
 layout_mode = 2
@@ -542,9 +584,26 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = -8
 theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="Content/Versioning/UpdateAvailable" unique_id=75227582]
+[node name="Panel" type="Panel" parent="Content/Versioning/UpdateAvailable" unique_id=964935502]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_rotation = 0.02617994
+offset_transform_pivot_ratio = Vector2(0, 0.5)
 mouse_filter = 2
+theme_type_variation = &"SlantedPanel"
+
+[node name="Panel2" type="Panel" parent="Content/Versioning/UpdateAvailable/Panel" unique_id=1827951484]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_rotation = -0.05235988
+offset_transform_pivot_ratio = Vector2(0, 0.5)
+mouse_filter = 2
+theme_type_variation = &"SlantedPanel"
 
 [node name="MarginContainer" type="MarginContainer" parent="Content/Versioning/UpdateAvailable" unique_id=810564350]
 layout_mode = 2
