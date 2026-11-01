@@ -12,7 +12,7 @@ const BYTES_PER_TILE: int = 3
 const CHUNK_HEADER_SIZE: int = 6
 # bounds size is 2^16 + 1 due to the right and bottom edges being exclusive
 const CHUNK_COORD_BOUNDS: Rect2 = Rect2(-32767, -32767, 65537, 65537) 
-static var TILE_IDS: Array = preload("res://generation/tileset_ids.res").tileset_ids
+#static var TILE_IDS: Array = preload("res://generation/tileset_ids.res").tileset_ids
 
 
 static func get_packed_tile(tile_set: int, tile: int, palette: int) -> int:
@@ -31,26 +31,26 @@ static func get_palette_id_from_packed(value: int) -> int:
 	return (value & 0x00FF0000) >> 16
 
 
-static func get_real_tile_set_id_from_packed(value: int) -> int:
-	return get_real_tile_set_id(
-		get_tile_set_id_from_packed(value), 
-		get_tile_id_from_packed(value), 
-		get_palette_id_from_packed(value)
-	)
-
-
-static func get_real_tile_set_id(tileset_id: int, tile_id: int, palette_id: int = 0) -> int:
-	if TILE_IDS[tileset_id].size() < palette_id:
-		palette_id = 0
-	
-	return TILE_IDS[tileset_id][palette_id][tile_id]
+#static func get_real_tile_set_id_from_packed(value: int) -> int:
+	#return get_real_tile_set_id(
+		#get_tile_set_id_from_packed(value), 
+		#get_tile_id_from_packed(value), 
+		#get_palette_id_from_packed(value)
+	#)
+#
+#
+#static func get_real_tile_set_id(tileset_id: int, tile_id: int, palette_id: int = 0) -> int:
+	#if TILE_IDS[tileset_id].size() < palette_id:
+		#palette_id = 0
+	#
+	#return TILE_IDS[tileset_id][palette_id][tile_id]
 
 
 # Takes a chunk dictionary and used tiles list from TileData
 static func chunks_to_tile_bytes(tile_chunks: Dictionary) -> PackedByteArray:
 	var tile_bytes: PackedByteArray = PackedByteArray()
 	
-	for chunk_coord: Vector2 in tile_chunks:
+	for chunk_coord: Vector2i in tile_chunks:
 		if not CHUNK_COORD_BOUNDS.has_point(chunk_coord):
 			# if the chunk isn't in at a in-bounds coord we just skip it
 			# that really shouldn't happen but it's a safety measure you know?
@@ -92,7 +92,7 @@ static func tile_bytes_to_chunks(tile_bytes: PackedByteArray) -> Dictionary:
 		return chunks
 	
 	var chunk_start: int = 0
-	var chunk_coords: Vector2 = Vector2.ZERO
+	var chunk_coords: Vector2i = Vector2i.ZERO
 	var chunk_size: int = 768
 	var chunk_buffer: PackedByteArray = PackedByteArray()
 	while (chunk_start < tile_bytes.size()):
@@ -119,7 +119,7 @@ static func tile_bytes_to_chunks(tile_bytes: PackedByteArray) -> Dictionary:
 			chunk.fill(0)
 		
 		for i in range(0, chunk_buffer.size(), BYTES_PER_TILE):
-			chunk[i / BYTES_PER_TILE] = get_packed_tile(chunk_buffer[i], chunk_buffer[i + 1], chunk_buffer[i + 2])
+			chunk[int(float(i) / BYTES_PER_TILE)] = get_packed_tile(chunk_buffer[i], chunk_buffer[i + 1], chunk_buffer[i + 2])
 		
 		chunks[chunk_coords] = chunk
 		
@@ -128,9 +128,9 @@ static func tile_bytes_to_chunks(tile_bytes: PackedByteArray) -> Dictionary:
 	return chunks
 
 
-static func get_placeable_from_tile(tile_data: Array, placeable_items: Object) -> Object:
-	for item: Object in placeable_items.placeable_items.values():
-		if item is PlaceableObject: continue
-		if item.tileset_id == tile_data[0] and item.tile_id == tile_data[1]:
-			return item
-	return null
+#static func get_placeable_from_tile(tile_data: Array, placeable_items: Object) -> Object:
+	#for item: Object in placeable_items.placeable_items.values():
+		#if item is PlaceableObject: continue
+		#if item.tileset_id == tile_data[0] and item.tile_id == tile_data[1]:
+			#return item
+	#return null

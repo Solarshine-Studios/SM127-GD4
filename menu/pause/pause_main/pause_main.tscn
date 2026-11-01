@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dewwy8qkw24ok" path="res://menu/scripts/ui_focus.gd" id="3_mdcx4"]
 [ext_resource type="Script" uid="uid://dt2glxojic4dl" path="res://menu/scripts/buttons/button_hover_horizontal.gd" id="3_p4st6"]
 [ext_resource type="AudioStream" uid="uid://cr3q0at06loc6" path="res://assets/sounds/ui/hover.wav" id="4_44h3i"]
-[ext_resource type="Texture2D" uid="uid://b5ovpoadanl6e" path="res://assets/misc/box_shadow.png" id="4_mdcx4"]
 [ext_resource type="Texture2D" uid="uid://bj0v8fy8ndtip" path="res://assets/icons/resume.png" id="5_44h3i"]
 [ext_resource type="AudioStream" uid="uid://b38u47l2sx7t6" path="res://assets/sounds/ui/click.wav" id="5_yn52h"]
 [ext_resource type="AudioStream" uid="uid://b41mcssg7gdkq" path="res://assets/sounds/ui/back.wav" id="6_gnylx"]
@@ -299,25 +298,6 @@ alignment = 2
 script = ExtResource("3_p4st6")
 click_override = " "
 
-[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/Resume" unique_id=159679463]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
-
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/Resume" unique_id=1473709133]
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
 layout_mode = 0
@@ -341,25 +321,6 @@ alignment = 2
 script = ExtResource("3_p4st6")
 click_override = "BackSound"
 
-[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/Retry" unique_id=2060461222]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
-
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/Retry" unique_id=1509434943]
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
 layout_mode = 0
@@ -382,25 +343,6 @@ text = "              PAUSE_RETRY_START"
 alignment = 2
 script = ExtResource("3_p4st6")
 leading_spaces = 14
-
-[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/RetryStart" unique_id=1379499333]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/RetryStart" unique_id=2100048449 node_paths=PackedStringArray("countdown")]
 self_modulate = Color(0.69411767, 0.2, 0.2, 1)
@@ -431,25 +373,6 @@ text = "PAUSE_TO_HUB"
 alignment = 2
 script = ExtResource("3_p4st6")
 
-[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/ToHub" unique_id=1722939289]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
-
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/ToHub" unique_id=220008610 node_paths=PackedStringArray("countdown")]
 self_modulate = Color(0.69411767, 0.2, 0.2, 1)
 layout_mode = 0
@@ -478,25 +401,6 @@ theme_type_variation = &"PauseButton"
 text = "PAUSE_SHINE_MAP"
 alignment = 2
 script = ExtResource("3_p4st6")
-
-[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/ShineMap" unique_id=1919030580]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/ShineMap" unique_id=2089513199]
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
@@ -529,25 +433,6 @@ alignment = 2
 script = ExtResource("9_uvrmy")
 leading_spaces = 9
 
-[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Quit" unique_id=1650573685]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
-
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Quit" unique_id=656581551 node_paths=PackedStringArray("countdown")]
 layout_mode = 0
 offset_left = 29.0
@@ -574,25 +459,6 @@ text = "     PAUSE_OPTIONS"
 icon_alignment = 1
 script = ExtResource("9_uvrmy")
 leading_spaces = 5
-
-[node name="Shadow" type="NinePatchRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Options" unique_id=1498456783]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/Buttons/VBoxContainer/HBoxContainer/Options" unique_id=1241302816]
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
@@ -818,25 +684,6 @@ theme_type_variation = &"PauseButton"
 icon_alignment = 1
 script = ExtResource("9_uvrmy")
 
-[node name="Shadow" type="NinePatchRect" parent="Content/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/Buttons/SwitchCollectible" unique_id=1783131244]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
-
 [node name="Icon" type="TextureRect" parent="Content/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/Buttons/SwitchCollectible" unique_id=901845884]
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
 layout_mode = 0
@@ -860,25 +707,6 @@ layout_mode = 2
 theme_type_variation = &"PauseButton"
 icon_alignment = 1
 script = ExtResource("9_uvrmy")
-
-[node name="Shadow" type="NinePatchRect" parent="Content/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/Buttons/Hideable/Left" unique_id=1783352227]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/Buttons/Hideable/Left" unique_id=1852271773]
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
@@ -907,25 +735,6 @@ layout_mode = 2
 theme_type_variation = &"PauseButton"
 icon_alignment = 1
 script = ExtResource("9_uvrmy")
-
-[node name="Shadow" type="NinePatchRect" parent="Content/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/Buttons/Hideable/Right" unique_id=179292457]
-modulate = Color(1, 1, 1, 0.2509804)
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_mdcx4")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
 
 [node name="Icon" type="TextureRect" parent="Content/MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/Buttons/Hideable/Right" unique_id=520907531]
 self_modulate = Color(0.043137256, 0.2901961, 0.42745098, 1)
