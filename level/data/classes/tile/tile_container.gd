@@ -1,7 +1,8 @@
 class_name TileContainer
 extends Resource
 
-# Resource that stores tiles for any object to use and store in a level code.
+### Resource that stores tiles for any object 
+### to use and store in a level code.
 
 const TILE_CHUNK_SIZE: int = 16
 

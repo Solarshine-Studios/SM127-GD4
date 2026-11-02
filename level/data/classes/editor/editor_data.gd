@@ -1,7 +1,6 @@
 class_name EditorData
 extends LevelDataResource
 
-
 const MAX_LOADOUTS: int = 4
 const DEFAULT_ITEMS: Array[Array] = [
 	["til_grass", "til_snow", "til_sand", "til_crystal", "til_lava_rock", "til_brick", "obj_shine", "obj_coin", "obj_wood_platform", "obj_touch_lift"],
@@ -9,7 +8,6 @@ const DEFAULT_ITEMS: Array[Array] = [
 	["obj_cannon", "obj_launch_star", "obj_sling_star", "obj_propeller", "obj_water", "obj_lava", "obj_note_block", "obj_spike_trap", "obj_sawblade", "obj_fire"],
 	["obj_sign", "obj_toad", "obj_red_bob_omb", "obj_yoshi", "obj_dialogue_trigger", "obj_layer_changer", "obj_shine_activator", "obj_zoom_trigger", "obj_area_transition", "obj_death_plane"],
 ]
-
 
 var loadouts: Array[Array] = []
 var palettes: Array[Array] = []

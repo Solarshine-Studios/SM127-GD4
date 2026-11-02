@@ -38,7 +38,7 @@ func get_translation(id: int) -> String:
 ## Automatically set to whatever language the user has set. 
 ## Should be overridable manually though...
 func _init(
-	_language: String = LocalSettings.load_setting("General", "Language", "en")
+	_language: String = (LocalSettings as LocalSettingsClass).load_setting("General", "Language", "en")
 ) -> void:
 	language = _language
 

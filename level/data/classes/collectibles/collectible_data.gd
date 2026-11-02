@@ -1,16 +1,15 @@
 class_name CollectibleData
 extends LevelDataResource
 
-
-# Array of MissionData
+## Array of MissionData
 var mission_data: Array[MissionData] = []
-# Array of StarCoinData
+## Array of StarCoinData
 var star_coin_data: Array[StarCoinData] = []
-# This is the total_shine_count
+## This is the total_shine_count
 var used_mission_data: Dictionary = {}
-# Whether mission progression is linear or open
+## Whether mission progression is linear or open
 var linear_progression: bool = false
-# A list of nozzles that can be saved between playthroughs
+## A list of nozzles that can be saved between playthroughs
 var persistent_nozzles: Array[String] = [
 	"HoverNozzle",
 	"RocketNozzle",
@@ -19,11 +18,10 @@ var persistent_nozzles: Array[String] = [
 
 var red_coin_count: int = 0
 
-# This is the easiest way to bridge the
-# gap between the shines' mission tab and
-# the level settings mission tab.
+## This is the easiest way to bridge the
+## gap between the shines' mission tab and
+## the level settings mission tab.
 signal data_changed(data: CollectibleData)
-
 
 func _init(
 	set_mission_data: Array[MissionData] = [], 

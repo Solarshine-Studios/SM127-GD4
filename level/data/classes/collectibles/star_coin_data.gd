@@ -8,7 +8,6 @@ var star_coin_uuid: String
 var star_coin_hint: String
 var star_coin_color: Color
 
-
 func _init(
 		set_star_coin_uuid: String = "",
 		set_star_coin_hint: String = DEFAULT_HINT,

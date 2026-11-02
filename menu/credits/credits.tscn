@@ -111,7 +111,6 @@ _data = {
 
 [node name="Credits" type="Control" unique_id=1247517702]
 texture_filter = 2
-clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -828,32 +827,12 @@ text = "[code]Samitizer[/code]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Chri" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=284899468]
-layout_mode = 2
-theme_override_constants/separation = 6
-alignment = 1
-
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Chri" unique_id=102857280]
-clip_contents = false
-layout_mode = 2
-bbcode_enabled = true
-text = "\"Christian\""
-fit_content = true
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Chri" unique_id=408896547]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign/Chri" unique_id=798692884]
+[node name="Chri" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/LevelDesign" unique_id=798692884]
 modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "[code]chri_ti_03[/code]"
+text = "[code]Chri[/code]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -1131,7 +1110,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Endood" unique_id=557113177]
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Endood" unique_id=557113177]
 modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
@@ -1154,7 +1133,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Enrico" unique_id=1049988477]
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Enrico" unique_id=1049988477]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1177,27 +1156,12 @@ layout_mode = 2
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=562851217]
-clip_contents = false
-layout_mode = 2
-bbcode_enabled = true
-text = "\"Christian\""
-fit_content = true
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=597772907]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-size_flags_vertical = 4
-
 [node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Chri" unique_id=484943215]
 modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
 bbcode_enabled = true
-text = "[code]chri_ti_03[/code]"
+text = "[code]Chri[/code]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -1216,7 +1180,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ize" unique_id=230101414]
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ize" unique_id=230101414]
 modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
@@ -1227,6 +1191,29 @@ autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ize" unique_id=924645970]
+custom_minimum_size = Vector2(20, 16)
+custom_maximum_size = Vector2(20, 16)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("10_ga71f")
+expand_mode = 1
+
+[node name="Ref" type="HBoxContainer" parent="Roll/Credits/VBoxContainer/DevTeam/Localization" unique_id=1609770195]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ref" unique_id=417119727]
+modulate = Color(0.49019608, 0.79607844, 1, 1)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[code]Refusion[/code]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Flag" type="TextureRect" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Ref" unique_id=1773081094]
 custom_minimum_size = Vector2(20, 16)
 custom_maximum_size = Vector2(20, 16)
 layout_mode = 2
@@ -1278,7 +1265,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 6
 
-[node name="Name" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Luci" unique_id=1825779875]
+[node name="Username" type="RichTextLabel" parent="Roll/Credits/VBoxContainer/DevTeam/Localization/Luci" unique_id=1825779875]
 modulate = Color(0.49019608, 0.79607844, 1, 1)
 clip_contents = false
 layout_mode = 2
@@ -2464,7 +2451,6 @@ offset = Vector2(-4, 0)
 libraries/ = SubResource("AnimationLibrary_k5443")
 
 [connection signal="screen_opened" from="." to="Roll" method="screen_opened"]
-[connection signal="back_press" from="Focus" to="Content/Buttons/VBoxContainer/Skip" method="emit_signal" binds= ["pressed"]]
 [connection signal="done_rolling" from="Roll" to="." method="transition" binds= ["MainMenu"]]
 [connection signal="pressed" from="Content/Buttons/VBoxContainer/Speed" to="Roll" method="toggle_speed"]
 [connection signal="pressed" from="Content/Buttons/VBoxContainer/Skip" to="." method="transition" binds= ["MainMenu"]]

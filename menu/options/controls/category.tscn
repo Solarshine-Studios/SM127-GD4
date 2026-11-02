@@ -11,7 +11,6 @@ shader_parameter/control_size = Vector2(40, 0)
 shader_parameter/tile_size = Vector2(24, 24)
 
 [node name="Gameplay" type="PanelContainer" unique_id=194472654]
-self_modulate = Color(1, 1, 1, 0.5019608)
 texture_repeat = 2
 material = SubResource("ShaderMaterial_u8p3f")
 theme_type_variation = &"PanelPattern1"

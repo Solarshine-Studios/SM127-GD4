@@ -396,7 +396,7 @@ expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6t101"]
 texture = ExtResource("6_xhfph")
-modulate_color = Color(1, 1, 1, 0.03137255)
+modulate_color = Color(1, 1, 1, 0.0627451)
 
 [sub_resource type="Gradient" id="Gradient_qs6vt"]
 offsets = PackedFloat32Array(0, 0.944, 1)

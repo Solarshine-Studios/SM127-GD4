@@ -1,3 +1,4 @@
+class_name LocalSettingsClass
 extends Node
 ## Settings stored on the user's system.
 

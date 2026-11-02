@@ -1,7 +1,6 @@
 class_name MissionData
 extends LevelDataResource
 
-
 var mission_uuid: String
 var mission_show_in_menu: bool
 
@@ -14,10 +13,9 @@ var shine_force_leave: bool
 var spawn_area_id: int
 var spawn_teleporter_tag: String
 
-# the old internal id the game used to identify shine sprites within levels
-# used only for old converted levels
+## the old internal id the game used to identify shine sprites within levels
+## used only for old converted levels
 var legacy_id: int = -1
-
 
 func _init(
 		set_mission_uuid: String = "",
