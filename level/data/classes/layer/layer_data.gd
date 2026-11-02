@@ -16,7 +16,7 @@ static func duplicate_header(other: LayerHeader) -> LayerHeader:
 		other.parallax_distance,
 		other.parallax_offset,
 		other.autoset_tint,
-		other.tint_as_fog,
+		other.tint_as_atmosphere,
 		other.layer_tint,
 		other.order,
 		other.is_ground,

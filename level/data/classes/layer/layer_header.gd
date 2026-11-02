@@ -17,7 +17,7 @@ var autoset_tint: bool = true
 ## will fade the layer into layer_tint instead of black
 ## when used with autoset_tint, autoset_tint will
 ## automatically use a color based on the background
-var tint_as_fog: bool = false
+var tint_as_atmosphere: bool = false
 var layer_tint: Color = Color.WHITE
 var layer_opacity: float = 1.0
 ## saved separately to layer opacity
@@ -40,7 +40,7 @@ func _init(
 		set_parallax_distance: float = 0.0,
 		set_parallax_offset: Vector2 = Vector2.ZERO,
 		set_autoset_tint: bool = false,
-		set_tint_as_fog: bool = false,
+		set_tint_as_atmosphere: bool = false,
 		set_layer_tint: Color = Color.WHITE,
 		set_order: int = 0,
 		set_is_ground: bool = true,
@@ -57,7 +57,7 @@ func _init(
 	parallax_distance = set_parallax_distance
 	parallax_offset = set_parallax_offset
 	autoset_tint = set_autoset_tint
-	tint_as_fog = set_tint_as_fog
+	tint_as_atmosphere = set_tint_as_atmosphere
 	layer_tint = set_layer_tint
 	order = set_order
 	is_ground = set_is_ground
