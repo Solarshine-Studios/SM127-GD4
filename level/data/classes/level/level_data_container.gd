@@ -5,7 +5,7 @@ extends LevelDataResource
 
 var level_header: LevelHeader
 var editor_data: EditorData
-var area_headers: Array
+var area_headers: Array[AreaHeader]
 
 func _init(code: String, deserialize_full: bool) -> void:
 	if code == "":
@@ -25,6 +25,11 @@ func serialize() -> String:
 func deserialize(code: String) -> void:
 	if not is_instance_valid(level_header):
 		deserialize_header(code)
+	editor_data = EditorData.new(code)
+	# TODO: make this read the actual area codes...
+	var area_codes: PackedStringArray
+	for area_code: String in area_codes:
+		area_headers.append(AreaHeader.new(area_code))
 
 func deserialize_header(code: String) -> void:
 	level_header = LevelHeader.new(code)
