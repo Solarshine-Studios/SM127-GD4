@@ -9,7 +9,7 @@ var level_thumbnail_sky: int
 var level_thumbnail_sky_palette: int
 var level_thumbnail_background: int
 var level_thumbnail_background_palette: int
-var level_version: int = 0
+var code_version: int = 0
 
 var collectible_data: CollectibleData
 var translation_data: TranslationData
@@ -20,5 +20,5 @@ var asset_data: AssetData
 func serialize() -> String:
 	return ""
 
-func deserialize(_code: String) -> void:
+func deserialize(_code_version: int, _code: String) -> void:
 	pass

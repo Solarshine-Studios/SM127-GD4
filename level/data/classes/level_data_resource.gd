@@ -6,8 +6,8 @@ var _mutex: Mutex
 ## Indicates that this resource wasn't properly read from the level code, and that something or the entire object was replaced with a default value.
 var faulty_resource: bool = false
 
-func _init(code: String) -> void:
-	deserialize(code)
+func _init(code_version: int, code: String) -> void:
+	deserialize(code_version, code)
 
 ## For threading. Lock the object before reading and writing it's data.
 func lock() -> void:
@@ -41,4 +41,4 @@ func mark_as_faulty(message: String) -> void:
 
 ## Take the string from serialize() and load its data
 ## back into the class to be used during runtime.
-@abstract func deserialize(data: String) -> void
+@abstract func deserialize(code_version: int, data: String) -> void

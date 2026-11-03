@@ -24,10 +24,6 @@ var language: String
 ## Instead, the dictionary will just skip over that ID.
 var latest_id: int = 0
 
-### Data operations
-func _init(code: String) -> void:
-	deserialize(code)
-
 ## Returns the ID that this text will stored at so that it can be fetched later.
 func add_translation(text: String) -> int:
 	var cur_id: int = latest_id
@@ -48,5 +44,5 @@ func load_default_lang() -> void:
 func serialize() -> String:
 	return ""
 
-func deserialize(_data: String) -> void:
+func deserialize(_code_version: int, _code: String) -> void:
 	pass

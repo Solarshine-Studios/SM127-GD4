@@ -48,11 +48,10 @@ func get_new_mission_sort() -> int:
 	sorted_mission_data.sort_custom(MissionData.sort_by_order)
 	return sorted_mission_data.back().shine_sort_order + 1
 
-func add_star_coin(uuid: String = "") -> StarCoinData:
-	var data: StarCoinData = StarCoinData.new(UUIDHelper.v4() if not uuid else uuid)
-
-	star_coin_data.append(data)
-	return data
+#func add_star_coin(uuid: String = "") -> StarCoinData:
+	#var data: StarCoinData = StarCoinData.new(UUIDHelper.v4() if not uuid else uuid)
+	#star_coin_data.append(data)
+	#return data
 
 func get_star_coin_by_uuid(uuid: String) -> StarCoinData:
 	for star_coin: StarCoinData in star_coin_data:
@@ -65,5 +64,5 @@ func get_star_coin_by_uuid(uuid: String) -> StarCoinData:
 func serialize() -> String:
 	return ""
 
-func deserialize(_code: String) -> void:
+func deserialize(_code_version: int, _code: String) -> void:
 	pass

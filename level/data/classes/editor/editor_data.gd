@@ -28,5 +28,5 @@ var target_tag: String = "_entrance"
 func serialize() -> String:
 	return ""
 
-func deserialize(_code: String) -> void:
+func deserialize(_code_version: int, _code: String) -> void:
 	pass
