@@ -206,11 +206,10 @@ static func serialize_data_array(values: Array[Variant]) -> String:
 	var data_array_code: String = ""
 	
 	for value: Variant in values:
+		if data_array_code != "":
+			data_array_code += ","
 		data_array_code += serialize_data(value)
-		data_array_code += ","
 	
-	if not values.is_empty():
-		data_array_code.erase(data_array_code.length() - 1, 1)
 	return SerializationHelper.wrap_code_in_brackets(data_array_code)
 
 static func deserialize_data_array(code: String) -> Array[Variant]:
@@ -225,15 +224,16 @@ static func serialize_dictionary(dict: Dictionary) -> String:
 	var code: String = ""
 	
 	for key: Variant in dict.keys():
+		if code != "":
+			code += ","
+		
 		var pair_code: String = ""
 		pair_code += serialize_data(key)
 		pair_code += ":"
 		pair_code += serialize_data(dict[key])
 		
-		code += SerializationHelper.wrap_code_in_brackets(pair_code) + ","
+		code += SerializationHelper.wrap_code_in_brackets(pair_code)
 	
-	if not code.is_empty():
-		code.erase(code.length() - 1, 1)
 	return SerializationHelper.wrap_code_in_brackets(code)
 
 static func deserialize_dictionary(code: String) -> Dictionary:
