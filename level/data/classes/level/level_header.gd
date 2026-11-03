@@ -20,6 +20,8 @@ var asset_data: AssetData
 ### Serialization
 func serialize() -> String:
 	code_version = LATEST_CODE_VERSION
+	## TODO: Serialize collectible data,
+	## translation data, and asset data!
 	return SerializationHelper.wrap_code_in_braces(DataHelper.serialize_data_array([
 		level_name,
 		level_author,
