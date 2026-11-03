@@ -68,8 +68,8 @@ func print_matching(string_1: String, string_2: String) -> void:
 				divergence_start_index = index - consecutive_diffs + 1
 				break
 			else:
-				var safe_character_1: String = character_1.replace("[", "[lb]")
-				output_buffer += "[color=red]" + safe_character_1 + "[/color]"
+				var safe_character_2: String = character_2.replace("[", "[lb]")
+				output_buffer += "[color=red]" + safe_character_2 + "[/color]"
 				index += 1
 
 	print_rich(output_buffer)

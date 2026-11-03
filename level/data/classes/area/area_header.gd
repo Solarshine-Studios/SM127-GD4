@@ -30,7 +30,51 @@ var max_purples_count: int = 0
 ### Serialization
 ## TODO: Write this
 func serialize() -> String:
-	return ""
+	return SerializationHelper.wrap_code_in_braces(DataHelper.serialize_data_array([
+		bounds,
+		area_name,
+		sky,
+		background,
+		background_palette,
+		bg_autoscroll_speed,
+		gravity,
+		timer,
+		"",
+		"",
+		shine_shard_count,
+		max_purples_count,
+		show_name,
+		show_song,
+		minimum_timer,
+		tile_with_edges,
+		# NOTE: uncomment this once done testing code matching
+		#sky_palette
+	]))
 
-func deserialize(_code_version: int, _code: String) -> void:
-	pass
+func deserialize(code_version: int, code: String) -> void:
+	area_code = code
+	
+	var values: Array[Variant] = DataHelper.deserialize_data_array(code)
+	bounds = values[0]
+	area_name = values[1]
+	sky = values[2]
+	background = values[3]
+	background_palette = values[4]
+	bg_autoscroll_speed = values[5]
+	gravity = values[6]
+	timer = values[7]
+	music = values[8]
+	shine_shard_count = values[10]
+	max_purples_count = values[11]
+	show_name = values[12]
+	show_song = values[15]
+	minimum_timer = values[16]
+	tile_with_edges = values[17]
+	
+	if code_version >= 103:
+		sky_palette = values[18]
+	# NOTE: uncomment this once done testing code matching
+	#else:
+		# everything altered gravity by a factor of 2 in godot 3 
+		# the godot 4 version favors using the value as advertised
+		#gravity *= 2

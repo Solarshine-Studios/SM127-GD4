@@ -8,15 +8,15 @@ var internal_id: String = ""
 
 ### Serialization
 func serialize() -> String:
-	return SerializationHelper.serialize_header([
+	return SerializationHelper.wrap_code_in_braces(DataHelper.serialize_data_array([
 		type_id,
 		palette,
 		position,
 		internal_id
-	])
+	]))
 
 func deserialize(_code_version: int, code: String) -> void:
-	var header: Array[Variant] = SerializationHelper.deserialize_header(code)
+	var header: Array[Variant] = DataHelper.deserialize_data_array(code)
 	type_id = header[0]
 	palette = header[1]
 	position = header[2]

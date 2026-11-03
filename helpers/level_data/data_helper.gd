@@ -119,12 +119,12 @@ static func deserialize_data(code: String) -> Variant:
 		TYPE_CODE_FLOAT:
 			return NumberHelper.base64_decode_float(data)
 		TYPE_CODE_VECTOR2:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			return Vector2(data_array[0], data_array[1])
 		TYPE_CODE_COLOR:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			if(data_array.size() > 3):
@@ -132,28 +132,28 @@ static func deserialize_data(code: String) -> Variant:
 			else:
 				return Color(data_array[0], data_array[1], data_array[2], 1)
 		TYPE_CODE_ARRAY:
-			return deserialize_data_array(data)
+			return deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 		TYPE_CODE_DICTIONARY:
 			var dictionary: Dictionary = deserialize_dictionary(data)
 			if null in dictionary.keys or null in dictionary.values: return null
 			return dictionary
 		TYPE_CODE_STRING_ARRAY:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			return PackedStringArray(data_array)
 		TYPE_CODE_INT_ARRAY:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			return PackedInt64Array(data_array)
 		TYPE_CODE_FLOAT_ARRAY:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			return PackedFloat64Array(data_array)
 		TYPE_CODE_VECTOR2_ARRAY:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			return PackedVector2Array(data_array)
@@ -168,12 +168,12 @@ static func deserialize_data(code: String) -> Variant:
 			data = data.replace("~", "=")
 			return Marshalls.base64_to_raw(data)
 		TYPE_CODE_RECT2:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			return Rect2(data_array[0], data_array[1], data_array[2], data_array[3])
 		TYPE_CODE_CURVE_2D:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 			var point_data := PackedVector2Array(data_array)
@@ -185,7 +185,7 @@ static func deserialize_data(code: String) -> Variant:
 			return curve
 		# TileData
 		TYPE_CODE_TILE_DATA:
-			var data_array: Array[Variant] = deserialize_data_array(data)
+			var data_array: Array[Variant] = deserialize_data_array(SerializationHelper.get_outermost_brackets(data)[0])
 			if null in data_array:
 				return null
 				
@@ -198,7 +198,7 @@ static func deserialize_data(code: String) -> Variant:
 			
 			return tile_container
 	
-	printerr("Could not decode data string \"%s\"!")
+	printerr("Could not decode data string \"%s\"!" % data)
 	return null
 
 ## Recursive function that feeds back into serialize_data()
@@ -214,9 +214,11 @@ static func serialize_data_array(values: Array[Variant]) -> String:
 
 static func deserialize_data_array(code: String) -> Array[Variant]:
 	var variables: Array[Variant] = []
-	for variable: Variant in code.split(","):
-		variables.push_back(DataHelper.deserialize_data(variable))
-	if null in variables: return [null]
+	for variable: Variant in SerializationHelper.splice_data(code):
+		variables.push_back(deserialize_data(variable))
+	if null in variables:
+		printerr("Null value found at index %s!" % variables.find(null))
+		return [null]
 	return variables
 
 ## Ditto

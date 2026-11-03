@@ -4,6 +4,7 @@ class_name SerializationHelper
 
 const UPPERCASE_HEX_PATTERN: String = "%([0-9a-fA-F]{2})"
 const HEADER_PATTERN: String = "\\{([^{}]*)\\}"
+const DATA_PATTERN: String = "(?:[^\\[\\],]+|\\[[^\\]]*\\])+"
 
 # uri_decode() only takes hex values with uppercase lettors now... 
 # in godot 3 it used to output them in lowercase. so now we have to do this. oops
@@ -26,12 +27,6 @@ static func fix_old_code(code: String) -> String:
 	
 	return out
 
-static func serialize_header(values: Array[Variant]) -> String:
-	return wrap_code_in_braces(DataHelper.serialize_data_array(values))
-
-static func deserialize_header(code: String) -> Array[Variant]:
-	return DataHelper.deserialize_data_array(get_outermost_brackets(code)[0])
-
 ## Used mainly for headers
 static func wrap_code_in_braces(code: String) -> String:
 	return "{%s}" % code
@@ -40,11 +35,24 @@ static func wrap_code_in_braces(code: String) -> String:
 static func wrap_code_in_brackets(code: String) -> String:
 	return "[%s]" % code
 
-# Pass any type into this to get its header.
+## Pass any type into this to get its header.
 static func get_header(code: String) -> String:
 	var regex := RegEx.new()
 	regex.compile(HEADER_PATTERN)
 	return regex.search(code).get_string(1)
+
+## Used to get a list of primitive data types
+## Will avoid internal commas, unlike string.split()
+static func splice_data(code: String) -> PackedStringArray:
+	var regex := RegEx.new()
+	regex.compile(DATA_PATTERN)
+	return regex_match_to_string_array(regex.search_all(code))
+
+static func regex_match_to_string_array(matches: Array) -> Array:
+	var result: PackedStringArray = []
+	for mat: RegExMatch in matches:
+		result.push_back(mat.get_string(0))
+	return result
 
 ## Get brackets on the outermost layer, and ignore everything within curly braces
 static func get_outermost_brackets(text: String) -> PackedStringArray:

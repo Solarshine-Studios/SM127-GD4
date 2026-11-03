@@ -21,7 +21,8 @@ func get_objects_on_ground() -> Array:
 ### Serialization
 ## TODO: Write this
 func serialize() -> String:
-	return ""
+	var header_code: String = header.serialize()
+	return SerializationHelper.wrap_code_in_brackets(header_code)
 
-func deserialize(_code_version: int, _code: String) -> void:
-	pass
+func deserialize(code_version: int, code: String) -> void:
+	header = AreaHeader.new(code_version, SerializationHelper.get_header(code))
