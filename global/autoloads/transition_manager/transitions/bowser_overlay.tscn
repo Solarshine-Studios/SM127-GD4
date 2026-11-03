@@ -2,14 +2,12 @@
 
 [ext_resource type="Shader" uid="uid://thviyd31javx" path="res://global/autoloads/transition_manager/transitions/bowser_overlay.gdshader" id="1_3kne0"]
 [ext_resource type="Script" uid="uid://dr18ye8epeqdh" path="res://global/autoloads/transition_manager/transitions/transition_overlay.gd" id="1_hhyu7"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wywu5"]
-load_path = "res://.godot/imported/bowser_overlay_cutout.png-790433e51d39b063b673c7f98065f8b8.ctex"
+[ext_resource type="Texture2D" uid="uid://svkb40d05e3t" path="res://global/autoloads/transition_manager/transitions/bowser_overlay_cutout.png" id="2_4lvl5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a57jg"]
 shader = ExtResource("1_3kne0")
 shader_parameter/scale = 13.0
-shader_parameter/cutout_texture = SubResource("CompressedTexture2D_wywu5")
+shader_parameter/cutout_texture = ExtResource("2_4lvl5")
 
 [sub_resource type="Animation" id="Animation_gkoch"]
 length = 0.001
