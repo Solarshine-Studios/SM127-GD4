@@ -1,6 +1,8 @@
 class_name LevelHeader
 extends LevelDataResource
 
+const LATEST_CODE_VERSION: int = 103
+
 var level_name: String
 var level_author: String
 var level_description: String
@@ -18,6 +20,7 @@ var asset_data: AssetData
 ### Serialization
 ## TODO: Write this
 func serialize() -> String:
+	code_version = LATEST_CODE_VERSION
 	return ""
 
 func deserialize(_code_version: int, _code: String) -> void:
