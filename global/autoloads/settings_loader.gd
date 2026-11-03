@@ -29,6 +29,12 @@ func _ready() -> void:
 		else:
 			var cur_version: String = ProjectSettings.get_setting("application/config/version")
 			LocalSettings.change_setting("Header", "game_version", cur_version)
+	
+	for i in range(30):
+		await get_tree().process_frame
+	
+	if not InputMap.has_action("fullscreen"):
+		print_rich("[b]Note[/b]: Controls not initialized!\n[i]The Options scene normally initializes them, but it can fail when a scene is run on its own.[/i]")
 
 func load_category(category: String, config: ConfigFile) -> void:
 	for key in config.get_section_keys(category):
@@ -104,6 +110,9 @@ var last_master_volume: float = 75.0
 var last_non_muted_bgm: float = 70.0
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not InputMap.has_action("fullscreen"):
+		return
+	
 	if event.is_action_pressed("fullscreen"):
 		LocalSettings.change_setting("General", "window_mode", 2 if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN else 0)
 	
