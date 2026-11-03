@@ -2,7 +2,29 @@ class_name SerializationHelper
 ## Class that works with level code structuring.
 ## See DataHelper for data serialization.
 
+const UPPERCASE_HEX_PATTERN: String = "%([0-9a-fA-F]{2})"
 const HEADER_PATTERN: String = "\\{([^{}]*)\\}"
+
+# uri_decode() only takes hex values with uppercase lettors now... 
+# in godot 3 it used to output them in lowercase. so now we have to do this. oops
+static func fix_old_code(code: String) -> String:
+	var regex := RegEx.new()
+	regex.compile(UPPERCASE_HEX_PATTERN)
+	
+	var matches: Array[RegExMatch] = regex.search_all(code)
+	if matches.is_empty():
+		return code
+		
+	var out: String = ""
+	var last_pos: int = 0
+	for found_match: RegExMatch in matches:
+		var start: int = found_match.get_start()
+		out += code.substr(last_pos, start - last_pos)
+		out += "%" + found_match.get_string(1).to_upper()
+		last_pos = found_match.get_end()
+	out += code.substr(last_pos)
+	
+	return out
 
 static func serialize_header(values: Array[Variant]) -> String:
 	return wrap_code_in_braces(DataHelper.serialize_data_array(values))

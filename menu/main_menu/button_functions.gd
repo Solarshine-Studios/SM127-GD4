@@ -3,7 +3,7 @@ extends Control
 
 func temp_test() -> void:
 	TransitionManager.transition_scene(
-		"res://test.tscn",
+		"res://global/tests/character_test.tscn",
 		SceneTransition.Type.INV_CIRCLE,
 		SceneTransition.Type.CIRCLE
 	)

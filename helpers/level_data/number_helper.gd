@@ -88,8 +88,8 @@ static func base64_decode_float(number: String) -> Variant:
 		number = number.substr(1)
 	
 	var components: PackedStringArray = number.split(".")
-	var whole: int = 0
-	var fract: int = 0
+	var whole: Variant = 0
+	var fract: Variant = 0
 	if components.size() == 1:
 		whole = base64_decode_int(components[0])
 		if whole == null: return null
