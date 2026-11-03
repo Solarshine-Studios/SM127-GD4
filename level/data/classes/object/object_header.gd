@@ -15,8 +15,8 @@ func serialize() -> String:
 		internal_id
 	])
 
-func deserialize(data: String) -> void:
-	var header: Array[Variant] = SerializationHelper.deserialize_header(data)
+func deserialize(_code_version: int, code: String) -> void:
+	var header: Array[Variant] = SerializationHelper.deserialize_header(code)
 	type_id = header[0]
 	palette = header[1]
 	position = header[2]

@@ -2,6 +2,8 @@ class_name SerializationHelper
 ## Class that works with level code structuring.
 ## See DataHelper for data serialization.
 
+const HEADER_PATTERN: String = "\\{([^{}]*)\\}"
+
 static func serialize_header(values: Array[Variant]) -> String:
 	return wrap_code_in_braces(DataHelper.serialize_data_array(values))
 
@@ -15,6 +17,12 @@ static func wrap_code_in_braces(code: String) -> String:
 ## Used en masse throughout level codes
 static func wrap_code_in_brackets(code: String) -> String:
 	return "[%s]" % code
+
+# Pass any type into this to get its header.
+static func get_header(code: String) -> String:
+	var regex := RegEx.new()
+	regex.compile(HEADER_PATTERN)
+	return regex.search(code).get_string(1)
 
 ## Get brackets on the outermost layer, and ignore everything within curly braces
 static func get_outermost_brackets(text: String) -> PackedStringArray:
