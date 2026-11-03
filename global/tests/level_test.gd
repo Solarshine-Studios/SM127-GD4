@@ -41,6 +41,8 @@ func print_properties(object: Object, indent: String) -> void:
 		elif variable is Array:
 			print_rich("%s%s:" % [indent, property.name])
 			print_array(variable, INDENT + indent)
+		elif variable is String and (variable as String).length() > 1000:
+			print_rich("%s[i]%s[/i]: (String, too long to print...)" % [indent, property.name])
 		else:
 			print_rich("%s[i]%s[/i]: %s" % [indent, property.name, variable])
 	

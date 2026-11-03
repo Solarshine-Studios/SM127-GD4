@@ -26,3 +26,4 @@ func serialize() -> String:
 
 func deserialize(code_version: int, code: String) -> void:
 	header = AreaHeader.new(code_version, SerializationHelper.get_header(code))
+	header.area_code = code

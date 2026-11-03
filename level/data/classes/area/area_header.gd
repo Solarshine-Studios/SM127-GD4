@@ -52,8 +52,6 @@ func serialize() -> String:
 	]))
 
 func deserialize(code_version: int, code: String) -> void:
-	area_code = code
-	
 	var values: Array[Variant] = DataHelper.deserialize_data_array(code)
 	bounds = values[0]
 	area_name = values[1]
