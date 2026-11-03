@@ -50,7 +50,7 @@ func serialize() -> String:
 	
 	return final_code
 
-func deserialize(_data: String) -> void:
+func deserialize(_code_version: int, _code: String) -> void:
 	pass
 	## TODO: Implement this
 	## (note: i'm removing LevelCodeTokenizer in favor of pure reversable

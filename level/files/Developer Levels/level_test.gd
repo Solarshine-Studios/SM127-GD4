@@ -6,8 +6,8 @@ const INDENT: String = "    "
 
 func _ready() -> void:
 	var level_code: String = FileAccess.get_file_as_string("res://level/files/Developer Levels/tutorial_hills.txt")
-	var level_data_container := LevelDataContainer.new(level_code, true)
-	print_properties(level_data_container, "")
+	var level_container := LevelContainer.new(level_code, true)
+	print_properties(level_container, "")
 
 ## recursive functions
 func print_array(array: Array[Variant], indent: String) -> void:
