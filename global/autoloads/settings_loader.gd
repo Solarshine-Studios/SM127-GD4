@@ -79,7 +79,8 @@ func change_setting(key: String, new_value: Variant) -> void:
 		
 		"scale_mode":
 			var main_scene: MainScene = get_tree().get_first_node_in_group("main_scene")
-			main_scene.update_container_sizing(new_value)
+			if is_instance_valid(main_scene):
+				main_scene.update_container_sizing(new_value)
 		
 		"master_volume":
 			var bus_index: int = AudioServer.get_bus_index("Master")
