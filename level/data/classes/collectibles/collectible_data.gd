@@ -23,22 +23,6 @@ var red_coin_count: int = 0
 ## the level settings mission tab.
 signal data_changed(data: CollectibleData)
 
-func _init(
-	set_mission_data: Array[MissionData] = [], 
-	set_star_coin_data: Array[StarCoinData] = [], 
-	set_red_coin_count: int = 0, 
-	set_used_mission_data: Dictionary = {}, 
-	set_linear_progression: bool = false,
-	set_persistent_nozzles: Array[String] = persistent_nozzles
-) -> void:
-	mission_data = set_mission_data
-	star_coin_data = set_star_coin_data
-	red_coin_count = set_red_coin_count
-	used_mission_data = set_used_mission_data
-	linear_progression = set_linear_progression
-	persistent_nozzles = set_persistent_nozzles
-
-
 func get_shine_count() -> int:
 	return used_mission_data.size()
 
@@ -75,3 +59,11 @@ func get_star_coin_by_uuid(uuid: String) -> StarCoinData:
 		if star_coin.star_coin_uuid == uuid:
 			return star_coin
 	return null
+
+### Serialization
+## TODO: Write this
+func serialize() -> String:
+	return ""
+
+func deserialize(_code: String) -> void:
+	pass

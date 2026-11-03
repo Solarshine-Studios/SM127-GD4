@@ -23,49 +23,10 @@ var last_area: int = 0
 var pixel_snap: Vector2 = Vector2(8, 8)
 var target_tag: String = "_entrance"
 
-func _init(
-		set_loadouts: Array[Array] = [], 
-		set_palettes: Array[Array] = [], 
-		set_fav_items: Array[Array] = [], 
-		set_fav_counts: Array[int] = [], 
-		set_selected_loadout: int = 0,
-		set_selected_layer: String = "",
-		set_show_palettes: bool = true,
-		set_area_boundset_increment: float = 10.0,
-		set_camera_positions: Array[Vector2] = [Vector2(288, 840)],
-		set_last_area: int = 0,
-		set_pixel_snap: Vector2 = Vector2(8, 8),
-		set_target_tag: String = "_entrance"
-	) -> void:
-	loadouts = set_loadouts
-	palettes = set_palettes
-	fav_items = set_fav_items
-	fav_counts = set_fav_counts
-	selected_loadout = set_selected_loadout
-	
-	var i: int = loadouts.size() - 1
-	var default_index: int = 0
-	while i < MAX_LOADOUTS - 1:
-		loadouts.append(DEFAULT_ITEMS[default_index])
-		i += 1
-		default_index += 1
-	i = palettes.size() - 1
-	while i < MAX_LOADOUTS - 1:
-		palettes.append([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-		i += 1
-	i = fav_items.size() - 1
-	while i < MAX_LOADOUTS - 1:
-		fav_items.append([])
-		i += 1
-	i = fav_counts.size() - 1
-	while i < MAX_LOADOUTS - 1:
-		fav_counts.append(0)
-		i += 1
-	
-	selected_layer = set_selected_layer
-	show_palettes = set_show_palettes
-	area_boundset_increment = set_area_boundset_increment
-	camera_positions = set_camera_positions
-	last_area = set_last_area
-	pixel_snap = set_pixel_snap
-	target_tag = set_target_tag
+### Serialization
+## TODO: Write this
+func serialize() -> String:
+	return ""
+
+func deserialize(_code: String) -> void:
+	pass

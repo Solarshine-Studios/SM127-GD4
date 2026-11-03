@@ -35,42 +35,13 @@ var max_shines: int = -1
 ## for a layer to be permanently unloaded
 var disabled: bool = false
 
-
-func _init(
-		set_parallax_distance: float = 0.0,
-		set_parallax_offset: Vector2 = Vector2.ZERO,
-		set_autoset_tint: bool = false,
-		set_tint_as_atmosphere: bool = false,
-		set_layer_tint: Color = Color.WHITE,
-		set_order: int = 0,
-		set_is_ground: bool = true,
-		set_layer_name: String = "Layer %s",
-		set_is_origin: bool = false,
-		set_activated_mission_ids: PackedStringArray = PackedStringArray(),
-		set_disabled: bool = false,
-		set_opacity: float = 1.0,
-		set_lock_axis: LockAxis = LockAxis.None,
-		set_min_shines: int = -1,
-		set_max_shines: int = -1,
-		set_layer_uuid: String = UUIDHelper.v4()
-	) -> void:
-	parallax_distance = set_parallax_distance
-	parallax_offset = set_parallax_offset
-	autoset_tint = set_autoset_tint
-	tint_as_atmosphere = set_tint_as_atmosphere
-	layer_tint = set_layer_tint
-	order = set_order
-	is_ground = set_is_ground
-	activated_mission_ids = set_activated_mission_ids
-	disabled = set_disabled
-	layer_opacity = set_opacity
-	layer_name = set_layer_name
-	is_origin = set_is_origin
-	lock_axis = set_lock_axis
-	min_shines = set_min_shines
-	max_shines = set_max_shines
-	layer_uuid = set_layer_uuid
-
-
 func is_mission_layer() -> bool:
 	return min_shines != -1 or max_shines != -1 or not activated_mission_ids.is_empty()
+
+### Serialization
+## TODO: Write this
+func serialize() -> String:
+	return ""
+
+func deserialize(_code: String) -> void:
+	pass

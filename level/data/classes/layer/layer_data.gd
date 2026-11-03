@@ -5,12 +5,6 @@ var layer_header: LayerHeader
 var tile_container: TileContainer
 var object_data: Array[ObjectData]
 
-# Called when the node enters the scene tree for the first time.
-func _init(set_layer_header: LayerHeader, set_tile_container: TileContainer, set_object_data: Array[ObjectData] = []) -> void:
-	layer_header = set_layer_header
-	object_data = set_object_data
-	tile_container = set_tile_container
-
 static func duplicate_header(other: LayerHeader) -> LayerHeader:
 	return LayerHeader.new(
 		other.parallax_distance,
@@ -71,3 +65,11 @@ static func tiles_to_tile_container(tiles: Dictionary, chunks: Dictionary) -> Ti
 			
 		tile_container.set_tile(position, tiles[position][0], tiles[position][1], tiles[position][2])
 	return tile_container
+
+### Serialization
+## TODO: Write this
+func serialize() -> String:
+	return ""
+
+func deserialize(_code: String) -> void:
+	pass

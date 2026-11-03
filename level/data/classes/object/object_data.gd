@@ -11,10 +11,6 @@ var properties: Dictionary[int, Variant] = {}
 var translatable_properties: PackedInt64Array = []
 
 ### Data operations
-func _init(set_header: ObjectHeader, set_properties: Dictionary[int, Variant] = {}) -> void:
-	header = set_header
-	properties = set_properties
-
 func set_property(property_id: int, value: Variant) -> void:
 	match property_id:
 		PALETTE_PROP_ID:

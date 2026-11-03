@@ -25,6 +25,9 @@ var language: String
 var latest_id: int = 0
 
 ### Data operations
+func _init(code: String) -> void:
+	deserialize(code)
+
 ## Returns the ID that this text will stored at so that it can be fetched later.
 func add_translation(text: String) -> int:
 	var cur_id: int = latest_id
@@ -37,10 +40,8 @@ func get_translation(id: int) -> String:
 
 ## Automatically set to whatever language the user has set. 
 ## Should be overridable manually though...
-func _init(
-	_language: String = LocalSettings.load_setting("General", "Language", "en")
-) -> void:
-	language = _language
+func load_default_lang() -> void:
+	language = LocalSettings.load_setting("General", "Language", "en")
 
 ### Serialization
 ## TODO: Write this

@@ -9,5 +9,5 @@ var url: String
 func serialize() -> String:
 	return ""
 
-func deserialize(_data: String) -> void:
+func deserialize(_code: String) -> void:
 	pass
