@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://duu2h3dllug77" path="res://assets/icons/CheckChecked.svg" id="1_1b031"]
 [ext_resource type="Texture2D" uid="uid://1484lhmfmjns" path="res://assets/icons/CheckUnchecked.svg" id="2_ypfus"]
 [ext_resource type="FontFile" uid="uid://fdvddh12npag" path="res://assets/fonts/MARIO_Font_v3_Solid.otf" id="3_m1jir"]
-[ext_resource type="FontFile" uid="uid://cbl4ml5kak81e" path="res://assets/fonts/Blaka-Regular.ttf" id="4_3vwbs"]
+[ext_resource type="FontFile" uid="uid://cnehevohqn40u" path="res://assets/fonts/Lalezar-Regular.ttf" id="4_3vwbs"]
 [ext_resource type="Texture2D" uid="uid://piapcle7vsnp" path="res://assets/misc/grabber.svg" id="4_rsdb1"]
 [ext_resource type="Texture2D" uid="uid://bg5jm8kxcenf3" path="res://assets/misc/grabber_highlight.svg" id="5_3vwbs"]
 [ext_resource type="Texture2D" uid="uid://bwd0ejh21x5vy" path="res://assets/misc/bricks.svg" id="6_xhfph"]
@@ -221,8 +221,6 @@ texture = SubResource("GradientTexture2D_8f8qi")
 
 [sub_resource type="FontVariation" id="FontVariation_pi66r"]
 base_font = ExtResource("4_3vwbs")
-variation_transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
-spacing_glyph = 5
 
 [sub_resource type="FontVariation" id="FontVariation_xhfph"]
 fallbacks = Array[Font]([SubResource("FontVariation_pi66r")])
